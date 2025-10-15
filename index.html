@@ -98,10 +98,8 @@
       background:transparent;
       color:inherit;
     }
-    #searchResults .card a {
-      color:#e6eef6;
-      text-decoration:none;
-      font-weight:600;
+    #searchDropdown div:hover {
+      background: rgba(255,255,255,0.05);
     }
     footer {
       margin-top: 40px;
@@ -170,11 +168,17 @@
       </aside>
     </section>
 
-    <!-- Buscador -->
+    <!-- Buscador con dropdown -->
     <section id="buscador" class="card" style="margin-top:28px">
       <h2>Buscar películas</h2>
-      <input type="text" id="searchInput" placeholder="Escribe el nombre de la película...">
-      <div id="searchResults" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px"></div>
+      <div style="position:relative;">
+        <input type="text" id="searchInput" placeholder="Escribe el nombre de la película..." autocomplete="off" 
+               style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+        
+        <!-- Dropdown -->
+        <div id="searchDropdown" style="position:absolute;top:100%;left:0;width:100%;background:var(--card);border:1px solid rgba(255,255,255,0.1);border-radius:8px;max-height:300px;overflow-y:auto;display:none;z-index:10;">
+        </div>
+      </div>
     </section>
 
     <!-- Más contenidos -->
@@ -202,4 +206,54 @@
   </main>
 
   <footer>
-    © ShareFilms — Dise
+    © ShareFilms — Diseñado con ❤️
+  </footer>
+
+  <script>
+    const peliculas = [
+      {titulo: "Venom 3 - El último baile", enlace:"#"},
+      {titulo: "Interestellar", enlace:"#"},
+      {titulo: "Avatar 2", enlace:"#"},
+      {titulo: "Interstellar: Viaje a las estrellas", enlace:"#"},
+      {titulo: "Spiderman: No Way Home", enlace:"#"},
+      {titulo: "Venom", enlace:"#"}
+    ];
+
+    const input = document.getElementById('searchInput');
+    const dropdown = document.getElementById('searchDropdown');
+
+    input.addEventListener('input', () => {
+      const query = input.value.toLowerCase();
+      dropdown.innerHTML = '';
+      if(query === '') {
+        dropdown.style.display = 'none';
+        return;
+      }
+
+      const results = peliculas.filter(p => p.titulo.toLowerCase().includes(query));
+      if(results.length === 0) {
+        dropdown.innerHTML = '<div style="padding:8px;color:var(--muted);">No se encontraron resultados</div>';
+      } else {
+        results.forEach(p => {
+          const div = document.createElement('div');
+          div.style.padding='8px';
+          div.style.cursor='pointer';
+          div.style.borderBottom='1px solid rgba(255,255,255,0.05)';
+          div.textContent = p.titulo;
+          div.onclick = () => {
+            window.location.href = p.enlace;
+          }
+          dropdown.appendChild(div);
+        });
+      }
+      dropdown.style.display = 'block';
+    });
+
+    document.addEventListener('click', e => {
+      if(!input.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
