@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ShareFilms — Venom 3</title>
-  <meta name="description" content="Página profesional de entretenimiento con reproductor de video integrado desde Google Drive." />
+  <title>ShareFilms — Portal de Películas</title>
+  <meta name="description" content="Página profesional de entretenimiento con reproductor de video integrado y buscador de películas." />
   <style>
     :root {
       --bg: #0f1720;
@@ -66,15 +66,14 @@
       box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
     }
     h1 { font-size: 28px; margin: 0 0 10px; }
+    h2,h3,h4 { margin:0 0 10px; }
     p.lead { color: var(--muted); margin: 0 0 18px; }
-
     iframe {
       width: 100%;
       height: 480px;
       border-radius: 10px;
       border: none;
     }
-
     a.download-btn {
       display:inline-block;
       padding:10px 16px;
@@ -85,13 +84,25 @@
       text-decoration:none;
       margin-top:12px;
     }
-
     .download-msg {
       margin-top:12px;
       font-size:16px;
       color:var(--muted);
     }
-
+    #searchInput {
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.04);
+      margin-bottom:12px;
+      background:transparent;
+      color:inherit;
+    }
+    #searchResults .card a {
+      color:#e6eef6;
+      text-decoration:none;
+      font-weight:600;
+    }
     footer {
       margin-top: 40px;
       padding: 22px;
@@ -99,7 +110,6 @@
       color: var(--muted);
       font-size: 13px;
     }
-
     @media (max-width: 920px) {
       .hero { grid-template-columns: 1fr; }
       iframe { height: 300px; }
@@ -123,18 +133,15 @@
   </header>
 
   <main class="container">
+    <!-- Video principal -->
     <section class="hero">
       <div class="card">
         <h1>Venom 3 - El último baile</h1>
         <p class="lead">Disfruta este video alojado en Google Drive con un diseño profesional y adaptable.</p>
-
-        <!-- 🎥 Reproductor de Google Drive (fragmento) -->
         <iframe 
           src="https://drive.google.com/file/d/1WqQwlQ4O0n92ia9VXiS65m3Y6CUChPeK/preview" 
           allow="autoplay; fullscreen">
         </iframe>
-
-        <!-- 🔽 Mensaje y botón de descarga -->
         <div class="download-msg">
           ⚠️ Este video es solo un fragmento.  
           Descárgalo completo aquí:
@@ -144,29 +151,35 @@
            download>
            Descargar película completa
         </a>
-
         <div style="margin-top:12px;color:var(--muted);font-size:14px">
-          Sinopsis: Eddie y Venom están huyendo. Perseguidos por sus dos mundos y con la red cerrándose, el dúo se ve obligado a tomar una decisión devastadora que echará el telón al último baile de Venom y Eddie.
+          Sinopsis: Un viaje épico a través del tiempo y el espacio. Música inmersiva y escenas inolvidables.
         </div>
       </div>
 
       <aside class="card">
-        <h3 style="margin-top:0">Siguientes</h3>
+        <h3>Siguientes</h3>
         <div>
           <div style="margin-bottom:8px;">🎬 Trailer oficial</div>
           <div style="margin-bottom:8px;">🎥 Detrás de cámaras</div>
           <div>🎙️ Entrevista con el director</div>
         </div>
-
         <div style="margin-top:18px">
-          <h4 style="margin:0 0 8px">Categorías</h4>
+          <h4>Categorías</h4>
           <div style="color:var(--muted);font-size:14px">Ciencia ficción • Drama • Aventura</div>
         </div>
       </aside>
     </section>
 
+    <!-- Buscador -->
+    <section id="buscador" class="card" style="margin-top:28px">
+      <h2>Buscar películas</h2>
+      <input type="text" id="searchInput" placeholder="Escribe el nombre de la película...">
+      <div id="searchResults" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px"></div>
+    </section>
+
+    <!-- Más contenidos -->
     <section id="videos" style="margin-top:28px" class="card">
-      <h2 style="margin-top:0">Más contenidos</h2>
+      <h2>Más contenidos</h2>
       <p class="lead">Explora una selección curada de videos y clips exclusivos.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
         <div class="card" style="padding:12px">Mini clip 1</div>
@@ -175,6 +188,7 @@
       </div>
     </section>
 
+    <!-- Contacto -->
     <section id="contacto" style="margin-top:24px" class="card">
       <h3>Contacto</h3>
       <p class="lead">¿Quieres que publiquemos tu video? Escríbenos.</p>
@@ -188,7 +202,4 @@
   </main>
 
   <footer>
-    © ShareFilms — Diseñado para uso personal. Asegúrate de tener los derechos del video antes de compartirlo públicamente.
-  </footer>
-</body>
-</html>
+    © ShareFilms — Dise
