@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Entertainment — Interestellar</title>
+  <meta name="description" content="Página profesional de entretenimiento con reproductor de video integrado desde Google Drive." />
+  <style>
+    :root {
+      --bg: #0f1720;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #ff6b6b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #071021 0%, var(--bg) 100%);
+      color: #e6eef6;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+    }
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #ffb86b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #08101a;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      align-items: start;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+    }
+    h1 { font-size: 28px; margin: 0 0 10px; }
+    p.lead { color: var(--muted); margin: 0 0 18px; }
+
+    iframe {
+      width: 100%;
+      height: 480px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 22px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      iframe { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">E</div>
+      <div>
+        <div style="font-weight:700">Entertainment</div>
+        <div style="font-size:12px;color:var(--muted)">Contenido seleccionado para ti</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#videos">Videos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <h1>Interestellar — Reproduciendo</h1>
+        <p class="lead">Disfruta este video alojado en Google Drive con un diseño profesional y adaptable.</p>
+
+        <!-- 🎥 Reproductor de Google Drive -->
+        <iframe 
+          src="https://drive.google.com/file/d/1rbXArJvk2qYH0UqM2hjoYb4dhcyuOfiA/preview" 
+          allow="autoplay; fullscreen">
+        </iframe>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:14px">
+          Sinopsis: Un viaje épico a través del tiempo y el espacio. Música inmersiva y escenas inolvidables.
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Siguientes</h3>
+        <div>
+          <div style="margin-bottom:8px;">🎬 Trailer oficial</div>
+          <div style="margin-bottom:8px;">🎥 Detrás de cámaras</div>
+          <div>🎙️ Entrevista con el director</div>
+        </div>
+
+        <div style="margin-top:18px">
+          <h4 style="margin:0 0 8px">Categorías</h4>
+          <div style="color:var(--muted);font-size:14px">Ciencia ficción • Drama • Aventura</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="videos" style="margin-top:28px" class="card">
+      <h2 style="margin-top:0">Más contenidos</h2>
+      <p class="lead">Explora una selección curada de videos y clips exclusivos.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
+        <div class="card" style="padding:12px">Mini clip 1</div>
+        <div class="card" style="padding:12px">Mini clip 2</div>
+        <div class="card" style="padding:12px">Mini clip 3</div>
+      </div>
+    </section>
+
+    <section id="contacto" style="margin-top:24px" class="card">
+      <h3>Contacto</h3>
+      <p class="lead">¿Quieres que publiquemos tu video? Escríbenos.</p>
+      <form onsubmit="event.preventDefault();alert('Gracias — formulario simulado');">
+        <input placeholder="Tu nombre" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-bottom:8px;background:transparent;color:inherit">
+        <input placeholder="Tu email" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-bottom:8px;background:transparent;color:inherit">
+        <textarea placeholder="Mensaje" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-bottom:8px;background:transparent;color:inherit"></textarea>
+        <button style="background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:#07101a;font-weight:700;cursor:pointer">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © Entertainment — Diseñado para uso personal. Asegúrate de tener los derechos del video antes de compartirlo públicamente.
+  </footer>
+</body>
+</html>
