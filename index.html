@@ -142,12 +142,8 @@
     <section id="buscador" class="card" style="margin-bottom:28px">
       <h2>Buscar películas</h2>
       <div style="position:relative;">
-        <input type="text" id="searchInput" placeholder="Escribe el nombre de la película..." autocomplete="off" 
-               style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
-        
-        <!-- Dropdown -->
-        <div id="searchDropdown" style="position:absolute;top:100%;left:0;width:100%;background:var(--card);border:1px solid rgba(255,255,255,0.1);border-radius:8px;max-height:300px;overflow-y:auto;display:none;z-index:10;">
-        </div>
+        <input type="text" id="searchInput" placeholder="Escribe el nombre de la película..." autocomplete="off">
+        <div id="searchDropdown" style="position:absolute;top:100%;left:0;width:100%;background:var(--card);border:1px solid rgba(255,255,255,0.1);border-radius:8px;max-height:300px;overflow-y:auto;display:none;z-index:10;"></div>
       </div>
     </section>
 
@@ -170,7 +166,7 @@
            Descargar película completa
         </a>
         <div style="margin-top:12px;color:var(--muted);font-size:14px">
-          Sinopsis: Eddie y Venom están huyendo. Perseguidos por sus dos mundos y con la red cerrándose, el dúo se ve obligado a tomar una decisión devastadora que echará el telón al último baile de Venom y Eddie..
+          Sinopsis: Eddie y Venom están huyendo. Perseguidos por sus dos mundos y con la red cerrándose, el dúo se ve obligado a tomar una decisión devastadora.
         </div>
       </div>
 
@@ -188,28 +184,6 @@
       </aside>
     </section>
 
-    <!-- Más contenidos -->
-    <section id="videos" style="margin-top:28px" class="card">
-      <h2>Más contenidos</h2>
-      <p class="lead">Explora una selección curada de videos y clips exclusivos.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
-        <div class="card" style="padding:12px">Mini clip 1</div>
-        <div class="card" style="padding:12px">Mini clip 2</div>
-        <div class="card" style="padding:12px">Mini clip 3</div>
-      </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto" style="margin-top:24px" class="card">
-      <h3>Contacto</h3>
-      <p class="lead">¿Quieres que publiquemos tu video? Escríbenos.</p>
-      <form onsubmit="event.preventDefault();alert('Gracias — formulario simulado');">
-        <input placeholder="Tu nombre" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-bottom:8px;background:transparent;color:inherit">
-        <input placeholder="Tu email" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-bottom:8px;background:transparent;color:inherit">
-        <textarea placeholder="Mensaje" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-bottom:8px;background:transparent;color:inherit"></textarea>
-        <button style="background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:#07101a;font-weight:700;cursor:pointer">Enviar</button>
-      </form>
-    </section>
   </main>
 
   <footer>
@@ -220,10 +194,10 @@
     const peliculas = [
       {titulo: "Venom 3 - El último baile", enlace:"#"},
       {titulo: "Interestellar", enlace:"#"},
-      {titulo: "Avatar 2", enlace:"#"},
+      {titulo: "Avatar 2", enlace:"avatar2.html"},  // 👈 Redirige aquí
       {titulo: "Interstellar: Viaje a las estrellas", enlace:"#"},
       {titulo: "Spiderman: No Way Home", enlace:"#"},
-      {titulo: "Venom", enlace:"#" }
+      {titulo: "Venom", enlace:"#"}
     ];
 
     const input = document.getElementById('searchInput');
