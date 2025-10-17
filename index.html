@@ -1,84 +1,173 @@
-<header>
-  <div class="brand">
-    <div class="logo">
-      <img src="logo.jpeg" alt="ShareFilms Logo">
-    </div>
-    <div>
-      <div style="font-weight:700">ShareFilms</div>
-      <div style="font-size:12px;color:var(--muted)">Contenido seleccionado para ti</div>
-    </div>
-  </div>
-
-  <!-- Buscador en barra superior -->
-  <div style="flex:1;display:flex;justify-content:center;position:relative;max-width:400px;">
-    <input id="searchInput" type="text" placeholder="Buscar..."
-      style="width:100%;padding:10px 40px 10px 14px;border-radius:25px;
-             border:none;background:#f0f2f5;color:#000;font-size:15px;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-         style="width:20px;height:20px;position:absolute;right:14px;top:50%;transform:translateY(-50%);
-                color:#555;">
-      <circle cx="11" cy="11" r="8"></circle>
-      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-    </svg>
-
-    <!-- Dropdown -->
-    <div id="searchDropdown"
-         style="position:absolute;top:110%;left:0;width:100%;
-                background:var(--card);border:1px solid rgba(255,255,255,0.1);
-                border-radius:8px;max-height:300px;overflow-y:auto;
-                display:none;z-index:1000;">
-    </div>
-  </div>
-
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#videos">Videos</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-</header>
-
-<script>
-  const peliculas = [
-    {titulo: "Venom 3 - El último baile", enlace:"index.html"},
-    {titulo: "Avatar 2", enlace:"avatar2.html"}, // 👈 aquí pondrás la ruta de tu página Avatar 2
-    {titulo: "Interestellar", enlace:"#"},
-    {titulo: "Interstellar: Viaje a las estrellas", enlace:"#"},
-    {titulo: "Spiderman: No Way Home", enlace:"#"},
-    {titulo: "Venom", enlace:"#"}
-  ];
-
-  const input = document.getElementById('searchInput');
-  const dropdown = document.getElementById('searchDropdown');
-
-  input.addEventListener('input', () => {
-    const query = input.value.toLowerCase();
-    dropdown.innerHTML = '';
-    if(query === '') {
-      dropdown.style.display = 'none';
-      return;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Films — Portal de Entretenimiento</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
     }
 
-    const results = peliculas.filter(p => p.titulo.toLowerCase().includes(query));
-    if(results.length === 0) {
-      dropdown.innerHTML = '<div style="padding:8px;color:var(--muted);">No se encontraron resultados</div>';
-    } else {
-      results.forEach(p => {
-        const div = document.createElement('div');
-        div.style.padding='10px';
-        div.style.cursor='pointer';
-        div.style.borderBottom='1px solid rgba(255,255,255,0.05)';
-        div.textContent = p.titulo;
-        div.onclick = () => window.location.href = p.enlace;
-        dropdown.appendChild(div);
-      });
+    header {
+      background-color: #1a1a1a;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    dropdown.style.display = 'block';
-  });
 
-  document.addEventListener('click', e => {
-    if(!input.contains(e.target) && !dropdown.contains(e.target)) {
-      dropdown.style.display = 'none';
+    header h1 {
+      font-size: 24px;
+      color: #ff0000;
+      margin: 0;
+      letter-spacing: 1px;
     }
-  });
-</script>
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff0000;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-box input {
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      width: 220px;
+    }
+
+    main {
+      padding: 40px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      border-left: 4px solid #ff0000;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    .movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .movie {
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .movie:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ff000080;
+    }
+
+    .movie img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+    }
+
+    .movie h3 {
+      font-size: 16px;
+      text-align: center;
+      padding: 10px;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: #888;
+      margin-top: 40px;
+    }
+
+    /* Resultados del buscador */
+    #searchResults {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Share Films</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#generos">Géneros</a>
+      <a href="#recientes">Más recientes</a>
+    </nav>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Buscar película...">
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section id="recientes">
+      <h2 class="section-title">Más Recientes</h2>
+      <div class="movies" id="moviesList">
+        <div class="movie"><img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_UF894,1000_QL80_.jpg" alt="Venom"><h3>Venom</h3></div>
+        <div class="movie"><img src="https://m.media-amazon.com/images/I/81t2CVWEsUL._AC_UF1000,1000_QL80_.jpg" alt="Avengers"><h3>Avengers: Endgame</h3></div>
+        <div class="movie"><img src="https://m.media-amazon.com/images/I/81D+KJkO7LL._AC_UF1000,1000_QL80_.jpg" alt="Spider-Man"><h3>Spider-Man: No Way Home</h3></div>
+        <div class="movie"><img src="https://m.media-amazon.com/images/I/81QvR5Xh1bL._AC_UF1000,1000_QL80_.jpg" alt="Joker"><h3>Joker</h3></div>
+        <div class="movie"><img src="https://m.media-amazon.com/images/I/71c05lTE03L._AC_UF1000,1000_QL80_.jpg" alt="Inception"><h3>Inception</h3></div>
+      </div>
+    </section>
+
+    <section id="searchResults"></section>
+  </main>
+
+  <footer>
+    © 2025 Share Films — Tu portal de entretenimiento
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const moviesList = document.getElementById('moviesList');
+    const searchResults = document.getElementById('searchResults');
+
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.toLowerCase();
+      const movies = Array.from(moviesList.children);
+      const matches = movies.filter(movie => movie.innerText.toLowerCase().includes(term));
+
+      if (term === '') {
+        searchResults.innerHTML = '';
+        return;
+      }
+
+      searchResults.innerHTML = '<h2 class="section-title">Resultados de búsqueda</h2><div class="movies"></div>';
+      const resultsContainer = searchResults.querySelector('.movies');
+
+      matches.forEach(movie => resultsContainer.appendChild(movie.cloneNode(true)));
+
+      if (matches.length === 0) {
+        resultsContainer.innerHTML = '<p>No se encontraron resultados.</p>';
+      }
+    });
+  </script>
+
+</body>
+</html>
