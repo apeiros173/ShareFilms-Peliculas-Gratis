@@ -104,7 +104,6 @@
       margin-top: 40px;
     }
 
-    /* Resultados del buscador */
     #searchResults {
       margin-top: 30px;
     }
@@ -113,12 +112,18 @@
 <body>
 
   <header>
-    <h1>Share Films</h1>
+    <!-- 🔹 Logo y título juntos -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <img src="logo.jpeg" alt="Logo Share Films" style="height: 35px; border-radius: 6px;">
+      <h1>Share Films</h1>
+    </div>
+
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#generos">Géneros</a>
       <a href="#recientes">Más recientes</a>
     </nav>
+
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="Buscar película...">
     </div>
@@ -128,8 +133,8 @@
     <section id="recientes">
       <h2 class="section-title">Más Recientes</h2>
       <div class="movies" id="moviesList">
-        <div class="movie"><img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_UF894,1000_QL80_.jpg" alt="Venom"><h3>Venom</h3></div>
-        <div class="movie"><img src="https://m.media-amazon.com/images/I/81t2CVWEsUL._AC_UF1000,1000_QL80_.jpg" alt="Avengers"><h3>Avengers: Endgame</h3></div>
+        <div class="movie"><img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_UF894,1000_QL80_.jpg" alt="Avengers"><h3>Avengers: Endgame</h3></div>
+        <div class="movie"><img src="https://m.media-amazon.com/images/I/81t2CVWEsUL._AC_UF1000,1000_QL80_.jpg" alt="HarryPotter"><h3>Harry Potter/h3></div>
         <div class="movie"><img src="https://m.media-amazon.com/images/I/81D+KJkO7LL._AC_UF1000,1000_QL80_.jpg" alt="Spider-Man"><h3>Spider-Man: No Way Home</h3></div>
         <div class="movie"><img src="https://m.media-amazon.com/images/I/81QvR5Xh1bL._AC_UF1000,1000_QL80_.jpg" alt="Joker"><h3>Joker</h3></div>
         <div class="movie"><img src="https://m.media-amazon.com/images/I/71c05lTE03L._AC_UF1000,1000_QL80_.jpg" alt="Inception"><h3>Inception</h3></div>
