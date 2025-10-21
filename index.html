@@ -3,176 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Share Films — Portal de Entretenimiento</title>
+  <title>Share Films — Contracara</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0d0d0d;
-      color: #fff;
-    }
-
-    header {
-      background-color: #1a1a1a;
-      padding: 15px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    header h1 {
-      font-size: 24px;
-      color: #ff0000;
-      margin: 0;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ff0000;
-    }
-
-    .search-box {
-      position: relative;
-    }
-
-    .search-box input {
-      padding: 8px 12px;
-      border-radius: 5px;
-      border: none;
-      outline: none;
-      width: 220px;
-    }
-
-    main {
-      padding: 40px;
-    }
-
-    .section-title {
-      font-size: 22px;
-      border-left: 4px solid #ff0000;
-      padding-left: 10px;
-      margin-bottom: 20px;
-    }
-
-    .movies {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 20px;
-    }
-
-    .movie {
-      background-color: #1c1c1c;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .movie:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px #ff000080;
-    }
-
-    .movie img {
-      width: 100%;
-      height: 270px;
-      object-fit: cover;
-    }
-
-    .movie h3 {
-      font-size: 16px;
-      text-align: center;
-      padding: 10px;
-      margin: 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #111;
-      color: #888;
-      margin-top: 40px;
-    }
-
-    #searchResults {
-      margin-top: 30px;
-    }
+    body{margin:0;font-family:'Poppins',sans-serif;background:#0d0d0d;color:#fff}
+    header{background:#1a1a1a;padding:15px 40px;display:flex;justify-content:space-between;align-items:center}
+    header h1{color:#ff0000;margin:0;font-size:22px}
+    a{text-decoration:none;color:#fff}
+    a:hover{color:#ff0000}
+    .container{max-width:900px;margin:60px auto;padding:20px;display:flex;flex-wrap:wrap;gap:30px;background:#1a1a1a;border-radius:10px;box-shadow:0 0 15px #ff000040}
+    .poster{flex:1 1 300px}
+    .poster img{width:100%;border-radius:10px}
+    .info{flex:2 1 400px}
+    .info h2{color:#ff0000;margin-bottom:10px}
+    .info p{line-height:1.6;color:#ddd;text-align:justify}
+    .buttons{margin-top:20px}
+    .btn{display:inline-block;padding:10px 20px;margin-right:10px;border:none;border-radius:6px;background:#ff0000;color:#fff;font-weight:600;transition:.3s}
+    .btn:hover{background:#cc0000}
+    footer{text-align:center;padding:20px;background:#111;color:#888;margin-top:60px}
+    @media(max-width:700px){.container{flex-direction:column;text-align:center}}
   </style>
 </head>
 <body>
+<header>
+  <h1>Share Films</h1>
+  <a href="index.html">← Volver al inicio</a>
+</header>
 
-  <header>
-    <!-- 🔹 Logo y título juntos -->
-    <div style="display: flex; align-items: center; gap: 10px;">
-      <img src="logo.jpeg" alt="Logo Share Films" style="height: 35px; border-radius: 6px;">
-      <h1>Share Films</h1>
+<main>
+  <div class="container">
+    <div class="poster">
+      <img src="https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg" alt="Contracara">
     </div>
-
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#generos">Géneros</a>
-      <a href="#recientes">Más recientes</a>
-    </nav>
-
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar película...">
-    </div>
-  </header>
-
-  <main id="inicio">
-    <section id="recientes">
-      <h2 class="section-title">Más Recientes</h2>
-      <div class="movies" id="moviesList">
-        <div class="movie"><img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_UF894,1000_QL80_.jpg" alt="Avengers"><h3>Avengers: Endgame</h3></div>
-        <div class="movie"><img src="https://m.media-amazon.com/images/I/81t2CVWEsUL._AC_UF1000,1000_QL80_.jpg" alt="HarryPotter"><h3>Harry Potter</h3></div>
-        <div class="movie"><img src="https://m.media-amazon.com/images/I/81D+KJkO7LL._AC_UF1000,1000_QL80_.jpg" alt="Spider-Man"><h3>Spider-Man: No Way Home</h3></div>
-        <div class="movie"><img src="https://m.media-amazon.com/images/I/81QvR5Xh1bL._AC_UF1000,1000_QL80_.jpg" alt="Joker"><h3>Joker</h3></div>
-        <div class="movie"><img src="https://m.media-amazon.com/images/I/71c05lTE03L._AC_UF1000,1000_QL80_.jpg" alt="Inception"><h3>Inception</h3></div>
+    <div class="info">
+      <h2>Contracara (Face/Off, 1997)</h2>
+      <p>
+        El agente del FBI Sean Archer está obsesionado con capturar al peligroso terrorista Castor Troy, responsable de la muerte de su hijo.
+        En un giro impactante, ambos intercambian sus rostros gracias a una cirugía experimental, desatando un juego mortal de identidades en el que cada uno debe vivir en la piel de su enemigo.
+      </p>
+      <div class="buttons">
+        <a href="https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/view?usp=sharing" target="_blank" class="btn">⬇️ Descargar</a>
+        <a href="index.html" class="btn" style="background:#333">↩️ Volver</a>
       </div>
-    </section>
+    </div>
+  </div>
+</main>
 
-    <section id="searchResults"></section>
-  </main>
-
-  <footer>
-    © 2025 Share Films — Tu portal de entretenimiento
-  </footer>
-
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const moviesList = document.getElementById('moviesList');
-    const searchResults = document.getElementById('searchResults');
-
-    searchInput.addEventListener('input', () => {
-      const term = searchInput.value.toLowerCase();
-      const movies = Array.from(moviesList.children);
-      const matches = movies.filter(movie => movie.innerText.toLowerCase().includes(term));
-
-      if (term === '') {
-        searchResults.innerHTML = '';
-        return;
-      }
-
-      searchResults.innerHTML = '<h2 class="section-title">Resultados de búsqueda</h2><div class="movies"></div>';
-      const resultsContainer = searchResults.querySelector('.movies');
-
-      matches.forEach(movie => resultsContainer.appendChild(movie.cloneNode(true)));
-
-      if (matches.length === 0) {
-        resultsContainer.innerHTML = '<p>No se encontraron resultados.</p>';
-      }
-    });
-  </script>
-
+<footer>© 2025 Share Films — Todos los derechos reservados.</footer>
 </body>
 </html>
