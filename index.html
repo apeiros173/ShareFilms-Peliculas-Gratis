@@ -17,17 +17,27 @@
       justify-content:space-between;
       align-items:center;
       box-shadow:0 0 15px #ff000040;
+      flex-wrap: wrap;
     }
     .logo-container { display:flex; align-items:center; gap:10px; }
     .logo-container img { height:40px; border-radius:6px; }
     .logo-container h1 { color:#ff0000; font-size:24px; margin:0; }
-    nav a { color:#fff; text-decoration:none; margin-left:25px; font-weight:500; transition:0.3s; }
+
+    nav { display:flex; align-items:center; gap:25px; flex-wrap: wrap; }
+    nav a { color:#fff; text-decoration:none; font-weight:500; transition:0.3s; }
     nav a:hover { color:#ff0000; }
 
-    /* Buscador */
-    .search-container { text-align:center; margin:40px 0 20px; }
+    /* Buscador en header */
+    .search-container {
+      flex:1;
+      display:flex;
+      justify-content:center;
+      margin-top:10px;
+      margin-bottom:10px;
+    }
     .search-container input {
-      width:60%;
+      width:80%;
+      max-width:400px;
       padding:10px 15px;
       font-size:16px;
       border:none;
@@ -38,7 +48,8 @@
       transition:0.3s;
     }
     .search-container input:focus { outline:none; box-shadow:0 0 15px #ff000080; }
-    #no-results { color:#ff0000; margin-top:10px; display:none; }
+
+    #no-results { color:#ff0000; margin-top:10px; display:none; text-align:center; }
 
     /* Películas */
     .movies-container {
@@ -60,16 +71,8 @@
       transition:0.3s;
       cursor:pointer;
     }
-    .movie-card:hover {
-      transform:scale(1.05);
-      box-shadow:0 0 20px #ff000050;
-    }
-    .movie-card img {
-      width:100%;
-      height:320px;
-      object-fit:cover;
-      transition: transform 0.3s;
-    }
+    .movie-card:hover { transform:scale(1.05); box-shadow:0 0 20px #ff000050; }
+    .movie-card img { width:100%; height:320px; object-fit:cover; transition: transform 0.3s; }
     .movie-card:hover img { transform:scale(1.05); }
     .movie-card h3 { margin:10px 0; color:#fff; }
     .movie-card p { color:#aaa; font-size:14px; margin:5px 0; }
@@ -91,13 +94,13 @@
 
     /* Responsive */
     @media (max-width:900px) {
-      .search-container input { width:80%; }
+      .search-container input { width:90%; }
       .movie-card { width:180px; }
       .movie-card img { height:260px; }
     }
     @media (max-width:600px) {
-      .search-container input { width:90%; }
-      .movies-container { gap:15px; }
+      header { flex-direction:column; align-items:flex-start; gap:10px; }
+      nav { flex-wrap:wrap; gap:10px; }
       .movie-card { width:150px; }
       .movie-card img { height:220px; }
     }
@@ -105,12 +108,17 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header con buscador -->
   <header>
     <div class="logo-container">
       <img src="logo.jpeg" alt="Logo Share Films">
       <h1>Share Films</h1>
     </div>
+
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Buscar películas...">
+    </div>
+
     <nav>
       <a href="#">Inicio</a>
       <a href="#">Género</a>
@@ -118,14 +126,9 @@
     </nav>
   </header>
 
-  <!-- Buscador -->
-  <div class="search-container">
-    <input type="text" id="search" placeholder="Buscar películas...">
-    <p id="no-results">No se encontraron películas.</p>
-  </div>
-
   <!-- Contenedor de películas -->
   <section class="movies-container" id="movies"></section>
+  <p id="no-results">No se encontraron películas.</p>
 
   <!-- Footer -->
   <footer>
@@ -135,70 +138,39 @@
   <!-- Fuse.js para búsqueda difusa -->
   <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
   <script>
-    // Lista de películas con metadatos
     const peliculas = [
-      {
-        titulo: "Contracara",
-        descripcion: "Dos enemigos intercambian rostros.",
-        genero: "Acción",
-        imagen: "https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg",
-        enlace: "contracara.html"
-      },
-      {
-        titulo: "Venom",
-        descripcion: "Un simbionte alienígena transforma a Eddie Brock.",
-        genero: "Acción/Superhéroes",
-        imagen: "https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg",
-        enlace: "venom.html"
-      },
-      {
-        titulo: "Inception",
-        descripcion: "Sueños dentro de sueños para robar secretos.",
-        genero: "Ciencia ficción/Thriller",
-        imagen: "https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg",
-        enlace: "inception.html"
-      }
+      { titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:"Acción", imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg", enlace:"contracara.html" },
+      { titulo:"Venom", descripcion:"Un simbionte alienígena transforma a Eddie Brock.", genero:"Acción/Superhéroes", imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg", enlace:"venom.html" },
+      { titulo:"Inception", descripcion:"Sueños dentro de sueños para robar secretos.", genero:"Ciencia ficción/Thriller", imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg", enlace:"inception.html" }
     ];
 
     const moviesContainer = document.getElementById('movies');
     const searchInput = document.getElementById('search');
     const noResults = document.getElementById('no-results');
 
-    // Inicializa Fuse.js
-    const fuse = new Fuse(peliculas, {
-      keys: ['titulo', 'descripcion', 'genero'],
-      threshold: 0.3, // sensibilidad: 0.0 = exacto, 1.0 = muy flexible
-    });
+    const fuse = new Fuse(peliculas, { keys:['titulo','descripcion','genero'], threshold:0.3 });
 
-    // Función para mostrar películas
-    function mostrarPeliculas(lista) {
-      moviesContainer.innerHTML = '';
-      if(lista.length === 0){
-        noResults.style.display = 'block';
-        return;
-      } else {
-        noResults.style.display = 'none';
-      }
-      lista.forEach(p => {
-        moviesContainer.innerHTML += `
+    function mostrarPeliculas(lista){
+      moviesContainer.innerHTML='';
+      if(lista.length===0){ noResults.style.display='block'; return; }
+      noResults.style.display='none';
+      lista.forEach(p=>{
+        moviesContainer.innerHTML+=`
           <div class="movie-card">
             <img src="${p.imagen}" alt="${p.titulo}">
             <h3>${p.titulo}</h3>
             <p>${p.genero}</p>
             <p>${p.descripcion}</p>
             <a href="${p.enlace}">Ver más</a>
-          </div>
-        `;
+          </div>`;
       });
     }
 
-    // Mostrar todas las películas al cargar
     mostrarPeliculas(peliculas);
 
-    // Evento del buscador
-    searchInput.addEventListener('input', () => {
+    searchInput.addEventListener('input', ()=>{
       const query = searchInput.value;
-      const resultados = query ? fuse.search(query).map(r => r.item) : peliculas;
+      const resultados = query ? fuse.search(query).map(r=>r.item) : peliculas;
       mostrarPeliculas(resultados);
     });
   </script>
