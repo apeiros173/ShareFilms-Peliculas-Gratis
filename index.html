@@ -72,6 +72,7 @@
     }
     .movie-card:hover img { transform:scale(1.05); }
     .movie-card h3 { margin:10px 0; color:#fff; }
+    .movie-card p { color:#aaa; font-size:14px; margin:5px 0; }
     .movie-card a {
       display:inline-block;
       margin-bottom:15px;
@@ -124,45 +125,81 @@
   </div>
 
   <!-- Contenedor de películas -->
-  <section class="movies-container" id="movies">
-    <div class="movie-card">
-      <img src="https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg" alt="Contracara">
-      <h3>Contracara</h3>
-      <a href="contracara.html">Ver más</a>
-    </div>
-    <div class="movie-card">
-      <img src="https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg" alt="Venom">
-      <h3>Venom</h3>
-      <a href="venom.html">Ver más</a>
-    </div>
-    <div class="movie-card">
-      <img src="https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg" alt="Inception">
-      <h3>Inception</h3>
-      <a href="inception.html">Ver más</a>
-    </div>
-  </section>
+  <section class="movies-container" id="movies"></section>
 
   <!-- Footer -->
   <footer>
     © 2025 Share Films — Todos los derechos reservados.
   </footer>
 
-  <!-- Script Buscador -->
+  <!-- Fuse.js para búsqueda difusa -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
   <script>
+    // Lista de películas con metadatos
+    const peliculas = [
+      {
+        titulo: "Contracara",
+        descripcion: "Dos enemigos intercambian rostros.",
+        genero: "Acción",
+        imagen: "https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg",
+        enlace: "contracara.html"
+      },
+      {
+        titulo: "Venom",
+        descripcion: "Un simbionte alienígena transforma a Eddie Brock.",
+        genero: "Acción/Superhéroes",
+        imagen: "https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg",
+        enlace: "venom.html"
+      },
+      {
+        titulo: "Inception",
+        descripcion: "Sueños dentro de sueños para robar secretos.",
+        genero: "Ciencia ficción/Thriller",
+        imagen: "https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg",
+        enlace: "inception.html"
+      }
+    ];
+
+    const moviesContainer = document.getElementById('movies');
     const searchInput = document.getElementById('search');
-    const movies = document.querySelectorAll('.movie-card');
     const noResults = document.getElementById('no-results');
 
-    searchInput.addEventListener('input', () => {
-      const text = searchInput.value.toLowerCase();
-      let found = false;
-      movies.forEach(movie => {
-        const title = movie.querySelector('h3').textContent.toLowerCase();
-        const match = title.includes(text);
-        movie.style.display = match ? 'block' : 'none';
-        if(match) found = true;
+    // Inicializa Fuse.js
+    const fuse = new Fuse(peliculas, {
+      keys: ['titulo', 'descripcion', 'genero'],
+      threshold: 0.3, // sensibilidad: 0.0 = exacto, 1.0 = muy flexible
+    });
+
+    // Función para mostrar películas
+    function mostrarPeliculas(lista) {
+      moviesContainer.innerHTML = '';
+      if(lista.length === 0){
+        noResults.style.display = 'block';
+        return;
+      } else {
+        noResults.style.display = 'none';
+      }
+      lista.forEach(p => {
+        moviesContainer.innerHTML += `
+          <div class="movie-card">
+            <img src="${p.imagen}" alt="${p.titulo}">
+            <h3>${p.titulo}</h3>
+            <p>${p.genero}</p>
+            <p>${p.descripcion}</p>
+            <a href="${p.enlace}">Ver más</a>
+          </div>
+        `;
       });
-      noResults.style.display = found ? 'none' : 'block';
+    }
+
+    // Mostrar todas las películas al cargar
+    mostrarPeliculas(peliculas);
+
+    // Evento del buscador
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value;
+      const resultados = query ? fuse.search(query).map(r => r.item) : peliculas;
+      mostrarPeliculas(resultados);
     });
   </script>
 
