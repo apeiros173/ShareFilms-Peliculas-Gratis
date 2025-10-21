@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Share Films — Entretenimiento</title>
+
+<!-- Fuente moderna -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0; padding:0; box-sizing:border-box;}
 body{font-family:'Poppins',sans-serif; background:#0d0d0d; color:#fff;}
@@ -116,9 +120,18 @@ nav a:hover{color:#ff0000;}
   transition:0.3s;
   text-decoration:none;
 }
-.movie-card a{background:#ff0000; color:#fff;}
+.movie-card a{
+  background:#ff0000;
+  color:#fff;
+}
 .movie-card a:hover{background:#cc0000;}
-.movie-card button{background:#555; color:#fff; cursor:not-allowed; border:none;}
+.movie-card button{
+  background:#333;
+  color:#bbb;
+  border:none;
+  cursor:not-allowed;
+}
+.movie-card button::before{content:"⏳ ";}
 
 /* Modal estilo Netflix */
 #modal{
@@ -235,7 +248,7 @@ function mostrarPeliculas(lista){
   lista.forEach(p=>{
     const card = document.createElement('div');
     card.classList.add('movie-card');
-    const boton = p.video ? `<a href="#" class="playMovie" data-video="${p.video}">Ver más</a>` : `<button>Próximamente</button>`;
+    const boton = p.video ? `<a href="#" class="playMovie" data-video="${p.video}">Reproducir</a>` : `<button>Próximamente</button>`;
     card.innerHTML = `
       <img src="${p.imagen}" alt="${p.titulo}">
       <h3>${p.titulo}</h3>
@@ -272,15 +285,19 @@ document.getElementById('genreBtn').addEventListener('click', ()=>{
   genreDropdown.style.flexDirection='column';
 });
 
-// Modal cierre
+// Cerrar modal
 closeModal.addEventListener('click', cerrarModal);
-window.addEventListener('click', e=>{
-  if(e.target===modal){ cerrarModal(); }
-});
+window.addEventListener('click', e=>{ if(e.target===modal) cerrarModal(); });
+window.addEventListener('keydown', e=>{ if(e.key==='Escape') cerrarModal(); });
 function cerrarModal(){
   modal.style.display='none';
   moviePlayer.src='';
 }
+
+// Cerrar menú de géneros al hacer clic fuera
+window.addEventListener('click', e=>{
+  if (!e.target.closest('.genre-menu') && e.target.id!=='genreBtn') genreDropdown.style.display='none';
+});
 
 // Búsqueda
 searchInput.addEventListener('input', ()=>{
