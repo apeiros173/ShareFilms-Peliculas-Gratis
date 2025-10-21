@@ -191,14 +191,50 @@ footer{ text-align:center; padding:20px; background:#111; color:#888; margin-top
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 <script>
-// Películas con enlace directo de Google Drive
+// Películas con imagen correcta y enlace directo de Google Drive
 const peliculas = [
-  {titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:["Acción","Suspenso"], imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg", video:"https://drive.google.com/uc?export=download&id=1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn"},
-  {titulo:"Interstellar", descripcion:"Un viaje épico a través del espacio.", genero:["Ciencia ficción","Drama"], imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg", video:"https://drive.google.com/uc?export=download&id=1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7"},
-  {titulo:"Karate Kid", descripcion:"Un joven aprende kung fu.", genero:["Acción","Drama"], imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg", video:"https://drive.google.com/uc?export=download&id=1vytWPJ8SuHa5cLsXWXQFHsCA26jYspc5"},
-  {titulo:"La leyenda de los Chaneques", descripcion:"Aventuras de los chaneques.", genero:["Animación","Familia","Aventura"], imagen:"https://m.media-amazon.com/images/I/71i4JK5pR-L._AC_SY679_.jpg", video:"https://drive.google.com/uc?export=download&id=1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5"},
-  {titulo:"Tiempo Congelado", descripcion:"Un reloj que detiene el tiempo.", genero:["Acción","Ciencia ficción","Comedia"], imagen:"https://m.media-amazon.com/images/I/81r+LNv5bQL._AC_SY679_.jpg", video:"https://drive.google.com/uc?export=download&id=1mi8Ltlqx01KVDLKIIQXL0l05A_i5endV"},
-  {titulo:"Venom 3", descripcion:"Eddie y Venom enfrentan nuevos desafíos.", genero:["Acción","Superhéroes"], imagen:"https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SL1500_.jpg", video:"https://drive.google.com/uc?export=download&id=1-I98WaJ_C622i2YMeBFjcEn43808KgmR"}
+  {
+    titulo:"Contracara",
+    descripcion:"Dos enemigos intercambian rostros.",
+    genero:["Acción","Suspenso"],
+    imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg",
+    video:"https://drive.google.com/uc?export=download&id=1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn"
+  },
+  {
+    titulo:"Interstellar",
+    descripcion:"Un viaje épico a través del espacio.",
+    genero:["Ciencia ficción","Drama"],
+    imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg",
+    video:"https://drive.google.com/uc?export=download&id=1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7"
+  },
+  {
+    titulo:"Karate Kid",
+    descripcion:"Un joven aprende kung fu.",
+    genero:["Acción","Drama"],
+    imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg",
+    video:"https://drive.google.com/uc?export=download&id=1vytWPJ8SuHa5cLsXWXQFHsCA26jYspc5"
+  },
+  {
+    titulo:"La leyenda de los Chaneques",
+    descripcion:"Aventuras de los chaneques.",
+    genero:["Animación","Familia","Aventura"],
+    imagen:"https://m.media-amazon.com/images/I/71i4JK5pR-L._AC_SY679_.jpg",
+    video:"https://drive.google.com/uc?export=download&id=1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5"
+  },
+  {
+    titulo:"Tiempo Congelado",
+    descripcion:"Un reloj que detiene el tiempo.",
+    genero:["Acción","Ciencia ficción","Comedia"],
+    imagen:"https://m.media-amazon.com/images/I/81r+LNv5bQL._AC_SY679_.jpg",
+    video:"https://drive.google.com/uc?export=download&id=1mi8Ltlqx01KVDLKIIQXL0l05A_i5endV"
+  },
+  {
+    titulo:"Venom 3",
+    descripcion:"Eddie y Venom enfrentan nuevos desafíos.",
+    genero:["Acción","Superhéroes"],
+    imagen:"https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SL1500_.jpg",
+    video:"https://drive.google.com/uc?export=download&id=1-I98WaJ_C622i2YMeBFjcEn43808KgmR"
+  }
 ];
 
 // Fuse.js para búsqueda
