@@ -3,9 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Share Films — Más recientes</title>
+<title>Share Films — Más Recientes</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+
+<style>
+*{margin:0; padding:0; box-sizing:border-box;}
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(-45deg, #0d0d0d, #1a1a1a, #111, #0d0d0d);
+  background-size:400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color:#fff;
+}
+@keyframes gradientBG {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Header */
+header{
+  background:rgba(26,26,26,0.9);
+  padding:15px 40px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 0 15px #ff000040;
+  backdrop-filter:blur(10px);
+}
+.logo-container{display:flex; align-items:center; gap:10px;}
+.logo-container img{height:40px; border-radius:6px;}
+.logo-container h1{color:#ff0000; font-size:24px; margin:0;}
+nav{display:flex; align-items:center; gap:25px; flex-wrap: wrap;}
+nav a{color:#fff; text-decoration:none; font-weight:500; transition:0.3s;}
+nav a:hover{color:#ff0000;}
+
+/* Buscador y género */
+.search-container{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.search-container input{
+  width:60%;
+  max-width:300px;
+  padding:10px 15px;
+  font-size:16px;
+  border:none;
+  border-radius:8px;
+  background:#1a1a1a;
+  color:#fff;
+  box-shadow:0 0 10px #ff000020;
+  transition:0.3s;
+}
+.search-container input:focus{outline:none; box-shadow:0 0 15px #ff000080;}
+
+/* Dropdown de géneros */
+.genre-menu{position:relative; display:inline-block;}
+.genre-menu button{
+  background:#1a1a1a;
+  color:#fff;
+  padding:10px 12px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 0 10px #ff000020;
+}
+.genre-menu button:hover{background:#ff0000;}
+.dropdown-content{
+  display:none;
+  position:absolute;
+  background:#1a1a1a;
+  min-width:160px;
+  box-shadow:0 8px 16px rgba(0,0,0,0.2);
+  border-radius:8px;
+  z-index:1000;
+  flex-direction:column;
+}
+.dropdown-content button{
+  background:none;
+  color:#fff;
+  border:none;
+  padding:10px 12px;
+  text-align:left;
+  cursor:pointer;
+  width:100%;
+}
+.dropdown-content button:hover{background:#ff000020;}
+
+/* Películas */
+.movies-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  padding:20px;
+  max-width:1100px;
+  margin:auto;
+}
+.movie-card{
+  background:rgba(26,26,26,0.9);
+  border-radius:10px;
+  box-shadow:0 0 15px #ff000030;
+  overflow:hidden;
+  width:220px;
+  text-align:center;
+  transition:0.3s;
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+}
+.movie-card:hover{transform:scale(1.05); box-shadow:0 0 20px #ff000050;}
+.movie-card img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  transition:transform 0.3s;
+  display:block;
+}
+.movie-card:hover img{transform:scale(1.05);}
+.movie-card h3{margin:10px 0; color:#fff;}
+.movie-card p{color:#aaa; font-size:14px; margin:5px 0;}
+.movie-card a, .movie-card button{
+  display:inline-block;
+  margin-bottom:15px;
+  padding:8px 14px;
+  border-radius:6px;
+  font-weight:600;
+  transition:0.3s;
+  text-decoration:none;
+}
+.movie-card a{background:#ff0000; color:#fff;}
+.movie-card a:hover{background:#cc0000;}
+.movie-card button{
+  background:#333;
+  color:#bbb;
+  border:none;
+  cursor:not-allowed;
+}
+.movie-card button::before{content:"⏳ ";}
+
+/* Modal estilo cine */
+#modal{
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.95);
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+  padding:0;
+}
+#modalContent{
+  position:relative;
+  width:95%;
+  height:95%;
+  max-width:1400px;
+  max-height:95vh;
+}
+#closeModal{
+  position:absolute;
+  top:-50px;
+  right:0;
+  font-size:45px;
+  cursor:pointer;
+  color:#fff;
+  font-weight:bold;
+  transition:0.3s;
+}
+#closeModal:hover{color:#ff0000;}
+iframe{
+  width:100%;
+  height:100%;
+  border:none;
+  border-radius:10px;
+  background:#000;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#111;
+  color:#888;
+  margin-top:60px;
+  box-shadow:0 -2px 10px #ff000020;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .search-container input{width:70%;}
+  .movie-card{width:180px;}
+  .movie-card img{height:260px;}
+}
+@media(max-width:600px){
+  header{flex-direction:column; align-items:flex-start; gap:10px;}
+  nav{flex-wrap:wrap; gap:10px;}
+  .movie-card{width:150px;}
+  .movie-card img{height:220px;}
+}
+</style>
 </head>
 <body>
 
@@ -16,18 +219,22 @@
   </div>
 
   <div class="search-container">
-    <input type="text" id="search" placeholder="Buscar películas recientes...">
+    <input type="text" id="search" placeholder="Buscar películas...">
+    <div class="genre-menu">
+      <button id="genreBtn">Géneros ▼</button>
+      <div id="genreDropdown" class="dropdown-content"></div>
+    </div>
   </div>
 
   <nav>
     <a href="index.html">Inicio</a>
-    <a href="mas-recientes.html" class="active">Más recientes</a>
+    <a href="mas-recientes.html">Más recientes</a>
     <a href="series.html">Series</a>
   </nav>
 </header>
 
 <section class="movies-container" id="movies"></section>
-<p id="no-results" style="text-align:center; display:none; color:#888; margin-top:20px;">No se encontraron películas.</p>
+<p id="no-results" style="text-align:center; display:none; color:#888; margin-top:20px;">No se encontraron películas recientes.</p>
 
 <div id="modal">
   <div id="modalContent">
@@ -39,6 +246,95 @@
 <footer>© 2025 Share Films — Todos los derechos reservados.</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
-<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const peliculas = [
+    {titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:["Acción","Suspenso"], imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview", año:2025},
+    {titulo:"Interstellar", descripcion:"Un viaje épico a través del espacio.", genero:["Ciencia ficción","Drama"], imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview", año:2023},
+    {titulo:"Karate Kid", descripcion:"Un joven aprende kung fu.", genero:["Acción","Drama"], imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jspc5/preview", año:2024},
+    {titulo:"La leyenda de los Chaneques", descripcion:"Aventuras de los chaneques.", genero:["Animación","Familia","Aventura"], imagen:"https://m.media-amazon.com/images/I/71i4JK5pR-L._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview", año:2025},
+    {titulo:"Tiempo Congelado", descripcion:"Un reloj que detiene el tiempo.", genero:["Acción","Ciencia ficción","Comedia"], imagen:"https://m.media-amazon.com/images/I/81r+LNv5bQL._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1mi8Ltlqx01KVDLKIIQXL0l05A_i5endV/preview", año:2022},
+    {titulo:"Venom 3", descripcion:"Eddie y Venom enfrentan nuevos desafíos.", genero:["Acción","Superhéroes"], imagen:"https://m.media-amazon.com/images/I/81kq5pCVSML._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview", año:2023}
+  ];
+
+  const moviesContainer = document.getElementById('movies');
+  const searchInput = document.getElementById('search');
+  const noResults = document.getElementById('no-results');
+  const moviePlayer = document.getElementById('moviePlayer');
+  const modal = document.getElementById('modal');
+  const closeModal = document.getElementById('closeModal');
+  const genreDropdown = document.getElementById('genreDropdown');
+
+  if(!moviesContainer) return;
+
+  // Filtrar últimos 3 años
+  const añoActual = new Date().getFullYear();
+  const recientes = peliculas.filter(p => p.año >= añoActual - 2);
+
+  // Modal
+  function cerrarModal(){ modal.style.display='none'; moviePlayer.src=''; }
+  closeModal.addEventListener('click', cerrarModal);
+  window.addEventListener('click', e=>{if(e.target===modal) cerrarModal();});
+  window.addEventListener('keydown', e=>{if(e.key==='Escape') cerrarModal();});
+
+  // Mostrar películas
+  function mostrarPeliculas(lista){
+    moviesContainer.innerHTML='';
+    if(lista.length===0){ noResults.style.display='block'; return; }
+    noResults.style.display='none';
+    lista.forEach(p=>{
+      const card = document.createElement('div');
+      card.classList.add('movie-card');
+      const boton = p.video ? `<a href="#" class="playMovie" data-video="${p.video}">🎬 Reproducir</a>` : `<button>Próximamente</button>`;
+      card.innerHTML = `
+        <img src="${p.imagen}" alt="${p.titulo}" onerror="this.src='https://via.placeholder.com/220x320?text=Sin+imagen';">
+        <h3>${p.titulo}</h3>
+        <p>${p.genero.join(', ')}</p>
+        <p>${p.descripcion}</p>
+        ${boton}`;
+      moviesContainer.appendChild(card);
+    });
+
+    document.querySelectorAll('.playMovie').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        e.preventDefault();
+        moviePlayer.src = btn.dataset.video;
+        modal.style.display='flex';
+      });
+    });
+  }
+
+  // Buscador Fuse.js
+  const fuse = new Fuse(recientes,{keys:['titulo','descripcion','genero'], threshold:0.3});
+  searchInput.addEventListener('input', ()=>{
+    const results = searchInput.value ? fuse.search(searchInput.value).map(r=>r.item) : recientes;
+    mostrarPeliculas(results);
+  });
+
+  // Menú de géneros
+  const generosUnicos = [...new Set(recientes.flatMap(p=>p.genero))];
+  generosUnicos.forEach(g=>{
+    const btn = document.createElement('button');
+    btn.textContent = g;
+    btn.addEventListener('click', ()=>{
+      mostrarPeliculas(recientes.filter(p=>p.genero.includes(g)));
+      genreDropdown.style.display='none';
+    });
+    genreDropdown.appendChild(btn);
+  });
+
+  document.getElementById('genreBtn').addEventListener('click', ()=>{
+    genreDropdown.style.display = genreDropdown.style.display==='flex'?'none':'flex';
+    genreDropdown.style.flexDirection='column';
+  });
+  window.addEventListener('click', e=>{
+    if (!e.target.closest('.genre-menu')) genreDropdown.style.display='none';
+  });
+
+  // Mostrar todas al inicio
+  mostrarPeliculas(recientes);
+});
+</script>
+
 </body>
 </html>
