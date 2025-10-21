@@ -107,18 +107,18 @@ nav a:hover{color:#ff0000;}
 .movie-card:hover img{transform:scale(1.05);}
 .movie-card h3{margin:10px 0; color:#fff;}
 .movie-card p{color:#aaa; font-size:14px; margin:5px 0;}
-.movie-card a{
+.movie-card a, .movie-card button{
   display:inline-block;
   margin-bottom:15px;
-  background:#ff0000;
-  color:#fff;
   padding:8px 14px;
   border-radius:6px;
-  text-decoration:none;
   font-weight:600;
   transition:0.3s;
+  text-decoration:none;
 }
+.movie-card a{background:#ff0000; color:#fff;}
 .movie-card a:hover{background:#cc0000;}
+.movie-card button{background:#555; color:#fff; cursor:not-allowed; border:none;}
 
 /* Modal de video */
 #modal{
@@ -219,14 +219,14 @@ const peliculas = [
     descripcion:"Aventuras de los chaneques.",
     genero:["Animación","Familia","Aventura"],
     imagen:"https://m.media-amazon.com/images/I/71i4JK5pR-L._AC_SY679_.jpg",
-    video:"https://drive.google.com/uc?export=download&id=1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5"
+    video:""
   },
   {
     titulo:"Tiempo Congelado",
     descripcion:"Un reloj que detiene el tiempo.",
     genero:["Acción","Ciencia ficción","Comedia"],
     imagen:"https://m.media-amazon.com/images/I/81r+LNv5bQL._AC_SY679_.jpg",
-    video:"https://drive.google.com/uc?export=download&id=1mi8Ltlqx01KVDLKIIQXL0l05A_i5endV"
+    video:""
   },
   {
     titulo:"Venom 3",
@@ -256,12 +256,19 @@ function mostrarPeliculas(lista){
   lista.forEach(p=>{
     const card = document.createElement('div');
     card.classList.add('movie-card');
+
+    // Si tiene enlace de video
+    const boton = p.video 
+      ? `<a href="#" class="playMovie" data-video="${p.video}">Ver más</a>`
+      : `<button>Próximamente</button>`;
+
     card.innerHTML = `
       <img src="${p.imagen}" alt="${p.titulo}">
       <h3>${p.titulo}</h3>
       <p>${p.genero.join(', ')}</p>
       <p>${p.descripcion}</p>
-      <a href="#" class="playMovie" data-video="${p.video}">Ver más</a>`;
+      ${boton}`;
+
     moviesContainer.appendChild(card);
   });
 
