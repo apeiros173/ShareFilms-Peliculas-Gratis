@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Share Films — Entretenimiento</title>
 
-<!-- Fuente -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -149,7 +148,7 @@ nav a:hover{color:#ff0000;}
 }
 .movie-card button::before{content:"⏳ ";}
 
-/* Modal estilo Netflix */
+/* Modal estilo cine */
 #modal{
   display:none;
   position:fixed;
@@ -159,19 +158,20 @@ nav a:hover{color:#ff0000;}
   justify-content:center;
   align-items:center;
   z-index:1000;
-  padding:20px;
+  padding:0;
 }
 #modalContent{
   position:relative;
-  width:90%;
-  max-width:1000px;
-  max-height:90%;
+  width:95%;
+  height:95%;
+  max-width:1400px;
+  max-height:95vh;
 }
 #closeModal{
   position:absolute;
-  top:-40px;
+  top:-50px;
   right:0;
-  font-size:40px;
+  font-size:45px;
   cursor:pointer;
   color:#fff;
   font-weight:bold;
@@ -250,7 +250,7 @@ const peliculas = [
   {titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:["Acción","Suspenso"], imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
   {titulo:"Interstellar", descripcion:"Un viaje épico a través del espacio.", genero:["Ciencia ficción","Drama"], imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview"},
   {titulo:"Karate Kid", descripcion:"Un joven aprende kung fu.", genero:["Acción","Drama"], imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jYspc5/preview"},
-  {titulo:"La leyenda de los Chaneques", descripcion:"Aventuras de los chaneques.", genero:["Animación","Familia","Aventura"], imagen:"https://m.media-amazon.com/images/I/71i4JK5pR-L._AC_SY679_.jpg", video:""},
+  {titulo:"La leyenda de los Chaneques", descripcion:"Aventuras de los chaneques.", genero:["Animación","Familia","Aventura"], imagen:"https://m.media-amazon.com/images/I/71i4JK5pR-L._AC_SY679_.jpg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview"},
   {titulo:"Tiempo Congelado", descripcion:"Un reloj que detiene el tiempo.", genero:["Acción","Ciencia ficción","Comedia"], imagen:"https://m.media-amazon.com/images/I/81r+LNv5bQL._AC_SY679_.jpg", video:"https://drive.google.com/file/d/1mi8Ltlqx01KVDLKIIQXL0l05A_i5endV/preview"},
   {titulo:"Venom 3", descripcion:"Eddie y Venom enfrentan nuevos desafíos.", genero:["Acción","Superhéroes"], imagen:"https://m.media-amazon.com/images/I/81kq5pCVSML._AC_SY679_.jpg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"}
 ];
