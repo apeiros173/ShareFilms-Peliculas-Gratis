@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Share Films — Entretenimiento</title>
+<title>Share Films — Inicio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -246,7 +246,88 @@ footer{
 <footer>© 2025 Share Films — Todos los derechos reservados.</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
-<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const peliculas = [
+    {titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:["Acción","Suspenso"], imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
+    {titulo:"Interstellar", descripcion:"Un viaje épico a través del espacio.", genero:["Ciencia ficción","Drama"], imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview"},
+    {titulo:"Karate Kid", descripcion:"Un joven aprende kung fu.", genero:["Acción","Drama"], imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jspc5/preview"},
+    {titulo:"La leyenda de los Chaneques", descripcion:"Aventuras de los chaneques.", genero:["Animación","Familia","Aventura"], imagen:"https://m.media-amazon.com/images/I/71i4JK5pR-L._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview"},
+    {titulo:"Tiempo Congelado", descripcion:"Un reloj que detiene el tiempo.", genero:["Acción","Ciencia ficción","Comedia"], imagen:"https://m.media-amazon.com/images/I/81r+LNv5bQL._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1mi8Ltlqx01KVDLKIIQXL0l05A_i5endV/preview"},
+    {titulo:"Venom 3", descripcion:"Eddie y Venom enfrentan nuevos desafíos.", genero:["Acción","Superhéroes"], imagen:"https://m.media-amazon.com/images/I/81kq5pCVSML._AC_UF220,320_QL80_.jpg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"}
+  ];
+
+  const moviesContainer = document.getElementById('movies');
+  const searchInput = document.getElementById('search');
+  const noResults = document.getElementById('no-results');
+  const moviePlayer = document.getElementById('moviePlayer');
+  const modal = document.getElementById('modal');
+  const closeModal = document.getElementById('closeModal');
+  const genreDropdown = document.getElementById('genreDropdown');
+
+  function mostrarPeliculas(lista){
+    moviesContainer.innerHTML='';
+    if(lista.length===0){ noResults.style.display='block'; return; }
+    noResults.style.display='none';
+    lista.forEach(p=>{
+      const card = document.createElement('div');
+      card.classList.add('movie-card');
+      const boton = p.video ? `<a href="#" class="playMovie" data-video="${p.video}">🎬 Reproducir</a>` : `<button>Próximamente</button>`;
+      card.innerHTML = `
+        <img src="${p.imagen}" alt="${p.titulo}" onerror="this.src='https://via.placeholder.com/220x320?text=Sin+imagen';">
+        <h3>${p.titulo}</h3>
+        <p>${p.genero.join(', ')}</p>
+        <p>${p.descripcion}</p>
+        ${boton}`;
+      moviesContainer.appendChild(card);
+    });
+
+    document.querySelectorAll('.playMovie').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        e.preventDefault();
+        moviePlayer.src = btn.dataset.video;
+        modal.style.display='flex';
+      });
+    });
+  }
+
+  // Buscador Fuse.js
+  const fuse = new Fuse(peliculas,{keys:['titulo','descripcion','genero'], threshold:0.3});
+  searchInput.addEventListener('input', ()=>{
+    const results = searchInput.value ? fuse.search(searchInput.value).map(r=>r.item) : peliculas;
+    mostrarPeliculas(results);
+  });
+
+  // Menú de géneros
+  const generosUnicos = [...new Set(peliculas.flatMap(p=>p.genero))];
+  generosUnicos.forEach(g=>{
+    const btn = document.createElement('button');
+    btn.textContent = g;
+    btn.addEventListener('click', ()=>{
+      mostrarPeliculas(peliculas.filter(p=>p.genero.includes(g)));
+      genreDropdown.style.display='none';
+    });
+    genreDropdown.appendChild(btn);
+  });
+
+  document.getElementById('genreBtn').addEventListener('click', ()=>{
+    genreDropdown.style.display = genreDropdown.style.display==='flex'?'none':'flex';
+    genreDropdown.style.flexDirection='column';
+  });
+  window.addEventListener('click', e=>{
+    if (!e.target.closest('.genre-menu')) genreDropdown.style.display='none';
+  });
+
+  // Modal
+  function cerrarModal(){ modal.style.display='none'; moviePlayer.src=''; }
+  closeModal.addEventListener('click', cerrarModal);
+  window.addEventListener('click', e=>{if(e.target===modal) cerrarModal();});
+  window.addEventListener('keydown', e=>{if(e.key==='Escape') cerrarModal();});
+
+  // Mostrar todas al inicio
+  mostrarPeliculas(peliculas);
+});
+</script>
 
 </body>
 </html>
