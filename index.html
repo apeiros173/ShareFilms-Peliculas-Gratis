@@ -17,12 +17,11 @@
       justify-content:space-between;
       align-items:center;
       box-shadow:0 0 15px #ff000040;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
     }
     .logo-container { display:flex; align-items:center; gap:10px; }
     .logo-container img { height:40px; border-radius:6px; }
     .logo-container h1 { color:#ff0000; font-size:24px; margin:0; }
-
     nav { display:flex; align-items:center; gap:25px; flex-wrap: wrap; }
     nav a { color:#fff; text-decoration:none; font-weight:500; transition:0.3s; }
     nav a:hover { color:#ff0000; }
@@ -89,6 +88,32 @@
     }
     .movie-card a:hover { background:#cc0000; }
 
+    /* Modal de video */
+    #modal {
+      display:none;
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.9);
+      justify-content:center;
+      align-items:center;
+      z-index:1000;
+    }
+    #modalContent {
+      position:relative;
+      width:90%;
+      max-width:800px;
+    }
+    #closeModal {
+      position:absolute;
+      top:-40px;
+      right:0;
+      font-size:40px;
+      cursor:pointer;
+      color:#fff;
+    }
+    video { width:100%; border-radius:10px; }
+
     /* Footer */
     footer { text-align:center; padding:20px; background:#111; color:#888; margin-top:60px; }
 
@@ -130,6 +155,17 @@
   <section class="movies-container" id="movies"></section>
   <p id="no-results">No se encontraron películas.</p>
 
+  <!-- Modal de video -->
+  <div id="modal">
+    <div id="modalContent">
+      <span id="closeModal">&times;</span>
+      <video id="moviePlayer" controls>
+        <source src="" type="video/mp4">
+        Tu navegador no soporta HTML5 video.
+      </video>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     © 2025 Share Films — Todos los derechos reservados.
@@ -139,14 +175,18 @@
   <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
   <script>
     const peliculas = [
-      { titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:"Acción", imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg", enlace:"contracara.html" },
-      { titulo:"Venom", descripcion:"Un simbionte alienígena transforma a Eddie Brock.", genero:"Acción/Superhéroes", imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg", enlace:"venom.html" },
-      { titulo:"Inception", descripcion:"Sueños dentro de sueños para robar secretos.", genero:"Ciencia ficción/Thriller", imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg", enlace:"inception.html" }
+      { titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:"Acción", imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg", video:"videos/contracara.mp4" },
+      { titulo:"Venom", descripcion:"Un simbionte alienígena transforma a Eddie Brock.", genero:"Acción/Superhéroes", imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg", video:"videos/venom.mp4" },
+      { titulo:"Inception", descripcion:"Sueños dentro de sueños para robar secretos.", genero:"Ciencia ficción/Thriller", imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg", video:"videos/inception.mp4" }
     ];
 
     const moviesContainer = document.getElementById('movies');
     const searchInput = document.getElementById('search');
     const noResults = document.getElementById('no-results');
+
+    const modal = document.getElementById('modal');
+    const moviePlayer = document.getElementById('moviePlayer');
+    const closeModal = document.getElementById('closeModal');
 
     const fuse = new Fuse(peliculas, { keys:['titulo','descripcion','genero'], threshold:0.3 });
 
@@ -161,8 +201,18 @@
             <h3>${p.titulo}</h3>
             <p>${p.genero}</p>
             <p>${p.descripcion}</p>
-            <a href="${p.enlace}">Ver más</a>
+            <a href="#" class="playMovie" data-video="${p.video}">Ver más</a>
           </div>`;
+      });
+
+      // Agregar evento a botones de "Ver más"
+      document.querySelectorAll('.playMovie').forEach(btn=>{
+        btn.addEventListener('click', e=>{
+          e.preventDefault();
+          moviePlayer.src = btn.dataset.video;
+          modal.style.display='flex';
+          moviePlayer.play();
+        });
       });
     }
 
@@ -172,6 +222,20 @@
       const query = searchInput.value;
       const resultados = query ? fuse.search(query).map(r=>r.item) : peliculas;
       mostrarPeliculas(resultados);
+    });
+
+    // Cerrar modal
+    closeModal.addEventListener('click', ()=>{
+      modal.style.display='none';
+      moviePlayer.pause();
+      moviePlayer.src='';
+    });
+    modal.addEventListener('click', e=>{
+      if(e.target === modal){
+        modal.style.display='none';
+        moviePlayer.pause();
+        moviePlayer.src='';
+      }
     });
   </script>
 
