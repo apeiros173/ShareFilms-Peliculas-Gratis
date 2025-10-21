@@ -120,7 +120,7 @@ nav a:hover{color:#ff0000;}
 .movie-card a:hover{background:#cc0000;}
 .movie-card button{background:#555; color:#fff; cursor:not-allowed; border:none;}
 
-/* Modal de video estilo Netflix */
+/* Modal estilo Netflix */
 #modal{
   display:none;
   position:fixed;
@@ -149,9 +149,10 @@ nav a:hover{color:#ff0000;}
   transition:0.3s;
 }
 #closeModal:hover{color:#ff0000;}
-video{
+iframe{
   width:100%;
   height:100%;
+  border:none;
   border-radius:10px;
   background:#000;
 }
@@ -201,10 +202,7 @@ footer{ text-align:center; padding:20px; background:#111; color:#888; margin-top
 <div id="modal">
   <div id="modalContent">
     <span id="closeModal">&times;</span>
-    <video id="moviePlayer" controls>
-      <source src="" type="video/mp4">
-      Tu navegador no soporta HTML5 video.
-    </video>
+    <iframe id="moviePlayer" allow="autoplay; fullscreen"></iframe>
   </div>
 </div>
 
@@ -212,19 +210,16 @@ footer{ text-align:center; padding:20px; background:#111; color:#888; margin-top
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 <script>
-// Películas con enlaces directos de Google Drive
 const peliculas = [
-  {titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:["Acción","Suspenso"], imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg", video:"https://drive.google.com/uc?export=download&id=1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn"},
-  {titulo:"Interstellar", descripcion:"Un viaje épico a través del espacio.", genero:["Ciencia ficción","Drama"], imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg", video:"https://drive.google.com/uc?export=download&id=1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7"},
-  {titulo:"Karate Kid", descripcion:"Un joven aprende kung fu.", genero:["Acción","Drama"], imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg", video:"https://drive.google.com/uc?export=download&id=1vytWPJ8SuHa5cLsXWXQFHsCA26jYspc5"},
+  {titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:["Acción","Suspenso"], imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
+  {titulo:"Interstellar", descripcion:"Un viaje épico a través del espacio.", genero:["Ciencia ficción","Drama"], imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview"},
+  {titulo:"Karate Kid", descripcion:"Un joven aprende kung fu.", genero:["Acción","Drama"], imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jYspc5/preview"},
   {titulo:"La leyenda de los Chaneques", descripcion:"Aventuras de los chaneques.", genero:["Animación","Familia","Aventura"], imagen:"https://m.media-amazon.com/images/I/71i4JK5pR-L._AC_SY679_.jpg", video:""},
-  {titulo:"Tiempo Congelado", descripcion:"Un reloj que detiene el tiempo.", genero:["Acción","Ciencia ficción","Comedia"], imagen:"https://m.media-amazon.com/images/I/81r+LNv5bQL._AC_SY679_.jpg", video:""},
-  {titulo:"Venom 3", descripcion:"Eddie y Venom enfrentan nuevos desafíos.", genero:["Acción","Superhéroes"], imagen:"https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SL1500_.jpg", video:"https://drive.google.com/uc?export=download&id=1-I98WaJ_C622i2YMeBFjcEn43808KgmR"}
+  {titulo:"Tiempo Congelado", descripcion:"Un reloj que detiene el tiempo.", genero:["Acción","Ciencia ficción","Comedia"], imagen:"https://m.media-amazon.com/images/I/81r+LNv5bQL._AC_SY679_.jpg", video:"https://drive.google.com/file/d/1mi8Ltlqx01KVDLKIIQXL0l05A_i5endV/preview"},
+  {titulo:"Venom 3", descripcion:"Eddie y Venom enfrentan nuevos desafíos.", genero:["Acción","Superhéroes"], imagen:"https://m.media-amazon.com/images/I/81kq5pCVSML._AC_SY679_.jpg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"}
 ];
 
-// Fuse.js para búsqueda
 const fuse = new Fuse(peliculas,{keys:['titulo','descripcion','genero'], threshold:0.3});
-
 const moviesContainer = document.getElementById('movies');
 const searchInput = document.getElementById('search');
 const noResults = document.getElementById('no-results');
@@ -233,7 +228,6 @@ const moviePlayer = document.getElementById('moviePlayer');
 const closeModal = document.getElementById('closeModal');
 const genreDropdown = document.getElementById('genreDropdown');
 
-// Mostrar películas
 function mostrarPeliculas(lista){
   moviesContainer.innerHTML='';
   if(lista.length===0){ noResults.style.display='block'; return; }
@@ -256,49 +250,45 @@ function mostrarPeliculas(lista){
       e.preventDefault();
       moviePlayer.src = btn.dataset.video;
       modal.style.display='flex';
-      moviePlayer.play();
-      moviePlayer.currentTime = 0;
     });
   });
 }
 
-// Generar menú de géneros
+// Menú de géneros
 const generosUnicos = [...new Set(peliculas.flatMap(p=>p.genero))];
 generosUnicos.forEach(g=>{
   const btn = document.createElement('button');
   btn.textContent = g;
   btn.addEventListener('click', ()=>{
-    const filtradas = peliculas.filter(p=>p.genero.includes(g));
-    mostrarPeliculas(filtradas);
+    mostrarPeliculas(peliculas.filter(p=>p.genero.includes(g)));
     genreDropdown.style.display='none';
   });
   genreDropdown.appendChild(btn);
 });
 
-// Mostrar dropdown
+// Dropdown toggle
 document.getElementById('genreBtn').addEventListener('click', ()=>{
   genreDropdown.style.display = genreDropdown.style.display==='flex'?'none':'flex';
   genreDropdown.style.flexDirection='column';
 });
 
-// Cerrar modal
+// Modal cierre
 closeModal.addEventListener('click', cerrarModal);
 window.addEventListener('click', e=>{
   if(e.target===modal){ cerrarModal(); }
 });
 function cerrarModal(){
   modal.style.display='none';
-  moviePlayer.pause();
   moviePlayer.src='';
 }
 
-// Búsqueda dinámica
+// Búsqueda
 searchInput.addEventListener('input', ()=>{
   const results = searchInput.value ? fuse.search(searchInput.value).map(r=>r.item) : peliculas;
   mostrarPeliculas(results);
 });
 
-// Mostrar todas al inicio
+// Inicial
 mostrarPeliculas(peliculas);
 </script>
 </body>
