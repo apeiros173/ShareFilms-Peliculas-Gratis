@@ -120,20 +120,41 @@ nav a:hover{color:#ff0000;}
 .movie-card a:hover{background:#cc0000;}
 .movie-card button{background:#555; color:#fff; cursor:not-allowed; border:none;}
 
-/* Modal de video */
+/* Modal de video estilo Netflix */
 #modal{
   display:none;
   position:fixed;
   top:0; left:0;
   width:100%; height:100%;
-  background:rgba(0,0,0,0.9);
+  background:rgba(0,0,0,0.95);
   justify-content:center;
   align-items:center;
   z-index:1000;
+  padding:20px;
 }
-#modalContent{position:relative; width:90%; max-width:800px;}
-#closeModal{position:absolute; top:-40px; right:0; font-size:40px; cursor:pointer; color:#fff;}
-video{width:100%; border-radius:10px;}
+#modalContent{
+  position:relative;
+  width:90%;
+  max-width:1000px;
+  max-height:90%;
+}
+#closeModal{
+  position:absolute;
+  top:-40px;
+  right:0;
+  font-size:40px;
+  cursor:pointer;
+  color:#fff;
+  font-weight:bold;
+  transition:0.3s;
+}
+#closeModal:hover{color:#ff0000;}
+video{
+  width:100%;
+  height:100%;
+  border-radius:10px;
+  background:#000;
+}
 
 /* Footer */
 footer{ text-align:center; padding:20px; background:#111; color:#888; margin-top:60px; }
@@ -191,50 +212,14 @@ footer{ text-align:center; padding:20px; background:#111; color:#888; margin-top
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 <script>
-// Películas con imagen correcta y enlace directo de Google Drive
+// Películas con enlaces directos de Google Drive
 const peliculas = [
-  {
-    titulo:"Contracara",
-    descripcion:"Dos enemigos intercambian rostros.",
-    genero:["Acción","Suspenso"],
-    imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg",
-    video:"https://drive.google.com/uc?export=download&id=1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn"
-  },
-  {
-    titulo:"Interstellar",
-    descripcion:"Un viaje épico a través del espacio.",
-    genero:["Ciencia ficción","Drama"],
-    imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg",
-    video:"https://drive.google.com/uc?export=download&id=1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7"
-  },
-  {
-    titulo:"Karate Kid",
-    descripcion:"Un joven aprende kung fu.",
-    genero:["Acción","Drama"],
-    imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg",
-    video:"https://drive.google.com/uc?export=download&id=1vytWPJ8SuHa5cLsXWXQFHsCA26jYspc5"
-  },
-  {
-    titulo:"La leyenda de los Chaneques",
-    descripcion:"Aventuras de los chaneques.",
-    genero:["Animación","Familia","Aventura"],
-    imagen:"https://m.media-amazon.com/images/I/71i4JK5pR-L._AC_SY679_.jpg",
-    video:""
-  },
-  {
-    titulo:"Tiempo Congelado",
-    descripcion:"Un reloj que detiene el tiempo.",
-    genero:["Acción","Ciencia ficción","Comedia"],
-    imagen:"https://m.media-amazon.com/images/I/81r+LNv5bQL._AC_SY679_.jpg",
-    video:""
-  },
-  {
-    titulo:"Venom 3",
-    descripcion:"Eddie y Venom enfrentan nuevos desafíos.",
-    genero:["Acción","Superhéroes"],
-    imagen:"https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SL1500_.jpg",
-    video:"https://drive.google.com/uc?export=download&id=1-I98WaJ_C622i2YMeBFjcEn43808KgmR"
-  }
+  {titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:["Acción","Suspenso"], imagen:"https://m.media-amazon.com/images/I/81yA4lXObKL._AC_UF1000,1000_QL80_.jpg", video:"https://drive.google.com/uc?export=download&id=1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn"},
+  {titulo:"Interstellar", descripcion:"Un viaje épico a través del espacio.", genero:["Ciencia ficción","Drama"], imagen:"https://m.media-amazon.com/images/I/91+U4p2ZBtL._AC_UF894,1000_QL80_.jpg", video:"https://drive.google.com/uc?export=download&id=1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7"},
+  {titulo:"Karate Kid", descripcion:"Un joven aprende kung fu.", genero:["Acción","Drama"], imagen:"https://m.media-amazon.com/images/I/81niGl1vTqL._AC_UF894,1000_QL80_.jpg", video:"https://drive.google.com/uc?export=download&id=1vytWPJ8SuHa5cLsXWXQFHsCA26jYspc5"},
+  {titulo:"La leyenda de los Chaneques", descripcion:"Aventuras de los chaneques.", genero:["Animación","Familia","Aventura"], imagen:"https://m.media-amazon.com/images/I/71i4JK5pR-L._AC_SY679_.jpg", video:""},
+  {titulo:"Tiempo Congelado", descripcion:"Un reloj que detiene el tiempo.", genero:["Acción","Ciencia ficción","Comedia"], imagen:"https://m.media-amazon.com/images/I/81r+LNv5bQL._AC_SY679_.jpg", video:""},
+  {titulo:"Venom 3", descripcion:"Eddie y Venom enfrentan nuevos desafíos.", genero:["Acción","Superhéroes"], imagen:"https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SL1500_.jpg", video:"https://drive.google.com/uc?export=download&id=1-I98WaJ_C622i2YMeBFjcEn43808KgmR"}
 ];
 
 // Fuse.js para búsqueda
@@ -256,19 +241,13 @@ function mostrarPeliculas(lista){
   lista.forEach(p=>{
     const card = document.createElement('div');
     card.classList.add('movie-card');
-
-    // Si tiene enlace de video
-    const boton = p.video 
-      ? `<a href="#" class="playMovie" data-video="${p.video}">Ver más</a>`
-      : `<button>Próximamente</button>`;
-
+    const boton = p.video ? `<a href="#" class="playMovie" data-video="${p.video}">Ver más</a>` : `<button>Próximamente</button>`;
     card.innerHTML = `
       <img src="${p.imagen}" alt="${p.titulo}">
       <h3>${p.titulo}</h3>
       <p>${p.genero.join(', ')}</p>
       <p>${p.descripcion}</p>
       ${boton}`;
-
     moviesContainer.appendChild(card);
   });
 
@@ -278,6 +257,7 @@ function mostrarPeliculas(lista){
       moviePlayer.src = btn.dataset.video;
       modal.style.display='flex';
       moviePlayer.play();
+      moviePlayer.currentTime = 0;
     });
   });
 }
@@ -290,6 +270,7 @@ generosUnicos.forEach(g=>{
   btn.addEventListener('click', ()=>{
     const filtradas = peliculas.filter(p=>p.genero.includes(g));
     mostrarPeliculas(filtradas);
+    genreDropdown.style.display='none';
   });
   genreDropdown.appendChild(btn);
 });
@@ -297,21 +278,19 @@ generosUnicos.forEach(g=>{
 // Mostrar dropdown
 document.getElementById('genreBtn').addEventListener('click', ()=>{
   genreDropdown.style.display = genreDropdown.style.display==='flex'?'none':'flex';
+  genreDropdown.style.flexDirection='column';
 });
 
 // Cerrar modal
-closeModal.addEventListener('click', ()=>{
+closeModal.addEventListener('click', cerrarModal);
+window.addEventListener('click', e=>{
+  if(e.target===modal){ cerrarModal(); }
+});
+function cerrarModal(){
   modal.style.display='none';
   moviePlayer.pause();
   moviePlayer.src='';
-});
-window.addEventListener('click', e=>{
-  if(e.target===modal){
-    modal.style.display='none';
-    moviePlayer.pause();
-    moviePlayer.src='';
-  }
-});
+}
 
 // Búsqueda dinámica
 searchInput.addEventListener('input', ()=>{
