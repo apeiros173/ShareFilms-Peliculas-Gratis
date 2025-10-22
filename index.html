@@ -16,70 +16,48 @@ body{
 }
 @keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
-/* Header */
 header{
   background:rgba(26,26,26,0.9);
   padding:15px 40px;
-  display:flex;flex-wrap:wrap;
-  justify-content:space-between;align-items:center;
+  display:flex; flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
   box-shadow:0 0 15px #ff000040;
   backdrop-filter:blur(10px);
-  position: relative;
-  z-index:1000;
+  position:relative;
+  z-index: 100;
 }
-.logo-container{display:flex;align-items:center;gap:10px;}
-.logo-container img{height:40px;border-radius:6px;}
-.logo-container h1{color:#ff0000;font-size:24px;margin:0;}
-nav{display:flex;align-items:center;gap:25px;flex-wrap:wrap;}
-nav a{color:#fff;text-decoration:none;font-weight:500;transition:0.3s;}
-nav a:hover{color:#ff0000;}
+.logo-container{display:flex; align-items:center; gap:10px;}
+.logo-container img{height:40px; border-radius:6px;}
+.logo-container h1{color:#ff0000; font-size:24px; margin:0;}
+nav{display:flex; align-items:center; gap:25px; flex-wrap: wrap;}
+nav a{color:#fff; text-decoration:none; font-weight:500; transition:0.3s;}
+nav a:hover, nav a.active{color:#ff0000; font-weight:700; border-bottom:2px solid #ff0000;}
 
-/* Buscador y género */
-.search-container{
-  flex:1;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:10px;
-  margin-top:10px;
-  margin-bottom:10px;
-}
-.search-container input{
-  width:60%;
-  max-width:400px;
-  padding:12px 18px;
-  font-size:16px;
-  border:none;
-  border-radius:8px;
-  background:#1a1a1a;
-  color:#fff;
-  box-shadow:0 0 10px #ff000020;
-  transition:0.3s;
-}
-.search-container input:focus{outline:none;box-shadow:0 0 15px #ff000080;}
+.search-container{flex:1; display:flex; justify-content:center; align-items:center; gap:10px; margin-top:10px; margin-bottom:10px;}
+.search-container input{width:60%; max-width:300px; padding:10px 15px; font-size:16px; border:none; border-radius:8px; background:#1a1a1a; color:#fff; box-shadow:0 0 10px #ff000020; transition:0.3s;}
+.search-container input:focus{outline:none; box-shadow:0 0 15px #ff000080;}
 
-/* Dropdown de géneros */
 .genre-menu{position:relative; display:inline-block;}
 .genre-menu button{
   background:#1a1a1a;
   color:#fff;
-  padding:10px 14px;
+  padding:10px 12px;
   border:none;
   border-radius:8px;
   cursor:pointer;
   box-shadow:0 0 10px #ff000020;
-  z-index:1100;
-  position:relative;
 }
 .genre-menu button:hover{background:#ff0000;}
 .dropdown-content{
   display:none;
   position:absolute;
+  top:45px;
   background:#1a1a1a;
   min-width:160px;
   box-shadow:0 8px 16px rgba(0,0,0,0.2);
   border-radius:8px;
-  z-index:2000;
+  z-index:1000;
   flex-direction:column;
 }
 .dropdown-content button{
@@ -93,59 +71,57 @@ nav a:hover{color:#ff0000;}
 }
 .dropdown-content button:hover{background:#ff000020;}
 
-/* Películas */
 .movies-container{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:30px;
-  padding:25px;
+  gap:25px;
+  padding:20px;
   max-width:1200px;
   margin:auto;
-  position:relative;
-  z-index:1;
 }
 .movie-card{
-  background:rgba(26,26,26,0.95);
-  border-radius:12px;
-  box-shadow:0 0 20px #ff000030;
+  background:rgba(26,26,26,0.9);
+  border-radius:10px;
+  box-shadow:0 0 15px #ff000030;
   overflow:hidden;
-  width:300px;
-  height:520px;
+  width:260px;
   text-align:center;
   transition:0.3s;
   cursor:pointer;
-  backdrop-filter:blur(8px);
+  backdrop-filter:blur(6px);
   display:flex;
   flex-direction:column;
 }
-.movie-card:hover{transform:scale(1.05);box-shadow:0 0 25px #ff000050;}
+.movie-card:hover{transform:scale(1.05); box-shadow:0 0 20px #ff000050;}
 .movie-card img{
   width:100%;
-  height:300px;
+  height:350px;
   object-fit:cover;
   transition:transform 0.3s;
+  display:block;
 }
 .movie-card:hover img{transform:scale(1.05);}
-.movie-card h3{margin:10px 0;color:#fff;}
+.movie-card h3{margin:10px 0; color:#fff;}
 .movie-card p{
-  color:#aaa;
+  color:#ccc;
   font-size:14px;
-  margin:5px 10px;
-  line-height:1.4;
-  flex-grow:1;
-  overflow:auto;
+  margin:5px 10px 10px;
+  flex:1;
+  overflow-y:auto;
+  max-height:120px;
+  text-align:justify;
 }
 .movie-card a, .movie-card button{
   display:inline-block;
   margin:10px 0 15px;
-  padding:10px 16px;
+  padding:8px 14px;
   border-radius:6px;
   font-weight:600;
   transition:0.3s;
   text-decoration:none;
 }
-.movie-card a{background:#ff0000;color:#fff;}
+.movie-card a{background:#ff0000; color:#fff;}
 .movie-card a:hover{background:#cc0000;}
 .movie-card button{
   background:#333;
@@ -155,21 +131,15 @@ nav a:hover{color:#ff0000;}
 }
 .movie-card button::before{content:"⏳ ";}
 
-/* Scroll interno */
-.movie-card p::-webkit-scrollbar{width:6px;}
-.movie-card p::-webkit-scrollbar-thumb{background:#ff000040;border-radius:3px;}
-.movie-card p::-webkit-scrollbar-track{background:transparent;}
-
-/* Modal */
 #modal{
   display:none;
   position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
+  top:0; left:0;
+  width:100%; height:100%;
   background:rgba(0,0,0,0.95);
   justify-content:center;
   align-items:center;
-  z-index:3000;
+  z-index:1000;
   padding:0;
 }
 #modalContent{
@@ -198,7 +168,6 @@ iframe{
   background:#000;
 }
 
-/* Footer */
 footer{
   text-align:center;
   padding:20px;
@@ -207,18 +176,20 @@ footer{
   margin-top:60px;
   box-shadow:0 -2px 10px #ff000020;
 }
-footer a{
-  color:#ff0000;
-  text-decoration:none;
-  margin:0 10px;
-  font-weight:600;
-}
+footer a{color:#ff0000; text-decoration:none; margin:0 10px;}
 footer a:hover{color:#fff;}
 
-/* Responsive */
-@media(max-width:1000px){.movie-card{width:260px;height:500px;}.movie-card img{height:280px;}}
-@media(max-width:700px){.movie-card{width:220px;height:460px;}.movie-card img{height:240px;}}
-@media(max-width:500px){.movie-card{width:180px;height:420px;}.movie-card img{height:200px;}}
+@media(max-width:900px){
+  .search-container input{width:70%;}
+  .movie-card{width:200px;}
+  .movie-card img{height:300px;}
+}
+@media(max-width:600px){
+  header{flex-direction:column; align-items:flex-start; gap:10px;}
+  nav{flex-wrap:wrap; gap:10px;}
+  .movie-card{width:180px;}
+  .movie-card img{height:250px;}
+}
 </style>
 </head>
 <body>
@@ -238,14 +209,14 @@ footer a:hover{color:#fff;}
   </div>
 
   <nav>
-    <a href="index.html">Inicio</a>
+    <a href="index.html" class="active">Inicio</a>
     <a href="mas-recientes.html">Más recientes</a>
     <a href="series.html">Series</a>
   </nav>
 </header>
 
 <section class="movies-container" id="movies"></section>
-<p id="no-results" style="text-align:center;display:none;color:#888;margin-top:20px;">No se encontraron películas.</p>
+<p id="no-results" style="text-align:center; display:none; color:#888; margin-top:20px;">No se encontraron películas.</p>
 
 <div id="modal">
   <div id="modalContent">
@@ -256,42 +227,47 @@ footer a:hover{color:#fff;}
 
 <footer>
   © 2025 Share Films — Todos los derechos reservados. <br>
-  <a href="https://whatsapp.com/channel/0029VbBtBvR2UPBOALdRU71t" target="_blank">WhatsApp Channel🪀</a>
+  <a href="https://whatsapp.com/channel/0029VbBtBvR2UPBOALdRU71t" target="_blank">WhatsApp Channel🪀</a> | 
   <a href="https://chat.whatsapp.com/HesN0nsEOeN0PbAJFevL37?mode=wwt" target="_blank">WhatsApp Group🪀</a>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', ()=>{
-  const peliculas=[
-    {titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros y deben aprender a vivir la vida del otro mientras se desvelan secretos peligrosos.", genero:["Acción","Suspenso"], imagen:"contracara.jpeg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
-    {titulo:"Interstellar", descripcion:"Un grupo de astronautas viaja a través de un agujero de gusano para encontrar un nuevo hogar para la humanidad mientras enfrentan desafíos personales y cósmicos.", genero:["Ciencia ficción","Drama"], imagen:"interestelar.jpeg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview"},
-    {titulo:"Karate Kid", descripcion:"Un joven aprendiz de kung fu enfrenta desafíos físicos y emocionales bajo la guía de su maestro para superar a sus adversarios y crecer como persona.", genero:["Acción","Drama"], imagen:"karate-kid.jpeg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jspc5/preview"},
-    {titulo:"La leyenda de los Chaneques", descripcion:"Pequeñas criaturas traviesas llamadas chaneques viven aventuras mágicas y enseñan lecciones sobre amistad y valentía a quienes las encuentran.", genero:["Animación","Familia","Aventura"], imagen:"la-leyenda-de-los-chaneques.jpeg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview"},
-    {titulo:"Venom 3", descripcion:"Eddie y Venom deben enfrentarse a nuevos enemigos mientras su relación simbiótica se pone a prueba y el mundo enfrenta amenazas inesperadas.", genero:["Acción","Superhéroes"], imagen:"venom-3.jpeg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"}
+  const peliculas = [
+    {titulo:"Contracara", año:1997, descripcion:"El agente del FBI Sean Archer (John Travolta) sabe cómo detener al terrorista Castor Troy (Nicolas Cage)...", genero:["Acción","Suspenso"], imagen:"contracara.jpeg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
+    {titulo:"Interstellar", año:2014, descripcion:"Un grupo de científicos y exploradores, encabezados por Cooper, viaja al espacio en busca de un planeta habitable...", genero:["Ciencia ficción","Drama"], imagen:"interestelar.jpeg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview"},
+    {titulo:"Karate Kid", año:1984, descripcion:"Daniel LaRusso llega a Los Ángeles y aprende kung fu con Miyagi...", genero:["Acción","Drama"], imagen:"karate-kid.jpeg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jspc5/preview"},
+    {titulo:"Karate Kid Leyendas", año:2025, descripcion:"Li Fong debe fusionar estilos de artes marciales para un torneo con la ayuda del legendario Daniel LaRusso...", genero:["Acción","Drama"], imagen:"karate-kid-leyendas.jpeg", video:"https://drive.google.com/file/d/1A26SVMjdf0MWh_HmFkXG_qtOv_C4lYK2/preview"},
+    {titulo:"La leyenda de los Chaneques", año:2023, descripcion:"Leo San Juan enfrenta una antigua maldición en Veracruz, sin poderes y sin amigos...", genero:["Animación","Aventura","Familia"], imagen:"la-leyenda-de-los-chaneques.jpeg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview"},
+    {titulo:"Venom 3", año:2024, descripcion:"Eddie y Venom deben limpiar su nombre mientras una criatura cazadora de simbiontes los rastrea...", genero:["Acción","Superhéroes"], imagen:"venom-3.jpeg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"},
+    {titulo:"Tiempo Congelado", año:2002, descripcion:"Un adolescente descubre un reloj que detiene el tiempo y debe enfrentarse a conspiraciones del Dr. Dopler...", genero:["Aventura","Ciencia ficción"], imagen:"tiempo-congelado.jpeg", video:"https://drive.google.com/file/d/1HoxHuCgIgetLZk6nuFE6nN9a_1YK9Py_/preview"},
+    {titulo:"Lightyear", año:2022, descripcion:"Buzz y Alisha exploran el espacio-tiempo tras una falla en hipervelocidad...", genero:["Animación","Ciencia ficción"], imagen:"lightyear.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview"},
+    {titulo:"Mufasa", año:2024, descripcion:"[Aún falta tu resumen]", genero:["Animación","Aventura"], imagen:"mufasa.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview"},
+    {titulo:"Cómo Entrenar a tu Dragón 2", año:2014, descripcion:"Hipo busca detener la guerra de dragones y proteger su isla junto a Astrid y Chimuelo...", genero:["Animación","Aventura","Familia"], imagen:"dragon-2.jpeg", video:"https://drive.google.com/file/d/1HoxHuCgIgetLZk6nuFE6nN9a_1YK9Py_/preview"},
+    {titulo:"Cómo Entrenar a tu Dragón 3", año:2019, descripcion:"Hipo y Chimuelo buscan el 'Mundo Oculto' mientras enfrentan a Grimmel y protegen a los dragones...", genero:["Animación","Aventura","Familia"], imagen:"dragon-3.jpeg", video:"https://drive.google.com/file/d/1x4CYvRvkriWKcL2aE0nqOJY1tPAq71I2/preview"}
   ];
 
-  const moviesContainer=document.getElementById('movies');
-  const searchInput=document.getElementById('search');
-  const noResults=document.getElementById('no-results');
-  const modal=document.getElementById('modal');
-  const moviePlayer=document.getElementById('moviePlayer');
-  const closeModal=document.getElementById('closeModal');
-  const genreDropdown=document.getElementById('genreDropdown');
+  const moviesContainer = document.getElementById('movies');
+  const searchInput = document.getElementById('search');
+  const noResults = document.getElementById('no-results');
+  const modal = document.getElementById('modal');
+  const moviePlayer = document.getElementById('moviePlayer');
+  const closeModal = document.getElementById('closeModal');
+  const genreDropdown = document.getElementById('genreDropdown');
 
   function mostrarPeliculas(lista){
     moviesContainer.innerHTML='';
     if(lista.length===0){ noResults.style.display='block'; return; }
     noResults.style.display='none';
     lista.forEach(p=>{
-      const card=document.createElement('div');
+      const card = document.createElement('div');
       card.classList.add('movie-card');
-      const boton=p.video? `<a href="#" class="playMovie" data-video="${p.video}">🎬 Reproducir</a>` : `<button>Próximamente</button>`;
-      card.innerHTML=`
-        <img src="${p.imagen}" alt="${p.titulo}" onerror="this.src='https://via.placeholder.com/280x380?text=Sin+imagen';">
-        <h3>${p.titulo}</h3>
-        <p>${p.genero.join(', ')}<br>${p.descripcion}</p>
-        ${boton}`;
+      const boton = p.video? `<a href="#" class="playMovie" data-video="${p.video}">🎬 Reproducir</a>`: `<button>Próximamente</button>`;
+      card.innerHTML = `<img src="${p.imagen}" alt="${p.titulo}" onerror="this.src='https://via.placeholder.com/260x350?text=Sin+imagen';">
+                        <h3>${p.titulo} (${p.año})</h3>
+                        <p>${p.descripcion}</p>
+                        ${boton}`;
       moviesContainer.appendChild(card);
     });
 
@@ -306,7 +282,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   const fuse=new Fuse(peliculas,{keys:['titulo','descripcion','genero'], threshold:0.3});
   searchInput.addEventListener('input', ()=>{
-    const results=searchInput.value? fuse.search(searchInput.value).map(r=>r.item) : peliculas;
+    const results=searchInput.value? fuse.search(searchInput.value).map(r=>r.item): peliculas;
     mostrarPeliculas(results);
   });
 
@@ -324,14 +300,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
   });
   window.addEventListener('click', e=>{ if(!e.target.closest('.genre-menu')) genreDropdown.style.display='none'; });
 
-  function cerrarModal(){ modal.style.display='none'; moviePlayer.src=''; }
-  closeModal.addEventListener('click', cerrarModal);
-  window.addEventListener('click', e=>{ if(e.target===modal) cerrarModal(); });
-  window.addEventListener('keydown', e=>{ if(e.key==='Escape') cerrarModal(); });
+  closeModal.addEventListener('click', ()=>{ modal.style.display='none'; moviePlayer.src=''; });
+  window.addEventListener('click', e=>{ if(e.target===modal){ modal.style.display='none'; moviePlayer.src=''; } });
+  window.addEventListener('keydown', e=>{ if(e.key==='Escape'){ modal.style.display='none'; moviePlayer.src=''; } });
 
   mostrarPeliculas(peliculas);
 });
 </script>
-
 </body>
 </html>
