@@ -28,8 +28,8 @@ header{
   justify-content:space-between;align-items:center;
   box-shadow:0 0 15px #ff000040;
   backdrop-filter:blur(10px);
-  z-index: 1000;
   position: relative;
+  z-index:1000;
 }
 .logo-container{display:flex;align-items:center;gap:10px;}
 .logo-container img{height:40px;border-radius:6px;}
@@ -50,8 +50,8 @@ nav a:hover{color:#ff0000;}
 }
 .search-container input{
   width:60%;
-  max-width:300px;
-  padding:10px 15px;
+  max-width:400px;
+  padding:12px 18px;
   font-size:16px;
   border:none;
   border-radius:8px;
@@ -67,13 +67,13 @@ nav a:hover{color:#ff0000;}
 .genre-menu button{
   background:#1a1a1a;
   color:#fff;
-  padding:10px 12px;
+  padding:10px 14px;
   border:none;
   border-radius:8px;
   cursor:pointer;
   box-shadow:0 0 10px #ff000020;
-  z-index: 1100;
-  position: relative;
+  z-index:1100;
+  position:relative;
 }
 .genre-menu button:hover{background:#ff0000;}
 .dropdown-content{
@@ -83,7 +83,7 @@ nav a:hover{color:#ff0000;}
   min-width:160px;
   box-shadow:0 8px 16px rgba(0,0,0,0.2);
   border-radius:8px;
-  z-index:2000; /* Siempre arriba de las tarjetas */
+  z-index:2000;
   flex-direction:column;
 }
 .dropdown-content button{
@@ -102,41 +102,41 @@ nav a:hover{color:#ff0000;}
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:25px;
-  padding:20px;
-  max-width:1100px;
+  gap:30px;
+  padding:25px;
+  max-width:1200px;
   margin:auto;
-  position: relative;
-  z-index: 1; /* Debajo del dropdown */
+  position:relative;
+  z-index:1;
 }
 .movie-card{
-  background:rgba(26,26,26,0.9);
-  border-radius:10px;
-  box-shadow:0 0 15px #ff000030;
+  background:rgba(26,26,26,0.95);
+  border-radius:12px;
+  box-shadow:0 0 20px #ff000030;
   overflow:hidden;
-  width:220px;
+  width:280px;
   text-align:center;
   transition:0.3s;
   cursor:pointer;
-  backdrop-filter:blur(6px);
-  position: relative; /* Para que z-index funcione */
+  backdrop-filter:blur(8px);
+  position:relative;
   z-index:1;
 }
-.movie-card:hover{transform:scale(1.05);box-shadow:0 0 20px #ff000050;}
+.movie-card:hover{transform:scale(1.05);box-shadow:0 0 25px #ff000050;}
 .movie-card img{
   width:100%;
-  height:320px;
+  height:380px;
   object-fit:cover;
   transition:transform 0.3s;
   display:block;
 }
 .movie-card:hover img{transform:scale(1.05);}
-.movie-card h3{margin:10px 0;color:#fff;}
-.movie-card p{color:#aaa;font-size:14px;margin:5px 0;}
+.movie-card h3{margin:12px 0;color:#fff;}
+.movie-card p{color:#aaa;font-size:15px;margin:5px 0;line-height:1.4;}
 .movie-card a, .movie-card button{
   display:inline-block;
-  margin-bottom:15px;
-  padding:8px 14px;
+  margin:10px 0 15px;
+  padding:10px 16px;
   border-radius:6px;
   font-weight:600;
   transition:0.3s;
@@ -152,16 +152,16 @@ nav a:hover{color:#ff0000;}
 }
 .movie-card button::before{content:"⏳ ";}
 
-/* Modal estilo cine */
+/* Modal */
 #modal{
   display:none;
   position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
+  top:0;left:0;
+  width:100%;height:100%;
   background:rgba(0,0,0,0.95);
   justify-content:center;
   align-items:center;
-  z-index:3000; /* Encima de todo */
+  z-index:3000;
   padding:0;
 }
 #modalContent{
@@ -201,17 +201,9 @@ footer{
 }
 
 /* Responsive */
-@media(max-width:900px){
-  .search-container input{width:70%;}
-  .movie-card{width:180px;}
-  .movie-card img{height:260px;}
-}
-@media(max-width:600px){
-  header{flex-direction:column;align-items:flex-start;gap:10px;}
-  nav{flex-wrap:wrap;gap:10px;}
-  .movie-card{width:150px;}
-  .movie-card img{height:220px;}
-}
+@media(max-width:1000px){.movie-card{width:240px;}.movie-card img{height:320px;}}
+@media(max-width:700px){.movie-card{width:200px;}.movie-card img{height:280px;}}
+@media(max-width:500px){.movie-card{width:170px;}.movie-card img{height:240px;}}
 </style>
 </head>
 <body>
@@ -238,7 +230,7 @@ footer{
 </header>
 
 <section class="movies-container" id="movies"></section>
-<p id="no-results" style="text-align:center; display:none; color:#888; margin-top:20px;">No se encontraron películas.</p>
+<p id="no-results" style="text-align:center;display:none;color:#888;margin-top:20px;">No se encontraron películas.</p>
 
 <div id="modal">
   <div id="modalContent">
@@ -251,11 +243,11 @@ footer{
 <script>
 document.addEventListener('DOMContentLoaded', ()=>{
   const peliculas=[
-    {titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros.", genero:["Acción","Suspenso"], imagen:"contracara.jpeg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
-    {titulo:"Interstellar", descripcion:"Un viaje épico a través del espacio.", genero:["Ciencia ficción","Drama"], imagen:"interestelar.jpeg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview"},
-    {titulo:"Karate Kid", descripcion:"Un joven aprende kung fu.", genero:["Acción","Drama"], imagen:"karate-kid.jpeg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jspc5/preview"},
-    {titulo:"La leyenda de los Chaneques", descripcion:"Aventuras de los chaneques.", genero:["Animación","Familia","Aventura"], imagen:"la-leyenda-de-los-chaneques.jpeg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview"},
-    {titulo:"Venom 3", descripcion:"Eddie y Venom enfrentan nuevos desafíos.", genero:["Acción","Superhéroes"], imagen:"venom-3.jpeg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"}
+    {titulo:"Contracara", descripcion:"Dos enemigos intercambian rostros y deben aprender a vivir la vida del otro mientras se desvelan secretos peligrosos.", genero:["Acción","Suspenso"], imagen:"contracara.jpeg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
+    {titulo:"Interstellar", descripcion:"Un grupo de astronautas viaja a través de un agujero de gusano para encontrar un nuevo hogar para la humanidad mientras enfrentan desafíos personales y cósmicos.", genero:["Ciencia ficción","Drama"], imagen:"interestelar.jpeg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview"},
+    {titulo:"Karate Kid", descripcion:"Un joven aprendiz de kung fu enfrenta desafíos físicos y emocionales bajo la guía de su maestro para superar a sus adversarios y crecer como persona.", genero:["Acción","Drama"], imagen:"karate-kid.jpeg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jspc5/preview"},
+    {titulo:"La leyenda de los Chaneques", descripcion:"Pequeñas criaturas traviesas llamadas chaneques viven aventuras mágicas y enseñan lecciones sobre amistad y valentía a quienes las encuentran.", genero:["Animación","Familia","Aventura"], imagen:"la-leyenda-de-los-chaneques.jpeg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview"},
+    {titulo:"Venom 3", descripcion:"Eddie y Venom deben enfrentarse a nuevos enemigos mientras su relación simbiótica se pone a prueba y el mundo enfrenta amenazas inesperadas.", genero:["Acción","Superhéroes"], imagen:"venom-3.jpeg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"}
   ];
 
   const moviesContainer=document.getElementById('movies');
@@ -275,7 +267,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       card.classList.add('movie-card');
       const boton=p.video? `<a href="#" class="playMovie" data-video="${p.video}">🎬 Reproducir</a>` : `<button>Próximamente</button>`;
       card.innerHTML=`
-        <img src="${p.imagen}" alt="${p.titulo}" onerror="this.src='https://via.placeholder.com/220x320?text=Sin+imagen';">
+        <img src="${p.imagen}" alt="${p.titulo}" onerror="this.src='https://via.placeholder.com/280x380?text=Sin+imagen';">
         <h3>${p.titulo}</h3>
         <p>${p.genero.join(', ')}</p>
         <p>${p.descripcion}</p>
