@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Share Films — Series</title>
+<title>Share Series — Series</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
+/* Reset y body */
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:'Poppins',sans-serif;
   background:linear-gradient(-45deg,#0d0d0d,#1a1a1a,#111,#0d0d0d);
-  background-size:200% 200%;
+  background-size:400% 400%;
   animation:gradientBG 12s ease infinite;
   color:#fff;
 }
 @keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
+/* Header */
 header{
   background:rgba(26,26,26,0.9);
   padding:15px 40px;
@@ -32,33 +34,57 @@ nav{display:flex; align-items:center; gap:25px; flex-wrap: wrap;}
 nav a{color:#fff; text-decoration:none; font-weight:500; transition:0.3s;}
 nav a:hover, nav a.active{color:#ff0000; font-weight:700; border-bottom:2px solid #ff0000;}
 
-.search-container{flex:1; display:flex; justify-content:center; align-items:center; gap:10px; margin-top:10px; margin-bottom:10px;}
-.search-container input{width:60%; max-width:300px; padding:10px 15px; font-size:16px; border:none; border-radius:8px; background:#1a1a1a; color:#fff; box-shadow:0 0 10px #ff000020; transition:0.3s;}
+/* Buscador */
+.search-container{
+  flex:1; display:flex; justify-content:center; align-items:center; gap:10px; margin:10px 0;
+}
+.search-container input{
+  width:60%; max-width:350px; padding:10px 15px;
+  font-size:16px; border:none; border-radius:8px;
+  background:#1a1a1a; color:#fff;
+  box-shadow:0 0 10px #ff000020; transition:0.3s;
+}
 .search-container input:focus{outline:none; box-shadow:0 0 15px #ff000080;}
 
+/* Series */
 .series-container{
-  display:flex; flex-wrap:wrap; justify-content:center; gap:25px; padding:20px; max-width:1100px; margin:auto;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:25px;
+  padding:20px; max-width:1200px; margin:auto;
 }
 .series-card{
   background:rgba(26,26,26,0.9);
   border-radius:10px;
   box-shadow:0 0 15px #ff000030;
   overflow:hidden;
-  width:220px;
+  width:260px;
   text-align:center;
   transition:0.3s;
   cursor:pointer;
   backdrop-filter:blur(6px);
 }
 .series-card:hover{transform:scale(1.05); box-shadow:0 0 20px #ff000050;}
-.series-card img{width:100%; height:320px; object-fit:cover; transition:transform 0.3s; display:block;}
+.series-card img{
+  width:100%; height:350px; object-fit:cover; transition:transform 0.3s;
+  display:block;
+}
 .series-card:hover img{transform:scale(1.05);}
 .series-card h3{margin:10px 0; color:#fff;}
-.series-card p{color:#aaa; font-size:14px; margin:5px 0;}
+.series-card p{color:#aaa; font-size:14px; margin:5px 0; line-height:1.4;}
 
-#modal{display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); justify-content:center; align-items:center; z-index:1000; padding:0;}
-#modalContent{position:relative; width:95%; max-width:800px; max-height:90vh; overflow-y:auto; background:#111; padding:20px; border-radius:10px;}
-#closeModal{position:absolute; top:10px; right:10px; font-size:35px; cursor:pointer; color:#fff; font-weight:bold; transition:0.3s;}
+/* Modal */
+#modal{
+  display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.95); justify-content:center; align-items:center;
+  z-index:1000; padding:0;
+}
+#modalContent{
+  position:relative; width:95%; max-width:800px; max-height:90vh;
+  overflow-y:auto; background:#111; padding:20px; border-radius:10px;
+}
+#closeModal{
+  position:absolute; top:10px; right:10px; font-size:35px; cursor:pointer;
+  color:#fff; font-weight:bold; transition:0.3s;
+}
 #closeModal:hover{color:#ff0000;}
 .modal img{width:100%; max-height:300px; object-fit:cover; border-radius:6px; margin-bottom:15px;}
 .modal h2{margin-bottom:10px;}
@@ -68,18 +94,20 @@ nav a:hover, nav a.active{color:#ff0000; font-weight:700; border-bottom:2px soli
 .capitulos{display:none; padding-left:15px;}
 .capitulos li{margin-bottom:5px; color:#ccc;}
 
+/* Footer */
 footer{text-align:center; padding:20px; background:#111; color:#888; margin-top:60px; box-shadow:0 -2px 10px #ff000020;}
 
-@media(max-width:900px){.series-card{width:180px;}.series-card img{height:260px;}}
-@media(max-width:600px){.series-card{width:150px;}.series-card img{height:220px;}}
+/* Responsive */
+@media(max-width:900px){.series-card{width:220px;}.series-card img{height:300px;}}
+@media(max-width:600px){.series-card{width:180px;}.series-card img{height:240px;}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo-container">
-    <img src="logo.jpeg" alt="Logo Share Films">
-    <h1>Share Films</h1>
+    <img src="logo.jpeg" alt="Logo Share Series">
+    <h1>Share Series</h1>
   </div>
 
   <div class="search-container">
@@ -103,20 +131,23 @@ footer{text-align:center; padding:20px; background:#111; color:#888; margin-top:
   </div>
 </div>
 
-<footer>© 2025 Share Films — Todos los derechos reservados.</footer>
+<footer>© 2025 Share Series — Todos los derechos reservados.</footer>
 
-<script src="js/fuse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 <script>
+// Datos de series
 const seriesData = [
   {
-    titulo:"What If...?", descripcion:"Explora universos alternativos del MCU.", imagen:"https://m.media-amazon.com/images/I/81xqVqZy+GL._AC_SY679_.jpg",
+    titulo:"What If...?", descripcion:"Explora universos alternativos del MCU.",
+    imagen:"https://m.media-amazon.com/images/I/81xqVqZy+GL._AC_SY679_.jpg",
     temporadas:[
       {titulo:"Temporada 1", capitulos:["Capítulo 1: ¿Qué pasaría si...?","Capítulo 2: La escena X","Capítulo 3: Otra historia"]},
       {titulo:"Temporada 2", capitulos:["Capítulo 1: Nuevos eventos","Capítulo 2: Más aventuras"]}
     ]
   },
   {
-    titulo:"Stranger Things", descripcion:"Aventuras paranormales en Hawkins.", imagen:"https://m.media-amazon.com/images/I/81V2YqR1hgL._AC_SY679_.jpg",
+    titulo:"Stranger Things", descripcion:"Aventuras paranormales en Hawkins.",
+    imagen:"https://m.media-amazon.com/images/I/81V2YqR1hgL._AC_SY679_.jpg",
     temporadas:[
       {titulo:"Temporada 1", capitulos:["Capítulo 1: La desaparición","Capítulo 2: El misterio"]},
       {titulo:"Temporada 2", capitulos:["Capítulo 1: La conspiración","Capítulo 2: Nuevos secretos"]}
@@ -132,6 +163,7 @@ const modal = document.getElementById('modal');
 const modalBody = document.getElementById('modalBody');
 const closeModal = document.getElementById('closeModal');
 
+// Mostrar series
 function mostrarSeries(lista){
   seriesContainer.innerHTML='';
   if(lista.length===0){ noResults.style.display='block'; return; }
@@ -139,13 +171,15 @@ function mostrarSeries(lista){
   lista.forEach(s=>{
     const card = document.createElement('div');
     card.classList.add('series-card');
-    card.innerHTML = `<img src="${s.imagen}" loading="lazy" alt="${s.titulo}" onerror="this.src='https://via.placeholder.com/220x320?text=Sin+imagen';">
-                      <h3>${s.titulo}</h3>`;
+    card.innerHTML = `<img src="${s.imagen}" loading="lazy" alt="${s.titulo}" onerror="this.src='https://via.placeholder.com/260x350?text=Sin+imagen';">
+                      <h3>${s.titulo}</h3>
+                      <p>${s.descripcion}</p>`;
     card.addEventListener('click', ()=>abrirModal(s));
     seriesContainer.appendChild(card);
   });
 }
 
+// Modal
 function abrirModal(serie){
   modalBody.innerHTML = `
     <img src="${serie.imagen}" alt="${serie.titulo}">
@@ -157,8 +191,7 @@ function abrirModal(serie){
         <ul class="capitulos">
           ${t.capitulos.map(c=>`<li>${c}</li>`).join('')}
         </ul>
-      </div>`).join('')}
-  `;
+      </div>`).join('')}`;
   modal.style.display='flex';
   
   document.querySelectorAll('.temporada h3').forEach(h=>{
@@ -170,10 +203,10 @@ function abrirModal(serie){
 }
 
 closeModal.addEventListener('click', ()=>{ modal.style.display='none'; });
-window.addEventListener('click', e=>{ if(e.target===modal){ modal.style.display='none'; } });
-window.addEventListener('keydown', e=>{ if(e.key==='Escape'){ modal.style.display='none'; } });
+window.addEventListener('click', e=>{ if(e.target===modal) modal.style.display='none'; });
+window.addEventListener('keydown', e=>{ if(e.key==='Escape') modal.style.display='none'; });
 
-// Debounce para buscador
+// Buscador con debounce
 let debounceTimer;
 searchInput.addEventListener('input', ()=>{
   clearTimeout(debounceTimer);
