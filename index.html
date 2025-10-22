@@ -14,11 +14,7 @@ body{
   animation:gradientBG 12s ease infinite;
   color:#fff;
 }
-@keyframes gradientBG{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
+@keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
 /* Header */
 header{
@@ -114,25 +110,32 @@ nav a:hover{color:#ff0000;}
   border-radius:12px;
   box-shadow:0 0 20px #ff000030;
   overflow:hidden;
-  width:280px;
+  width:300px;
+  height:520px;
   text-align:center;
   transition:0.3s;
   cursor:pointer;
   backdrop-filter:blur(8px);
-  position:relative;
-  z-index:1;
+  display:flex;
+  flex-direction:column;
 }
 .movie-card:hover{transform:scale(1.05);box-shadow:0 0 25px #ff000050;}
 .movie-card img{
   width:100%;
-  height:380px;
+  height:300px;
   object-fit:cover;
   transition:transform 0.3s;
-  display:block;
 }
 .movie-card:hover img{transform:scale(1.05);}
-.movie-card h3{margin:12px 0;color:#fff;}
-.movie-card p{color:#aaa;font-size:15px;margin:5px 0;line-height:1.4;}
+.movie-card h3{margin:10px 0;color:#fff;}
+.movie-card p{
+  color:#aaa;
+  font-size:14px;
+  margin:5px 10px;
+  line-height:1.4;
+  flex-grow:1;
+  overflow:auto;
+}
 .movie-card a, .movie-card button{
   display:inline-block;
   margin:10px 0 15px;
@@ -151,6 +154,11 @@ nav a:hover{color:#ff0000;}
   cursor:not-allowed;
 }
 .movie-card button::before{content:"⏳ ";}
+
+/* Scroll interno */
+.movie-card p::-webkit-scrollbar{width:6px;}
+.movie-card p::-webkit-scrollbar-thumb{background:#ff000040;border-radius:3px;}
+.movie-card p::-webkit-scrollbar-track{background:transparent;}
 
 /* Modal */
 #modal{
@@ -199,11 +207,18 @@ footer{
   margin-top:60px;
   box-shadow:0 -2px 10px #ff000020;
 }
+footer a{
+  color:#ff0000;
+  text-decoration:none;
+  margin:0 10px;
+  font-weight:600;
+}
+footer a:hover{color:#fff;}
 
 /* Responsive */
-@media(max-width:1000px){.movie-card{width:240px;}.movie-card img{height:320px;}}
-@media(max-width:700px){.movie-card{width:200px;}.movie-card img{height:280px;}}
-@media(max-width:500px){.movie-card{width:170px;}.movie-card img{height:240px;}}
+@media(max-width:1000px){.movie-card{width:260px;height:500px;}.movie-card img{height:280px;}}
+@media(max-width:700px){.movie-card{width:220px;height:460px;}.movie-card img{height:240px;}}
+@media(max-width:500px){.movie-card{width:180px;height:420px;}.movie-card img{height:200px;}}
 </style>
 </head>
 <body>
@@ -239,6 +254,12 @@ footer{
   </div>
 </div>
 
+<footer>
+  © 2025 Share Films — Todos los derechos reservados. <br>
+  <a href="https://whatsapp.com/channel/0029VbBtBvR2UPBOALdRU71t" target="_blank">WhatsApp Channel🪀</a>
+  <a href="https://chat.whatsapp.com/HesN0nsEOeN0PbAJFevL37?mode=wwt" target="_blank">WhatsApp Group🪀</a>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -269,8 +290,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       card.innerHTML=`
         <img src="${p.imagen}" alt="${p.titulo}" onerror="this.src='https://via.placeholder.com/280x380?text=Sin+imagen';">
         <h3>${p.titulo}</h3>
-        <p>${p.genero.join(', ')}</p>
-        <p>${p.descripcion}</p>
+        <p>${p.genero.join(', ')}<br>${p.descripcion}</p>
         ${boton}`;
       moviesContainer.appendChild(card);
     });
