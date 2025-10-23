@@ -3,42 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="4kpoQ3asLhCy2bJCQgJBJCp3ba1DBfFEQ2BJclB3AUI" />
 <title>Share Films — Inicio</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0; padding:0; box-sizing:border-box;}
 body{
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(-45deg,#0d0d0d,#1a1a1a,#111,#0d0d0d);
+  background:linear-gradient(-45deg, #0d0d0d, #1a1a1a, #111, #0d0d0d);
   background-size:400% 400%;
-  animation:gradientBG 12s ease infinite;
+  animation: gradientBG 12s ease infinite;
   color:#fff;
 }
-@keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+@keyframes gradientBG {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
 
+/* Header */
 header{
   background:rgba(26,26,26,0.9);
   padding:15px 40px;
-  display:flex; flex-wrap:wrap;
+  display:flex;
+  flex-wrap:wrap;
   justify-content:space-between;
   align-items:center;
   box-shadow:0 0 15px #ff000040;
   backdrop-filter:blur(10px);
-  position:relative;
-  z-index: 100;
 }
 .logo-container{display:flex; align-items:center; gap:10px;}
 .logo-container img{height:40px; border-radius:6px;}
 .logo-container h1{color:#ff0000; font-size:24px; margin:0;}
 nav{display:flex; align-items:center; gap:25px; flex-wrap: wrap;}
 nav a{color:#fff; text-decoration:none; font-weight:500; transition:0.3s;}
-nav a:hover, nav a.active{color:#ff0000; font-weight:700; border-bottom:2px solid #ff0000;}
+nav a:hover{color:#ff0000;}
 
-.search-container{flex:1; display:flex; justify-content:center; align-items:center; gap:10px; margin-top:10px; margin-bottom:10px;}
-.search-container input{width:60%; max-width:300px; padding:10px 15px; font-size:16px; border:none; border-radius:8px; background:#1a1a1a; color:#fff; box-shadow:0 0 10px #ff000020; transition:0.3s;}
+/* Buscador y género */
+.search-container{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.search-container input{
+  width:60%;
+  max-width:300px;
+  padding:10px 15px;
+  font-size:16px;
+  border:none;
+  border-radius:8px;
+  background:#1a1a1a;
+  color:#fff;
+  box-shadow:0 0 10px #ff000020;
+  transition:0.3s;
+}
 .search-container input:focus{outline:none; box-shadow:0 0 15px #ff000080;}
 
+/* Dropdown de géneros */
 .genre-menu{position:relative; display:inline-block;}
 .genre-menu button{
   background:#1a1a1a;
@@ -53,7 +79,6 @@ nav a:hover, nav a.active{color:#ff0000; font-weight:700; border-bottom:2px soli
 .dropdown-content{
   display:none;
   position:absolute;
-  top:45px;
   background:#1a1a1a;
   min-width:160px;
   box-shadow:0 8px 16px rgba(0,0,0,0.2);
@@ -72,6 +97,7 @@ nav a:hover, nav a.active{color:#ff0000; font-weight:700; border-bottom:2px soli
 }
 .dropdown-content button:hover{background:#ff000020;}
 
+/* Películas */
 .movies-container{
   display:flex;
   flex-wrap:wrap;
@@ -82,17 +108,15 @@ nav a:hover, nav a.active{color:#ff0000; font-weight:700; border-bottom:2px soli
   margin:auto;
 }
 .movie-card{
-  background:rgba(26,26,26,0.9);
+  background:rgba(26,26,26,0.95);
   border-radius:10px;
   box-shadow:0 0 15px #ff000030;
   overflow:hidden;
-  width:260px;
+  width:240px;
   text-align:center;
   transition:0.3s;
   cursor:pointer;
   backdrop-filter:blur(6px);
-  display:flex;
-  flex-direction:column;
 }
 .movie-card:hover{transform:scale(1.05); box-shadow:0 0 20px #ff000050;}
 .movie-card img{
@@ -104,18 +128,10 @@ nav a:hover, nav a.active{color:#ff0000; font-weight:700; border-bottom:2px soli
 }
 .movie-card:hover img{transform:scale(1.05);}
 .movie-card h3{margin:10px 0; color:#fff;}
-.movie-card p{
-  color:#ccc;
-  font-size:14px;
-  margin:5px 10px 10px;
-  flex:1;
-  overflow-y:auto;
-  max-height:120px;
-  text-align:justify;
-}
+.movie-card p{color:#aaa; font-size:14px; margin:5px 10px; text-align:justify;}
 .movie-card a, .movie-card button{
   display:inline-block;
-  margin:10px 0 15px;
+  margin-bottom:15px;
   padding:8px 14px;
   border-radius:6px;
   font-weight:600;
@@ -132,6 +148,7 @@ nav a:hover, nav a.active{color:#ff0000; font-weight:700; border-bottom:2px soli
 }
 .movie-card button::before{content:"⏳ ";}
 
+/* Modal estilo cine */
 #modal{
   display:none;
   position:fixed;
@@ -169,6 +186,7 @@ iframe{
   background:#000;
 }
 
+/* Footer */
 footer{
   text-align:center;
   padding:20px;
@@ -177,19 +195,20 @@ footer{
   margin-top:60px;
   box-shadow:0 -2px 10px #ff000020;
 }
-footer a{color:#ff0000; text-decoration:none; margin:0 10px;}
+footer a{color:#ff0000; text-decoration:none; margin:0 5px;}
 footer a:hover{color:#fff;}
 
+/* Responsive */
 @media(max-width:900px){
   .search-container input{width:70%;}
   .movie-card{width:200px;}
-  .movie-card img{height:300px;}
+  .movie-card img{height:280px;}
 }
 @media(max-width:600px){
   header{flex-direction:column; align-items:flex-start; gap:10px;}
   nav{flex-wrap:wrap; gap:10px;}
-  .movie-card{width:180px;}
-  .movie-card img{height:250px;}
+  .movie-card{width:160px;}
+  .movie-card img{height:220px;}
 }
 </style>
 </head>
@@ -210,7 +229,7 @@ footer a:hover{color:#fff;}
   </div>
 
   <nav>
-    <a href="index.html" class="active">Inicio</a>
+    <a href="index.html">Inicio</a>
     <a href="mas-recientes.html">Más recientes</a>
     <a href="series.html">Series</a>
   </nav>
@@ -227,35 +246,56 @@ footer a:hover{color:#fff;}
 </div>
 
 <footer>
-  © 2025 Share Films — Todos los derechos reservados. <br>
-  <a href="https://whatsapp.com/channel/0029VbBtBvR2UPBOALdRU71t" target="_blank">WhatsApp Channel🪀</a> | 
+  © 2025 Share Films — Todos los derechos reservados.
+  <br>
+  <a href="https://whatsapp.com/channel/0029VbBtBvR2UPBOALdRU71t" target="_blank">WhatsApp Channel🪀</a>
+  |
   <a href="https://chat.whatsapp.com/HesN0nsEOeN0PbAJFevL37?mode=wwt" target="_blank">WhatsApp Group🪀</a>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
   const peliculas = [
-    {titulo:"Contracara", año:1997, descripcion:"El agente del FBI Sean Archer (John Travolta) sabe cómo detener al terrorista Castor Troy (Nicolas Cage)...", genero:["Acción","Suspenso"], imagen:"contracara.jpeg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
-    {titulo:"Interstellar", año:2014, descripcion:"Un grupo de científicos y exploradores, encabezados por Cooper, viaja al espacio en busca de un planeta habitable...", genero:["Ciencia ficción","Drama"], imagen:"interestelar.jpeg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview"},
-    {titulo:"Karate Kid", año:1984, descripcion:"Daniel LaRusso llega a Los Ángeles y aprende kung fu con Miyagi...", genero:["Acción","Drama"], imagen:"karate-kid.jpeg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jYspc5/preview"},
-    {titulo:"Karate Kid Leyendas", año:2025, descripcion:"Li Fong debe fusionar estilos de artes marciales para un torneo con la ayuda del legendario Daniel LaRusso...", genero:["Acción","Drama"], imagen:"karate-legends.jpeg", video:"https://drive.google.com/file/d/1A26SVMjdf0MWh_HmFkXG_qtOv_C4lYK2/preview"},
-    {titulo:"La leyenda de los Chaneques", año:2023, descripcion:"Leo San Juan enfrenta una antigua maldición en Veracruz, sin poderes y sin amigos...", genero:["Animación","Aventura","Familia"], imagen:"la-leyenda-de-los-chaneques.jpeg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview"},
-    {titulo:"Venom 3", año:2024, descripcion:"Eddie y Venom deben limpiar su nombre mientras una criatura cazadora de simbiontes los rastrea...", genero:["Acción","Superhéroes"], imagen:"venom-3.jpeg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"},
-    {titulo:"Tiempo Congelado", año:2002, descripcion:"Un adolescente descubre un reloj que detiene el tiempo y debe enfrentarse a conspiraciones del Dr. Dopler...", genero:["Aventura","Ciencia ficción"], imagen:"tiempo-congelado.jpeg", video:"https://drive.google.com/file/d/1HoxHuCgIgetLZk6nuFE6nN9a_1YK9Py_/preview"},
-    {titulo:"Lightyear", año:2022, descripcion:"Buzz y Alisha exploran el espacio-tiempo tras una falla en hipervelocidad...", genero:["Animación","Ciencia ficción"], imagen:"lightyear.jpeg", video:"https://drive.google.com/file/d/1m5gLKdgBV2loj5qCDIgLakOnUS7SN5T4/preview"},
-    {titulo:"Mufasa", año:2024, descripcion:"[Aún falta tu resumen]", genero:["Animación","Aventura"], imagen:"mufasa.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview"},
-    {titulo:"Cómo Entrenar a tu Dragón 2", año:2014, descripcion:"Hipo busca detener la guerra de dragones y proteger su isla junto a Astrid y Chimuelo...", genero:["Animación","Aventura","Familia"], imagen:"dragon2.jpeg", video:"https://drive.google.com/file/d/1HoxHuCgIgetLZk6nuFE6nN9a_1YK9Py_/preview"},
-    {titulo:"Cómo Entrenar a tu Dragón 3", año:2019, descripcion:"Hipo y Chimuelo buscan el 'Mundo Oculto' mientras enfrentan a Grimmel y protegen a los dragones...", genero:["Animación","Aventura","Familia"], imagen:"dragon3.jpeg", video:"https://drive.google.com/file/d/1x4CYvRvkriWKcL2aE0nqOJY1tPAq71I2/preview"}
+    {titulo:"Contracara", descripcion:"El agente del FBI Sean Archer (John Travolta) sabe cómo detener al terrorista Castor Troy (Nicolas Cage). Se somete a cirugía futurista y le asigna la cara de Troy a la suya para infiltrarse en su mundo.", genero:["Acción","Suspenso"], imagen:"contracara.jpeg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview", año:1997},
+    {titulo:"Interstellar", descripcion:"Un grupo de científicos y exploradores, encabezados por Cooper, se embarcan en un viaje espacial para encontrar un planeta habitable y salvar a la humanidad.", genero:["Ciencia ficción","Drama"], imagen:"interestelar.jpeg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview", año:2014},
+    {titulo:"Karate Kid", descripcion:"Daniel LaRusso llega a Los Ángeles y se convierte en el blanco de ataques de un grupo de estudiantes de karate. Con la ayuda de Miyagi, aprenderá artes marciales.", genero:["Acción","Drama"], imagen:"karate-kid.jpeg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jspc5/preview", año:1984},
+    {titulo:"Karate Kid Leyendas", descripcion:"Li Fong se muda a Nueva York y debe fusionar su estilo con el de Daniel LaRusso para enfrentar un torneo de kárate y salvar a su amigo.", genero:["Acción","Drama"], imagen:"karate-legend.jpeg", video:"https://drive.google.com/file/d/1A26SVMjdf0MWh_HmFkXG_qtOv_C4lYK2/preview", año:2025},
+    {titulo:"La leyenda de los Chaneques", descripcion:"Cinco años después de renunciar a sus poderes, Leo San Juan se enfrenta a una antigua maldición local en Veracruz.", genero:["Animación","Familia","Aventura"], imagen:"la-leyenda-de-los-chaneques.jpeg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview", año:2023},
+    {titulo:"Venom 3", descripcion:"Eddie Brock y el simbionte Venom regresan a su universo y son perseguidos por la criatura Xenófaga.", genero:["Acción","Superhéroes"], imagen:"venom-3.jpeg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview", año:2024},
+    {titulo:"Tiempo Congelado", descripcion:"Un adolescente descubre un reloj que le permite detener el tiempo. Otros quieren apoderarse del dispositivo para dominar el mundo.", genero:["Ciencia ficción","Aventura"], imagen:"tiempo-congelado.jpeg", video:"https://drive.google.com/file/d/1HoxHuCgIgetLZk6nuFE6nN9a_1YK9Py_/preview", año:2002},
+    {titulo:"Lightyear", descripcion:"Buzz y la comandante Alisha Hawthorne exploran el planeta T'Kani Prime y quedan atrapados en el espacio-tiempo. Buzz realiza múltiples misiones para arreglar su error.", genero:["Animación","Ciencia ficción","Aventura"], imagen:"lightyear.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview", año:2025},
+    {titulo:"Mufasa", descripcion:"Historia de Mufasa antes de convertirse en rey, mostrando sus desafíos y cómo llegó a ser el líder de la manada.", genero:["Animación","Aventura","Drama"], imagen:"mufasa.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview", año:2025},
+    {titulo:"Cómo entrenar a tu dragón 2", descripcion:"Hipo, Astrid y Chimuelo enfrentan cazadores de dragones mientras intentan evitar una guerra.", genero:["Animación","Familia","Aventura"], imagen:"dragon2.jpeg", video:"https://drive.google.com/file/d/1HoxHuCgIgetLZk6nuFE6nN9a_1YK9Py_/preview", año:2014},
+    {titulo:"Cómo entrenar a tu dragón 3", descripcion:"Hipo y los jinetes de dragones buscan el 'Mundo Oculto', mientras luchan contra el cazador Grimmel.", genero:["Animación","Familia","Aventura"], imagen:"dragon3.jpeg", video:"https://drive.google.com/file/d/1x4CYvRvkriWKcL2aE0nqOJY1tPAq71I2/preview", año:2019},
+    {titulo:"Avatar 2", descripcion:"Jake Sully y Ney'tiri forman una familia y deben explorar Pandora cuando una antigua amenaza reaparece.", genero:["Ciencia ficción","Aventura"], imagen:"avatar2.jpeg", video:"https://drive.google.com/file/d/12RRSn0kLKUea3RbJlg32Z7zLZE7v__B5/preview", año:2022},
+    {titulo:"Flow", descripcion:"El gato es un animal solitario, pero tras una gran inundación, encuentra refugio en un barco con otras especies y debe colaborar.", genero:["Animación","Familia"], imagen:"flow.jpeg", video:"https://drive.google.com/file/d/1VVd1JCyxkHXGpsYr-3-SaD68pijn1XFS/preview", año:2024},
+    {titulo:"Spider-Man: Un nuevo universo", descripcion:"Miles Morales descubre las ilimitadas posibilidades del nuevo universo de Spider-Man, donde más de uno puede llevar máscara.", genero:["Animación","Superhéroes"], imagen:"into-the-spiderverse.jpeg", video:"https://drive.google.com/file/d/1Gp-v1xvRausPDh9c88yxOSFusXM9dkwE/preview", año:2018}
   ];
 
   const moviesContainer = document.getElementById('movies');
-  const searchInput = document.getElementById('search');
-  const noResults = document.getElementById('no-results');
   const modal = document.getElementById('modal');
   const moviePlayer = document.getElementById('moviePlayer');
   const closeModal = document.getElementById('closeModal');
+  const searchInput = document.getElementById('search');
+  const noResults = document.getElementById('no-results');
+  const genreBtn = document.getElementById('genreBtn');
   const genreDropdown = document.getElementById('genreDropdown');
+
+  // Obtener géneros únicos
+  const genres = [...new Set(peliculas.flatMap(p => p.genero))];
+  genres.forEach(g => {
+    const btn = document.createElement('button');
+    btn.textContent = g;
+    btn.addEventListener('click', () => mostrarPeliculas(peliculas.filter(p => p.genero.includes(g))));
+    genreDropdown.appendChild(btn);
+  });
+
+  genreBtn.addEventListener('click', () => {
+    genreDropdown.style.display = genreDropdown.style.display==='flex'?'none':'flex';
+  });
+
+  const fuse = new Fuse(peliculas, {keys:['titulo','descripcion'], threshold:0.3});
 
   function mostrarPeliculas(lista){
     moviesContainer.innerHTML='';
@@ -263,50 +303,43 @@ document.addEventListener('DOMContentLoaded', ()=>{
     noResults.style.display='none';
     lista.forEach(p=>{
       const card = document.createElement('div');
-      card.classList.add('movie-card');
-      const boton = p.video? `<a href="#" class="playMovie" data-video="${p.video}">🎬 Reproducir</a>`: `<button>Próximamente</button>`;
-      card.innerHTML = `<img src="${p.imagen}" alt="${p.titulo}" onerror="this.src='https://via.placeholder.com/260x350?text=Sin+imagen';">
-                        <h3>${p.titulo} (${p.año})</h3>
-                        <p>${p.descripcion}</p>
-                        ${boton}`;
-      moviesContainer.appendChild(card);
-    });
-
-    document.querySelectorAll('.playMovie').forEach(btn=>{
-      btn.addEventListener('click', e=>{
+      card.className='movie-card';
+      card.innerHTML = `
+        <img src="${p.imagen}" alt="${p.titulo}" loading="lazy">
+        <h3>${p.titulo} (${p.año})</h3>
+        <p>${p.descripcion}</p>
+        <a href="#" data-video="${p.video}">Ver Película</a>
+      `;
+      card.querySelector('a').addEventListener('click', e=>{
         e.preventDefault();
-        moviePlayer.src=btn.dataset.video;
+        moviePlayer.src = p.video;
         modal.style.display='flex';
       });
+      moviesContainer.appendChild(card);
     });
   }
 
-  const fuse=new Fuse(peliculas,{keys:['titulo','descripcion','genero'], threshold:0.3});
-  searchInput.addEventListener('input', ()=>{
-    const results=searchInput.value? fuse.search(searchInput.value).map(r=>r.item): peliculas;
-    mostrarPeliculas(results);
+  closeModal.addEventListener('click', ()=>{
+    modal.style.display='none';
+    moviePlayer.src='';
   });
 
-  const generosUnicos=[...new Set(peliculas.flatMap(p=>p.genero))];
-  generosUnicos.forEach(g=>{
-    const btn=document.createElement('button');
-    btn.textContent=g;
-    btn.addEventListener('click', ()=>{ mostrarPeliculas(peliculas.filter(p=>p.genero.includes(g))); genreDropdown.style.display='none'; });
-    genreDropdown.appendChild(btn);
-  });
-
-  document.getElementById('genreBtn').addEventListener('click', ()=>{
-    genreDropdown.style.display=genreDropdown.style.display==='flex'?'none':'flex';
-    genreDropdown.style.flexDirection='column';
-  });
-  window.addEventListener('click', e=>{ if(!e.target.closest('.genre-menu')) genreDropdown.style.display='none'; });
-
-  closeModal.addEventListener('click', ()=>{ modal.style.display='none'; moviePlayer.src=''; });
   window.addEventListener('click', e=>{ if(e.target===modal){ modal.style.display='none'; moviePlayer.src=''; } });
   window.addEventListener('keydown', e=>{ if(e.key==='Escape'){ modal.style.display='none'; moviePlayer.src=''; } });
+
+  // Buscador con debounce
+  let debounceTimer;
+  searchInput.addEventListener('input', ()=>{
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(()=>{
+      const results = searchInput.value ? fuse.search(searchInput.value).map(r=>r.item) : peliculas;
+      mostrarPeliculas(results);
+    },200);
+  });
 
   mostrarPeliculas(peliculas);
 });
 </script>
+
 </body>
 </html>
