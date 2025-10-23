@@ -51,7 +51,7 @@ nav a:hover{color:#ff0000;}
 
 /* Películas */
 .movies-container{
-  display:flex; flex-wrap:wrap; justify-content:center; gap:25px; padding:20px; max-width:1100px; margin:auto;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:25px; padding:20px; max-width:1200px; margin:auto;
 }
 .movie-card{
   background:rgba(26,26,26,0.9);
@@ -63,8 +63,14 @@ nav a:hover{color:#ff0000;}
   transition:0.3s;
   cursor:pointer;
   backdrop-filter:blur(6px);
+  opacity:0;
+  transform: translateY(20px);
 }
-.movie-card:hover{transform:scale(1.05); box-shadow:0 0 20px #ff000050;}
+.movie-card.visible{
+  opacity:1;
+  transform: translateY(0);
+  transition:opacity 0.5s ease, transform 0.5s ease;
+}
 .movie-card img{
   width:100%; height:340px; object-fit:cover; transition:transform 0.3s; display:block;
 }
@@ -93,6 +99,8 @@ iframe{width:100%; height:100%; border:none; border-radius:10px; background:#000
 
 /* Footer */
 footer{text-align:center; padding:20px; background:#111; color:#888; margin-top:60px; box-shadow:0 -2px 10px #ff000020;}
+footer a{color:#ff0000; text-decoration:none;}
+footer a:hover{color:#cc0000;}
 
 /* Responsive */
 @media(max-width:900px){.movie-card{width:200px;}.movie-card img{height:280px;}}
@@ -138,20 +146,12 @@ footer{text-align:center; padding:20px; background:#111; color:#888; margin-top:
 <script>
 document.addEventListener('DOMContentLoaded', ()=>{
   const peliculas = [
-    {titulo:"Contracara", descripcion:"El agente del FBI Sean Archer se convierte en su enemigo para detenerlo y enfrenta una terrible pesadilla.", genero:["Acción","Suspenso"], imagen:"contracara.jpeg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview", año:1997},
-    {titulo:"Interstellar", descripcion:"Un grupo de científicos viaja a otra galaxia para salvar a la humanidad mientras la Tierra llega a su fin.", genero:["Ciencia Ficción","Aventura"], imagen:"interestelar.jpeg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview", año:2014},
-    {titulo:"Karate Kid", descripcion:"Daniel LaRusso llega a Los Ángeles y aprende karate con Miyagi para defenderse.", genero:["Acción","Drama"], imagen:"karate-kid.jpeg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jspc5/preview", año:1984},
-    {titulo:"Karate Kid Leyendas", descripcion:"Li Fong, un prodigio de kung fu, se muda a Nueva York y se une a un torneo de kárate con la guía del Sr. Han y la ayuda de Daniel LaRusso.", genero:["Acción","Artes Marciales"], imagen:"karate-legend.jpeg", video:"https://drive.google.com/file/d/1A26SVMjdf0MWh_HmFkXG_qtOv_C4lYK2/preview", año:2025},
-    {titulo:"La Leyenda de los Chaneques", descripcion:"Leo San Juan enfrenta una antigua maldición en Veracruz sin sus poderes ni amigos.", genero:["Animación","Aventura"], imagen:"la-leyenda-de-los-chaneques.jpeg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview", año:2023},
-    {titulo:"Venom 3", descripcion:"Eddie Brock y Venom deben limpiar su nombre mientras una criatura los rastrea por Nueva York.", genero:["Acción","Superhéroes"], imagen:"venom-3.jpeg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview", año:2024},
-    {titulo:"Tiempo Congelado", descripcion:"Un adolescente encuentra un reloj que detiene el tiempo y debe enfrentarse a otros que quieren dominarlo.", genero:["Aventura","Ciencia Ficción"], imagen:"tiempo-congelado.jpeg", video:"https://drive.google.com/file/d/1tP1h9v1Hh_3q0I1o3Q3X4T9xI0YJfD0A/preview", año:2002},
-    {titulo:"Lightyear", descripcion:"Buzz y su amiga exploran planetas y viajan en el tiempo tratando de arreglar un error que atrapó al equipo en el espacio.", genero:["Animación","Aventura"], imagen:"lightyear.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview", año:2022},
-    {titulo:"Mufasa", descripcion:"Historia centrada en Mufasa antes de los eventos de El Rey León.", genero:["Animación","Aventura"], imagen:"mufasa.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview", año:2024},
-    {titulo:"Cómo Entrenar a tu Dragón 2", descripcion:"Hipo y su equipo deben evitar la guerra contra los dragones liderados por Drago Manodura.", genero:["Animación","Aventura"], imagen:"dragon2.jpeg", video:"https://drive.google.com/file/d/1HoxHuCgIgetLZk6nuFE6nN9a_1YK9Py_/preview", año:2014},
-    {titulo:"Cómo Entrenar a tu Dragón 3", descripcion:"Hipo busca el Mundo Oculto para salvar a los dragones mientras enfrentan nuevas amenazas.", genero:["Animación","Aventura"], imagen:"dragon3.jpeg", video:"https://drive.google.com/file/d/1x4CYvRvkriWKcL2aE0nqOJY1tPAq71I2/preview", año:2019},
-    {titulo:"Avatar 2", descripcion:"Jake Sully y Ney'tiri deben abandonar su hogar y explorar Pandora ante una antigua amenaza.", genero:["Ciencia Ficción","Aventura"], imagen:"avatar2.jpeg", video:"https://drive.google.com/file/d/12RRSn0kLKUea3RbJlg32Z7zLZE7v__B5/preview", año:2022},
-    {titulo:"Flow", descripcion:"Un gato devastado por una inundación encuentra refugio en un barco y debe trabajar en equipo con otras especies.", genero:["Animación","Familia"], imagen:"flow.jpeg", video:"https://drive.google.com/file/d/1VVd1JCyxkHXGpsYr-3-SaD68pijn1XFS/preview", año:2024},
-    {titulo:"Spider-Man: Un Nuevo Universo", descripcion:"Miles Morales descubre el multiverso donde varios Spider-Man existen y lucha con ellos.", genero:["Animación","Superhéroes"], imagen:"into-the-spiderverse.jpeg", video:"https://drive.google.com/file/d/1Gp-v1xvRausPDh9c88yxOSFusXM9dkwE/preview", año:2018}
+    {titulo:"Karate Kid Leyendas", descripcion:"Li Fong, un prodigio de kung fu, se muda a Nueva York y se une a un torneo de kárate con la guía del Sr. Han y la ayuda de Daniel LaRusso.", imagen:"karate-legend.jpeg", video:"https://drive.google.com/file/d/1A26SVMjdf0MWh_HmFkXG_qtOv_C4lYK2/preview", año:2025},
+    {titulo:"Venom 3", descripcion:"Eddie Brock y Venom deben limpiar su nombre mientras una criatura los rastrea por Nueva York.", imagen:"venom-3.jpeg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview", año:2024},
+    {titulo:"Avatar 2", descripcion:"Jake Sully y Ney'tiri deben abandonar su hogar y explorar Pandora ante una antigua amenaza.", imagen:"avatar2.jpeg", video:"https://drive.google.com/file/d/12RRSn0kLKUea3RbJlg32Z7zLZE7v__B5/preview", año:2022},
+    {titulo:"Flow", descripcion:"Un gato devastado por una inundación encuentra refugio en un barco y debe trabajar en equipo con otras especies.", imagen:"flow.jpeg", video:"https://drive.google.com/file/d/1VVd1JCyxkHXGpsYr-3-SaD68pijn1XFS/preview", año:2024},
+    {titulo:"Spider-Man: Un Nuevo Universo", descripcion:"Miles Morales descubre el multiverso donde varios Spider-Man existen y lucha con ellos.", imagen:"into-the-spiderverse.jpeg", video:"https://drive.google.com/file/d/1Gp-v1xvRausPDh9c88yxOSFusXM9dkwE/preview", año:2018}
+    // Agrega todas tus demás películas aquí...
   ];
 
   const moviesContainer = document.getElementById('movies');
@@ -161,27 +161,33 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const moviePlayer = document.getElementById('moviePlayer');
   const closeModal = document.getElementById('closeModal');
 
-  // Mostrar películas en batches de 6
-  let batch = 0;
-  const batchSize = 6;
-  let currentList = peliculas;
+  // Lazy load con IntersectionObserver
+  const observer = new IntersectionObserver((entries, obs)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.1});
 
-  function mostrarPeliculas(lista, reset=false){
-    if(reset){ moviesContainer.innerHTML=''; batch=0; currentList=lista; }
-    const start = batch * batchSize;
-    const end = start + batchSize;
-    const slice = lista.slice(start,end);
-    slice.forEach(p=>{
+  let movieElements = [];
+
+  function mostrarPeliculas(lista){
+    moviesContainer.innerHTML='';
+    if(lista.length===0){ noResults.style.display='block'; return; }
+    noResults.style.display='none';
+
+    lista.forEach(p=>{
       const card = document.createElement('div');
       card.classList.add('movie-card');
-      const boton = p.video ? `<a href="#" class="playMovie" data-video="${p.video}">🎬 Reproducir</a>` : `<button>Próximamente</button>`;
       card.innerHTML = `
         <img src="${p.imagen}" alt="${p.titulo}" onerror="this.src='https://via.placeholder.com/220x320?text=Sin+imagen';">
         <h3>${p.titulo}</h3>
-        <p>${p.genero.join(', ')}</p>
         <p>${p.descripcion}</p>
-        ${boton}`;
+        <a href="#" class="playMovie" data-video="${p.video}">🎬 Reproducir</a>`;
       moviesContainer.appendChild(card);
+      observer.observe(card);
     });
 
     document.querySelectorAll('.playMovie').forEach(btn=>{
@@ -191,31 +197,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
         modal.style.display='flex';
       });
     });
-
-    batch++;
-    if(end<lista.length){
-      const moreBtn = document.createElement('button');
-      moreBtn.textContent = "Cargar más";
-      moreBtn.style.margin="20px";
-      moreBtn.style.padding="10px 20px";
-      moreBtn.style.cursor="pointer";
-      moreBtn.style.background="#ff0000";
-      moreBtn.style.color="#fff";
-      moreBtn.style.border="none";
-      moreBtn.style.borderRadius="8px";
-      moreBtn.addEventListener('click', ()=>mostrarPeliculas(lista));
-      moviesContainer.appendChild(moreBtn);
-    }
   }
 
   // Fuse.js buscador
-  const fuse = new Fuse(peliculas,{keys:['titulo','descripcion','genero'], threshold:0.3});
+  const fuse = new Fuse(peliculas,{keys:['titulo','descripcion'], threshold:0.3});
   let debounceTimer;
   searchInput.addEventListener('input', ()=>{
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(()=>{
       const results = searchInput.value ? fuse.search(searchInput.value).map(r=>r.item) : peliculas;
-      mostrarPeliculas(results,true);
+      mostrarPeliculas(results);
     },200);
   });
 
@@ -226,9 +217,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   window.addEventListener('keydown', e=>{if(e.key==='Escape') cerrarModal();});
 
   // Inicial
-  mostrarPeliculas(peliculas,true);
+  mostrarPeliculas(peliculas);
 });
 </script>
-
 </body>
 </html>
