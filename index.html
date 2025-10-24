@@ -11,12 +11,16 @@
 *{margin:0; padding:0; box-sizing:border-box;}
 body{
   font-family:'Poppins',sans-serif;
-  background:#0d0d0d;
   background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #111, #0d0d0d);
   background-size:400% 400%;
   animation: gradientBG 12s ease infinite;
   color:#fff;
   overflow-x:hidden;
+  /* 🔧 Corrección de parpadeo */
+  background-attachment: fixed;
+  will-change: background-position;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 @keyframes gradientBG {
   0%{background-position:0% 50%;}
