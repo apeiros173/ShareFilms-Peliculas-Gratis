@@ -1,104 +1,192 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Share Films | Catálogo</title>
-<script src="peliculas.js"></script> <!-- Aquí se carga tu lista -->
-<style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #0a0a0a 0%, #000 100%);
-    color: #fff;
-    margin: 0;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Films</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #0b0b0b;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.8);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background-color: rgba(0, 0, 0, 0.85);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-  header h1 {
-    color: #e50914;
-  }
+    header img {
+      height: 50px;
+    }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 25px;
-    padding: 50px;
-  }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
 
-  .card {
-    background-color: #111;
-    border-radius: 14px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
 
-  .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(229,9,20,0.5);
-  }
+    nav ul li a:hover {
+      color: #00bfff;
+    }
 
-  .card img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-  }
+    .buscador {
+      position: relative;
+    }
 
-  .card-content {
-    padding: 10px 15px;
-  }
+    .buscador input {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      background-color: #1c1c1c;
+      color: white;
+      font-size: 1rem;
+      width: 200px;
+      transition: width 0.3s ease;
+    }
 
-  .card-content h3 {
-    font-size: 1.1rem;
-    color: #fff;
-    margin: 5px 0;
-  }
+    .buscador input:focus {
+      width: 300px;
+    }
 
-  .card-content p {
-    font-size: 0.9rem;
-    color: #aaa;
-  }
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px;
+    }
 
-</style>
+    .tarjeta {
+      background-color: #141414;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .tarjeta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .tarjeta img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .tarjeta-info {
+      padding: 15px;
+    }
+
+    .tarjeta h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .tarjeta p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 5px;
+    }
+
+    .no-resultados {
+      text-align: center;
+      color: #888;
+      font-size: 1.1rem;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>🎬 Share Films</h1>
-</header>
+  <header>
+    <img src="logo.jpeg" alt="Share Films Logo">
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Más recientes</a></li>
+        <li><a href="#">Series</a></li>
+      </ul>
+    </nav>
+    <div class="buscador">
+      <input type="text" id="buscador" placeholder="Buscar película...">
+    </div>
+  </header>
 
-<section class="grid" id="catalogo"></section>
+  <main>
+    <section class="catalogo" id="catalogo">
+      <!-- Las tarjetas se generan aquí -->
+    </section>
+    <div id="mensaje" class="no-resultados" style="display:none;">No se encontraron resultados.</div>
+  </main>
 
-<script>
-  const cont = document.getElementById("catalogo");
+  <script src="peliculas.js"></script>
+  <script>
+    const contenedor = document.getElementById('catalogo');
+    const inputBuscador = document.getElementById('buscador');
+    const mensaje = document.getElementById('mensaje');
 
-  peliculas.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <img src="assets/${p.imagen}" alt="${p.titulo}">
-      <div class="card-content">
-        <h3>${p.titulo}</h3>
-        <p>${p.genero.join(", ")}</p>
-      </div>
-    `;
-    card.addEventListener("click", () => {
-      const id = encodeURIComponent(p.titulo.toLowerCase().replace(/\s+/g, "-"));
-      window.location.href = \`pelicula.html?id=\${id}\`;
+    function mostrarPeliculas(filtro = '') {
+      contenedor.innerHTML = '';
+      const filtroLower = filtro.toLowerCase();
+      const resultados = peliculas.filter(p => 
+        p.titulo.toLowerCase().includes(filtroLower) ||
+        p.genero.some(g => g.toLowerCase().includes(filtroLower))
+      );
+
+      if (resultados.length === 0) {
+        mensaje.style.display = 'block';
+        return;
+      } else {
+        mensaje.style.display = 'none';
+      }
+
+      resultados.forEach(pelicula => {
+        const card = document.createElement('div');
+        card.classList.add('tarjeta');
+        card.innerHTML = `
+          <img src="${pelicula.imagen}" alt="${pelicula.titulo}">
+          <div class="tarjeta-info">
+            <h3>${pelicula.titulo}</h3>
+            <p>${pelicula.genero.join(', ')}</p>
+          </div>
+        `;
+        const id = pelicula.titulo.toLowerCase().replace(/\s+/g, '-');
+        card.addEventListener('click', () => {
+          window.location.href = \`pelicula.html?id=\${id}\`;
+        });
+        contenedor.appendChild(card);
+      });
+    }
+
+    // Búsqueda en tiempo real
+    inputBuscador.addEventListener('input', (e) => {
+      mostrarPeliculas(e.target.value);
     });
-    cont.appendChild(card);
-  });
-</script>
 
+    // Mostrar todas al cargar
+    mostrarPeliculas();
+  </script>
 </body>
 </html>
