@@ -16,7 +16,6 @@ body{
   animation: gradientBG 12s ease infinite;
   color:#fff;
   overflow-x:hidden;
-  /* 🔧 Corrección de parpadeo */
   background-attachment: fixed;
   will-change: background-position;
   transform: translateZ(0);
@@ -71,7 +70,6 @@ nav a:hover{color:#ff0000;}
 }
 .search-container input:focus{outline:none; box-shadow:0 0 15px #ff000080;}
 
-/* Dropdown de géneros */
 .genre-menu{position:relative; display:inline-block;}
 .genre-menu button{
   background:#1a1a1a;
@@ -104,7 +102,6 @@ nav a:hover{color:#ff0000;}
 }
 .dropdown-content button:hover{background:#ff000020;}
 
-/* Películas */
 .movies-container{
   display:flex;
   flex-wrap:wrap;
@@ -149,7 +146,6 @@ nav a:hover{color:#ff0000;}
 }
 .movie-card a:hover{background:#cc0000;}
 
-/* Modal estilo cine */
 #modal{
   display:none;
   position:fixed;
@@ -186,7 +182,6 @@ iframe{
   background:#000;
 }
 
-/* Footer */
 footer{
   text-align:center;
   padding:20px;
@@ -196,7 +191,6 @@ footer{
   box-shadow:0 -2px 10px #ff000020;
 }
 
-/* Responsive */
 @media(max-width:900px){
   .search-container input{width:70%;}
   .movie-card{width:200px;}
@@ -252,6 +246,7 @@ footer{
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
+
   const peliculas=[
     {titulo:"Contracara", año:1997, descripcion:"El agente del FBI Sean Archer...vive con su familia.", genero:["Acción","Suspenso"], imagen:"contracara.jpeg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
     {titulo:"Interstellar", año:2014, descripcion:"Un grupo de científicos y exploradores viajan al espacio para encontrar un planeta habitable.", genero:["Ciencia ficción","Drama"], imagen:"interestelar.jpeg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview"},
@@ -265,7 +260,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     {titulo:"Cómo Entrenar a tu Dragón 3", año:2019, descripcion:"Hipo busca el Mundo Oculto para salvar a los dragones capturados.", genero:["Animación","Aventura"], imagen:"dragon3.jpeg", video:"https://drive.google.com/file/d/1x4CYvRvkriWKcL2aE0nqOJY1tPAq71I2/preview"},
     {titulo:"Avatar 2", año:2022, descripcion:"Jake Sully y Ney'tiri hacen todo por permanecer juntos y exploran Pandora ante una antigua amenaza.", genero:["Acción","Aventura","Ciencia ficción"], imagen:"avatar2.jpeg", video:"https://drive.google.com/file/d/12RRSn0kLKUea3RbJlg32Z7zLZE7v__B5/preview"},
     {titulo:"Flow", año:2024, descripcion:"Un gato devastado por una inundación encuentra refugio en un barco y aprende a trabajar en equipo.", genero:["Animación","Aventura","Musical"], imagen:"flow.jpeg", video:"https://drive.google.com/file/d/1VVd1JCyxkHXGpsYr-3-SaD68pijn1XFS/preview"},
-    {titulo:"Spider-Man: Un Nuevo Universo", año:2018, descripcion:"Miles Morales descubre un universo de múltiples Spider-Men.", genero:["Animación","Aventura","Superhéroes"], imagen:"into-the-spiderverse.jpeg", video:"https://drive.google.com/file/d/1Gp-v1xvRausPDh9c88yxOSFusXM9dkwE/preview"},
+    
+    {titulo:"Spider-Man: Un nuevo universo", año:2018, descripcion:"Luego de ser mordido por una araña radioactiva, Miles Morales desarrolla misteriosos poderes que lo transforman en el Hombre Araña. Ahora deberá usar sus nuevas habilidades ante el malvado Kingpin, un enorme demente que puede abrir portales hacia otros universos.", genero:["Animación","Aventura","Superhéroes"], imagen:"into-the-spiderverse.jpeg", video:"https://drive.google.com/file/d/1Gp-v1xvRausPDh9c88yxOSFusXM9dkwE/preview"},
+    
+    {titulo:"Spider-Man 2: A través del Spider-Verso", año:2023, descripcion:"Después de reunirse con Gwen Stacy, el amigable vecino de tiempo completo de Brooklyn Spiderman, es lanzado a través del multiverso, donde se encuentra a un equipo de gente araña encomendada con proteger su mera existencia.", genero:["Acción","Ciencia ficción","Animación"], imagen:"across-the-spiderverse.jpeg", video:"https://drive.google.com/file/d/1H0RANDOMLINK/preview"},
+    
+    {titulo:"Huye", año:2017, descripcion:"Chris va a conocer a los padres de Rose, su novia. Al principio se muestran encantadores, si bien un tanto nerviosos. Chris supone que se debe a que él es negro, pero un poco más tarde descubre que sus suegros ocultan un secreto espeluznante.", genero:["Terror","Comedia","Suspenso"], imagen:"get-out.jpeg", video:"https://drive.google.com/file/d/1en6HYU4w0GfvSf3PT8ZAqcxzbHvCcjHB/preview"},
+    
+    {titulo:"Rango", año:2011, descripcion:"Rango es un camaleón que lleva toda su vida viviendo como mascota en un terrario. Sin embargo, un buen día, mientras transportan su terrario, el recipiente se cae del auto en medio del desierto y acaba en un pueblo salvaje donde lo nombran alguacil.", genero:["Infantil","Wéstern","Animación","Aventura"], imagen:"rango.jpeg", video:"https://drive.google.com/file/d/1SB357lg3QIGL5RvdfrJQ53_1jmnHNv7u/preview"},
+    
     {titulo:"K-pop Hunters", año:2025, descripcion:"Cuando no están llenando estadios, las superestrellas del k-pop Rumi, Mira y Zoey usan sus superpoderes para proteger a sus fans de los demonios.", genero:["Musical","Acción","Animación","Aventura"], imagen:"huntrix.jpeg", video:"https://drive.google.com/file/d/1yn5s7n8Cf3hnMtJdND3xG6gMq0DO3kfO/preview"}
   ];
 
@@ -307,7 +310,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   window.addEventListener('click', e=>{if(e.target===modal){modal.style.display='none'; moviePlayer.src='';}});
   window.addEventListener('keydown', e=>{if(e.key==='Escape'){modal.style.display='none'; moviePlayer.src='';}});
 
-  // Filtro y buscador
   const fuse=new Fuse(peliculas,{keys:['titulo','descripcion'], threshold:0.3});
   searchInput.addEventListener('input', ()=>{
     const results=searchInput.value?fuse.search(searchInput.value).map(r=>r.item):peliculas;
@@ -316,7 +318,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   mostrarPeliculas(peliculas);
 
-  // Géneros
   const genreDropdown=document.getElementById('genreDropdown');
   const allGenres=[...new Set(peliculas.flatMap(p=>p.genero))].sort();
   allGenres.forEach(g=>{
@@ -324,14 +325,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     btn.textContent=g;
     btn.addEventListener('click', ()=>{
       mostrarPeliculas(peliculas.filter(p=>p.genero.includes(g)));
+      genreDropdown.style.display='none';
     });
     genreDropdown.appendChild(btn);
   });
-  document.getElementById('genreBtn').addEventListener('click', ()=>{
+
+  const genreBtn=document.getElementById('genreBtn');
+  genreBtn.addEventListener('click',()=>{
     genreDropdown.style.display=genreDropdown.style.display==='flex'?'none':'flex';
   });
 });
 </script>
-
 </body>
 </html>
