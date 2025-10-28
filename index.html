@@ -18,7 +18,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 50px;
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: #b30000; /* 🔴 Rojo */
       position: sticky;
       top: 0;
       z-index: 10;
@@ -48,24 +48,14 @@
       color: #00bfff;
     }
 
-    .buscador {
-      position: relative;
-    }
-
-    .buscador input {
-      padding: 8px 12px;
-      border-radius: 20px;
+    #buscador {
+      background-color: #fff;
       border: none;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      color: #000;
       outline: none;
-      background-color: #1c1c1c;
-      color: white;
-      font-size: 1rem;
-      width: 200px;
-      transition: width 0.3s ease;
-    }
-
-    .buscador input:focus {
-      width: 300px;
     }
 
     .catalogo {
@@ -109,13 +99,6 @@
       color: #ccc;
       margin-top: 5px;
     }
-
-    .no-resultados {
-      text-align: center;
-      color: #888;
-      font-size: 1.1rem;
-      margin-top: 50px;
-    }
   </style>
 </head>
 <body>
@@ -129,40 +112,23 @@
         <li><a href="#">Series</a></li>
       </ul>
     </nav>
-    <div class="buscador">
-      <input type="text" id="buscador" placeholder="Buscar película...">
-    </div>
+    <input type="text" id="buscador" placeholder="Buscar película...">
   </header>
 
   <main>
     <section class="catalogo" id="catalogo">
-      <!-- Las tarjetas se generan aquí -->
+      <!-- Las tarjetas se generan aquí automáticamente -->
     </section>
-    <div id="mensaje" class="no-resultados" style="display:none;">No se encontraron resultados.</div>
   </main>
 
   <script src="peliculas.js"></script>
   <script>
     const contenedor = document.getElementById('catalogo');
-    const inputBuscador = document.getElementById('buscador');
-    const mensaje = document.getElementById('mensaje');
+    const buscador = document.getElementById('buscador');
 
-    function mostrarPeliculas(filtro = '') {
-      contenedor.innerHTML = '';
-      const filtroLower = filtro.toLowerCase();
-      const resultados = peliculas.filter(p => 
-        p.titulo.toLowerCase().includes(filtroLower) ||
-        p.genero.some(g => g.toLowerCase().includes(filtroLower))
-      );
-
-      if (resultados.length === 0) {
-        mensaje.style.display = 'block';
-        return;
-      } else {
-        mensaje.style.display = 'none';
-      }
-
-      resultados.forEach(pelicula => {
+    function mostrarPeliculas(lista) {
+      contenedor.innerHTML = "";
+      lista.forEach(pelicula => {
         const card = document.createElement('div');
         card.classList.add('tarjeta');
         card.innerHTML = `
@@ -172,21 +138,26 @@
             <p>${pelicula.genero.join(', ')}</p>
           </div>
         `;
-        const id = pelicula.titulo.toLowerCase().replace(/\s+/g, '-');
         card.addEventListener('click', () => {
+          const id = pelicula.titulo.toLowerCase().replace(/\s+/g, '-');
           window.location.href = \`pelicula.html?id=\${id}\`;
         });
         contenedor.appendChild(card);
       });
     }
 
-    // Búsqueda en tiempo real
-    inputBuscador.addEventListener('input', (e) => {
-      mostrarPeliculas(e.target.value);
-    });
+    // Mostrar todas al inicio
+    mostrarPeliculas(peliculas);
 
-    // Mostrar todas al cargar
-    mostrarPeliculas();
+    // 🔍 Buscador en tiempo real
+    buscador.addEventListener('input', e => {
+      const texto = e.target.value.toLowerCase();
+      const filtradas = peliculas.filter(p =>
+        p.titulo.toLowerCase().includes(texto) ||
+        p.genero.join(" ").toLowerCase().includes(texto)
+      );
+      mostrarPeliculas(filtradas);
+    });
   </script>
 </body>
 </html>
