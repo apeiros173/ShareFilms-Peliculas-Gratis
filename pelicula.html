@@ -86,7 +86,7 @@
       color: white;
       font-size: 2rem;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s, color 0.3s;
     }
 
     .acciones button:hover {
@@ -95,6 +95,27 @@
 
     .acciones .activo {
       color: #ff0000;
+    }
+
+    /* ✨ Animaciones */
+    @keyframes like-pulse {
+      0% { transform: scale(1); color: #fff; }
+      50% { transform: scale(1.5); color: #ff0000; }
+      100% { transform: scale(1); color: #ff0000; }
+    }
+
+    @keyframes dislike-shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    .like-anim {
+      animation: like-pulse 0.4s ease;
+    }
+
+    .dislike-anim {
+      animation: dislike-shake 0.3s ease;
     }
 
     .contador {
@@ -152,7 +173,7 @@
     const info = document.getElementById("infoPelicula");
     const btnSonido = document.getElementById("btnSonido");
 
-    // Buscar la película
+    // Buscar película
     const pelicula = peliculas.find(p => p.titulo.toLowerCase().replace(/\s+/g, "-") === id);
 
     if (!pelicula) {
@@ -170,8 +191,6 @@
           <span class="contador" id="dislikeCount">0</span>
         </div>
       `;
-
-      // Configurar video de fondo
       video.src = pelicula.video;
     }
 
@@ -189,19 +208,20 @@
 
     const storageKey = `pelicula_${id}_reaccion`;
 
-    // Cargar conteos globales (simples)
     let likes = localStorage.getItem(`likes_${id}`) || 0;
     let dislikes = localStorage.getItem(`dislikes_${id}`) || 0;
     likeCount.textContent = likes;
     dislikeCount.textContent = dislikes;
 
-    // Revisar si el usuario ya reaccionó
     let reaccion = localStorage.getItem(storageKey);
 
     if (reaccion === "like") likeBtn.classList.add("activo");
     if (reaccion === "dislike") dislikeBtn.classList.add("activo");
 
     likeBtn.addEventListener("click", () => {
+      likeBtn.classList.add("like-anim");
+      setTimeout(() => likeBtn.classList.remove("like-anim"), 400);
+
       if (reaccion === "like") {
         reaccion = null;
         likeBtn.classList.remove("activo");
@@ -213,13 +233,13 @@
         likes++;
         if (localStorage.getItem(storageKey) === "dislike") dislikes--;
       }
-      localStorage.setItem(storageKey, reaccion || "");
-      localStorage.setItem(`likes_${id}`, likes);
-      localStorage.setItem(`dislikes_${id}`, dislikes);
-      actualizarConteo();
+      guardarReaccion();
     });
 
     dislikeBtn.addEventListener("click", () => {
+      dislikeBtn.classList.add("dislike-anim");
+      setTimeout(() => dislikeBtn.classList.remove("dislike-anim"), 300);
+
       if (reaccion === "dislike") {
         reaccion = null;
         dislikeBtn.classList.remove("activo");
@@ -231,13 +251,13 @@
         dislikes++;
         if (localStorage.getItem(storageKey) === "like") likes--;
       }
+      guardarReaccion();
+    });
+
+    function guardarReaccion() {
       localStorage.setItem(storageKey, reaccion || "");
       localStorage.setItem(`likes_${id}`, likes);
       localStorage.setItem(`dislikes_${id}`, dislikes);
-      actualizarConteo();
-    });
-
-    function actualizarConteo() {
       likeCount.textContent = likes;
       dislikeCount.textContent = dislikes;
     }
