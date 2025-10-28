@@ -3,213 +3,248 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Película | Share Films</title>
-  <script src="peliculas.js"></script>
+  <title>Película - CineVerse</title>
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: white;
+      background-color: black;
       overflow-x: hidden;
+      overflow-y: auto;
     }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #b50000;
+      padding: 10px 40px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    .movie-container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
     .video-bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -1;
-    }
-    .video-bg video {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.4);
+      z-index: -1;
+      filter: brightness(0.5);
     }
-    .content {
-      position: relative;
-      z-index: 2;
-      padding: 5% 10%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    h1 { font-size: 3rem; margin-bottom: 1rem; }
-    p { font-size: 1.1rem; max-width: 700px; line-height: 1.6; }
-    .buttons {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-    .btn {
-      background-color: #e50914;
-      border: none;
-      color: white;
-      padding: 0.9rem 1.6rem;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .btn:hover { background-color: #b00610; }
-    .likes {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .like-btn, .dislike-btn {
-      cursor: pointer;
-      font-size: 1.8rem;
-      user-select: none;
-      transition: 0.3s;
-    }
-    .like-btn.liked { color: #00e676; }
-    .dislike-btn.disliked { color: #ff5252; }
-    #soundToggle {
-      position: fixed;
-      top: 20px; right: 30px;
-      background-color: rgba(0,0,0,0.6);
-      border: none;
-      color: #fff;
-      font-size: 1.4rem;
-      padding: 10px 14px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 5;
-    }
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: 0.3s;
-    }
-    .modal.active {
-      visibility: visible;
-      opacity: 1;
-    }
-    .modal iframe {
-      width: 80%;
-      height: 80%;
-      border: none;
-    }
-    .close-modal {
+
+    .sound-btn {
       position: absolute;
-      top: 20px; right: 30px;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
       color: white;
-      font-size: 2rem;
+      font-size: 18px;
+      padding: 8px 12px;
       cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .movie-info {
+      position: absolute;
+      bottom: 80px;
+      left: 60px;
+      max-width: 600px;
+    }
+
+    .movie-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .movie-info p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .genres {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #ffcccc;
+    }
+
+    .like-container {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      gap: 15px;
+    }
+
+    .like-container button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .like-container button:hover {
+      transform: scale(1.2);
+    }
+
+    .like-container span {
+      font-size: 18px;
+    }
+
+    .active {
+      color: #ff0000;
     }
   </style>
 </head>
 <body>
-  <div class="video-bg">
-    <video id="trailerVideo" autoplay muted loop playsinline></video>
-  </div>
-  <button id="soundToggle">🔇</button>
+  <header>
+    <h1><a href="index.html" style="text-decoration:none; color:white;">🎬 CineVerse</a></h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="mas-recientes.html">Más recientes</a>
+      <a href="series.html">Series</a>
+    </nav>
+  </header>
 
-  <div class="content">
-    <h1 id="titulo"></h1>
-    <p id="descripcion"></p>
-    <p><b>Géneros:</b> <span id="genero"></span></p>
-    <p><b>Duración:</b> <span id="duracion"></span></p>
-    <div class="buttons">
-      <button class="btn" id="playBtn">▶ Reproducir ahora</button>
+  <div class="movie-container">
+    <iframe id="trailer" class="video-bg" allow="autoplay; fullscreen"></iframe>
+    <button class="sound-btn" id="soundToggle">🔇</button>
+
+    <div class="movie-info">
+      <h2 id="titulo"></h2>
+      <p id="descripcion"></p>
+      <div class="genres" id="genero"></div>
+
+      <div class="like-container">
+        <button id="likeBtn">👍</button><span id="likeCount">0</span>
+        <button id="dislikeBtn">👎</button><span id="dislikeCount">0</span>
+      </div>
     </div>
-    <div class="likes">
-      <span class="like-btn" id="likeBtn">👍</span><span id="likeCount">0</span>
-      <span class="dislike-btn" id="dislikeBtn">👎</span><span id="dislikeCount">0</span>
-    </div>
   </div>
 
-  <div class="modal" id="videoModal">
-    <span class="close-modal" id="closeModal">✖</span>
-    <iframe id="videoFrame" src="" allowfullscreen></iframe>
-  </div>
-
+  <script src="peliculas.js"></script>
   <script>
+    // Obtener ID de película desde la URL
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
-    const data = peliculas.find(p => p.id === id);
 
-    if (!data) {
-      document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:50px;'>Película no encontrada</h1>";
+    // Buscar la película en peliculas.js
+    const pelicula = peliculas.find(p => 
+      p.titulo.toLowerCase().replace(/ /g, "-") === id
+    );
+
+    if (!pelicula) {
+      document.body.innerHTML = "<h2 style='text-align:center; color:white;'>Película no encontrada</h2>";
     } else {
-      document.getElementById("titulo").textContent = data.titulo;
-      document.getElementById("descripcion").textContent = data.descripcion;
-      document.getElementById("genero").textContent = data.genero;
-      document.getElementById("duracion").textContent = data.duracion;
-      document.getElementById("trailerVideo").src = data.trailer;
+      document.getElementById("titulo").textContent = pelicula.titulo;
+      document.getElementById("descripcion").textContent = pelicula.descripcion;
+      document.getElementById("genero").textContent = pelicula.genero.join(" • ");
+
+      // Reemplazar /view por /preview para autoplay
+      const videoUrl = pelicula.video.replace("/view", "/preview");
+      const trailer = document.getElementById("trailer");
+      trailer.src = videoUrl + "?autoplay=1&mute=1";
+
+      // Control de sonido
+      const soundBtn = document.getElementById("soundToggle");
+      let isMuted = true;
+      soundBtn.addEventListener("click", () => {
+        isMuted = !isMuted;
+        trailer.src = videoUrl + `?autoplay=1&mute=${isMuted ? 1 : 0}`;
+        soundBtn.textContent = isMuted ? "🔇" : "🔊";
+      });
+
+      // Sistema de Like/Dislike
+      const likeBtn = document.getElementById("likeBtn");
+      const dislikeBtn = document.getElementById("dislikeBtn");
+      const likeCount = document.getElementById("likeCount");
+      const dislikeCount = document.getElementById("dislikeCount");
+
+      const savedLikes = JSON.parse(localStorage.getItem("likes")) || {};
+      const savedDislikes = JSON.parse(localStorage.getItem("dislikes")) || {};
+
+      let likes = savedLikes[pelicula.titulo] || 0;
+      let dislikes = savedDislikes[pelicula.titulo] || 0;
+      let userLiked = localStorage.getItem(`userLiked_${pelicula.titulo}`) === "true";
+      let userDisliked = localStorage.getItem(`userDisliked_${pelicula.titulo}`) === "true";
+
+      likeCount.textContent = likes;
+      dislikeCount.textContent = dislikes;
+      if (userLiked) likeBtn.classList.add("active");
+      if (userDisliked) dislikeBtn.classList.add("active");
+
+      likeBtn.addEventListener("click", () => {
+        if (userLiked) {
+          likes--;
+          userLiked = false;
+          likeBtn.classList.remove("active");
+        } else {
+          likes++;
+          userLiked = true;
+          likeBtn.classList.add("active");
+          if (userDisliked) {
+            dislikes--;
+            userDisliked = false;
+            dislikeBtn.classList.remove("active");
+          }
+        }
+        updateStorage();
+      });
+
+      dislikeBtn.addEventListener("click", () => {
+        if (userDisliked) {
+          dislikes--;
+          userDisliked = false;
+          dislikeBtn.classList.remove("active");
+        } else {
+          dislikes++;
+          userDisliked = true;
+          dislikeBtn.classList.add("active");
+          if (userLiked) {
+            likes--;
+            userLiked = false;
+            likeBtn.classList.remove("active");
+          }
+        }
+        updateStorage();
+      });
+
+      function updateStorage() {
+        savedLikes[pelicula.titulo] = likes;
+        savedDislikes[pelicula.titulo] = dislikes;
+        localStorage.setItem("likes", JSON.stringify(savedLikes));
+        localStorage.setItem("dislikes", JSON.stringify(savedDislikes));
+        localStorage.setItem(`userLiked_${pelicula.titulo}`, userLiked);
+        localStorage.setItem(`userDisliked_${pelicula.titulo}`, userDisliked);
+        likeCount.textContent = likes;
+        dislikeCount.textContent = dislikes;
+      }
     }
-
-    // Sonido
-    const video = document.getElementById('trailerVideo');
-    const soundToggle = document.getElementById('soundToggle');
-    soundToggle.addEventListener('click', () => {
-      video.muted = !video.muted;
-      soundToggle.textContent = video.muted ? '🔇' : '🔊';
-    });
-
-    // Modal
-    const modal = document.getElementById('videoModal');
-    const playBtn = document.getElementById('playBtn');
-    const closeModal = document.getElementById('closeModal');
-    const videoFrame = document.getElementById('videoFrame');
-    playBtn.addEventListener('click', () => {
-      modal.classList.add('active');
-      videoFrame.src = data.trailer;
-    });
-    closeModal.addEventListener('click', () => {
-      modal.classList.remove('active');
-      videoFrame.src = "";
-    });
-
-    // Likes/dislikes locales
-    let likeCount = 0, dislikeCount = 0;
-    const likeBtn = document.getElementById('likeBtn');
-    const dislikeBtn = document.getElementById('dislikeBtn');
-    const likeCountEl = document.getElementById('likeCount');
-    const dislikeCountEl = document.getElementById('dislikeCount');
-    const key = `${id}_like_status`;
-
-    const userAction = localStorage.getItem(key);
-    if (userAction === 'like') likeBtn.classList.add('liked');
-    else if (userAction === 'dislike') dislikeBtn.classList.add('disliked');
-
-    likeBtn.addEventListener('click', () => {
-      if (likeBtn.classList.contains('liked')) {
-        likeBtn.classList.remove('liked');
-        localStorage.removeItem(key);
-        likeCount--;
-      } else {
-        likeBtn.classList.add('liked');
-        dislikeBtn.classList.remove('disliked');
-        localStorage.setItem(key, 'like');
-        likeCount++;
-      }
-      likeCountEl.textContent = likeCount;
-    });
-
-    dislikeBtn.addEventListener('click', () => {
-      if (dislikeBtn.classList.contains('disliked')) {
-        dislikeBtn.classList.remove('disliked');
-        localStorage.removeItem(key);
-        dislikeCount--;
-      } else {
-        dislikeBtn.classList.add('disliked');
-        likeBtn.classList.remove('liked');
-        localStorage.setItem(key, 'dislike');
-        dislikeCount++;
-      }
-      dislikeCountEl.textContent = dislikeCount;
-    });
   </script>
 </body>
 </html>
