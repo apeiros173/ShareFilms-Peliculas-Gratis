@@ -102,6 +102,14 @@
       color: #ccc;
       margin-top: 5px;
     }
+
+    /* 🌀 Texto de carga */
+    #cargando {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 1.2rem;
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
@@ -119,7 +127,8 @@
   </header>
 
   <main>
-    <section class="catalogo" id="catalogo">
+    <div id="cargando">🎬 Cargando películas...</div>
+    <section class="catalogo" id="catalogo" style="display:none;">
       <!-- Las tarjetas se generan automáticamente -->
     </section>
   </main>
@@ -128,31 +137,44 @@
   <script>
     const contenedor = document.getElementById('catalogo');
     const buscador = document.getElementById('buscador');
+    const cargando = document.getElementById('cargando');
 
-    // Función para mostrar las tarjetas
+    // 🧩 Función para mostrar las tarjetas
     function mostrarPeliculas(lista) {
       contenedor.innerHTML = "";
       lista.forEach(pelicula => {
         const card = document.createElement('div');
         card.classList.add('tarjeta');
+
+        // ✅ Verificar si la imagen está en images o en raíz
+        const rutaImagen = pelicula.imagen.includes("images/")
+          ? pelicula.imagen
+          : `images/${pelicula.imagen}`;
+
         card.innerHTML = `
-          <img src="${pelicula.imagen}" alt="${pelicula.titulo}">
+          <img src="${rutaImagen}" alt="${pelicula.titulo}" onerror="this.src='${pelicula.imagen}'">
           <div class="tarjeta-info">
             <h3>${pelicula.titulo}</h3>
             <p>${pelicula.genero.join(', ')}</p>
           </div>
         `;
+
         // Al hacer clic, abre la página de la película
         card.addEventListener('click', () => {
           const id = pelicula.titulo.toLowerCase().replace(/\s+/g, '-');
           window.location.href = \`pelicula.html?id=\${id}\`;
         });
+
         contenedor.appendChild(card);
       });
     }
 
-    // Mostrar todas las películas al cargar
-    mostrarPeliculas(peliculas);
+    // 🕒 Simulación de carga
+    setTimeout(() => {
+      mostrarPeliculas(peliculas);
+      cargando.style.display = "none";
+      contenedor.style.display = "grid";
+    }, 600);
 
     // 🔍 Buscador en tiempo real
     buscador.addEventListener('input', e => {
