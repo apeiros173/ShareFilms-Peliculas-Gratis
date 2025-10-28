@@ -13,12 +13,13 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    /* 🔴 HEADER ROJO */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 50px;
-      background-color: #b30000; /* 🔴 Rojo */
+      background-color: #b30000;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -48,6 +49,7 @@
       color: #00bfff;
     }
 
+    /* 🔍 Buscador */
     #buscador {
       background-color: #fff;
       border: none;
@@ -58,6 +60,7 @@
       outline: none;
     }
 
+    /* 🎞️ Tarjetas */
     .catalogo {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -107,9 +110,9 @@
     <img src="logo.jpeg" alt="Share Films Logo">
     <nav>
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Más recientes</a></li>
-        <li><a href="#">Series</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mas-recientes.html">Más recientes</a></li>
+        <li><a href="series.html">Series</a></li>
       </ul>
     </nav>
     <input type="text" id="buscador" placeholder="Buscar película...">
@@ -117,7 +120,7 @@
 
   <main>
     <section class="catalogo" id="catalogo">
-      <!-- Las tarjetas se generan aquí automáticamente -->
+      <!-- Las tarjetas se generan automáticamente -->
     </section>
   </main>
 
@@ -126,6 +129,7 @@
     const contenedor = document.getElementById('catalogo');
     const buscador = document.getElementById('buscador');
 
+    // Función para mostrar las tarjetas
     function mostrarPeliculas(lista) {
       contenedor.innerHTML = "";
       lista.forEach(pelicula => {
@@ -138,6 +142,7 @@
             <p>${pelicula.genero.join(', ')}</p>
           </div>
         `;
+        // Al hacer clic, abre la página de la película
         card.addEventListener('click', () => {
           const id = pelicula.titulo.toLowerCase().replace(/\s+/g, '-');
           window.location.href = \`pelicula.html?id=\${id}\`;
@@ -146,7 +151,7 @@
       });
     }
 
-    // Mostrar todas al inicio
+    // Mostrar todas las películas al cargar
     mostrarPeliculas(peliculas);
 
     // 🔍 Buscador en tiempo real
