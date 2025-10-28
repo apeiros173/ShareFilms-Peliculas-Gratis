@@ -103,12 +103,12 @@
       margin-top: 5px;
     }
 
-    /* 🌀 Texto de carga */
-    #cargando {
+    /* ⚠️ Mensaje de error */
+    .mensaje-error {
       text-align: center;
-      margin-top: 100px;
+      color: #ff5555;
       font-size: 1.2rem;
-      color: #ccc;
+      padding: 40px 0;
     }
   </style>
 </head>
@@ -127,54 +127,56 @@
   </header>
 
   <main>
-    <div id="cargando">🎬 Cargando películas...</div>
-    <section class="catalogo" id="catalogo" style="display:none;">
+    <section class="catalogo" id="catalogo">
       <!-- Las tarjetas se generan automáticamente -->
     </section>
+    <div id="mensajeError" class="mensaje-error" style="display:none;">
+      ⚠️ No se encontraron películas o no se cargó el catálogo.
+    </div>
   </main>
 
   <script src="peliculas.js"></script>
   <script>
     const contenedor = document.getElementById('catalogo');
     const buscador = document.getElementById('buscador');
-    const cargando = document.getElementById('cargando');
+    const mensajeError = document.getElementById('mensajeError');
 
-    // 🧩 Función para mostrar las tarjetas
+    // ✅ Verifica si la variable 'peliculas' existe
+    if (typeof peliculas === 'undefined' || peliculas.length === 0) {
+      mensajeError.style.display = 'block';
+    } else {
+      mostrarPeliculas(peliculas);
+    }
+
+    // 🎥 Función para mostrar las tarjetas
     function mostrarPeliculas(lista) {
       contenedor.innerHTML = "";
+      if (lista.length === 0) {
+        mensajeError.textContent = "😢 No se encontraron resultados.";
+        mensajeError.style.display = "block";
+        return;
+      } else {
+        mensajeError.style.display = "none";
+      }
+
       lista.forEach(pelicula => {
         const card = document.createElement('div');
         card.classList.add('tarjeta');
-
-        // ✅ Verificar si la imagen está en images o en raíz
-        const rutaImagen = pelicula.imagen.includes("images/")
-          ? pelicula.imagen
-          : `images/${pelicula.imagen}`;
-
         card.innerHTML = `
-          <img src="${rutaImagen}" alt="${pelicula.titulo}" onerror="this.src='${pelicula.imagen}'">
+          <img src="${pelicula.imagen}" alt="${pelicula.titulo}">
           <div class="tarjeta-info">
             <h3>${pelicula.titulo}</h3>
             <p>${pelicula.genero.join(', ')}</p>
           </div>
         `;
-
         // Al hacer clic, abre la página de la película
         card.addEventListener('click', () => {
           const id = pelicula.titulo.toLowerCase().replace(/\s+/g, '-');
           window.location.href = \`pelicula.html?id=\${id}\`;
         });
-
         contenedor.appendChild(card);
       });
     }
-
-    // 🕒 Simulación de carga
-    setTimeout(() => {
-      mostrarPeliculas(peliculas);
-      cargando.style.display = "none";
-      contenedor.style.display = "grid";
-    }, 600);
 
     // 🔍 Buscador en tiempo real
     buscador.addEventListener('input', e => {
