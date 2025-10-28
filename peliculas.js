@@ -40,98 +40,34 @@ const peliculas = [
     video: "https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"
   },
   {
-    titulo: "Tiempo Congelado",
-    año: 2002,
-    descripcion: "Un adolescente descubre un reloj que detiene el tiempo y debe protegerlo de quienes quieren usarlo para dominar el mundo.",
-    genero: ["Aventura", "Ciencia ficción"],
-    imagen: "tiempo-congelado.jpeg",
-    video: "https://drive.google.com/file/d/1yourlink/preview"
-  },
-  {
-    titulo: "Lightyear",
-    año: 2025,
-    descripcion: "Buzz y Alisha exploran el planeta T'Kani Prime y viven aventuras en el espacio-tiempo.",
-    genero: ["Animación", "Aventura"],
-    imagen: "lightyear.jpeg",
-    video: "https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview"
-  },
-  {
-    titulo: "Mufasa",
-    año: 2025,
-    descripcion: "Una historia épica que explora la vida de Mufasa antes de los eventos de El Rey León.",
-    genero: ["Animación", "Drama"],
-    imagen: "mufasa.jpeg",
-    video: "https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview"
-  },
-  {
-    titulo: "Cómo Entrenar a tu Dragón 2",
-    año: 2014,
-    descripcion: "Hipo y Chimuelo se enfrentan a cazadores de dragones para evitar la guerra.",
-    genero: ["Animación", "Aventura"],
-    imagen: "dragon2.jpeg",
-    video: "https://drive.google.com/file/d/1HoxHuCgIgetLZk6nuFE6nN9a_1YK9Py_/preview"
-  },
-  {
-    titulo: "Cómo Entrenar a tu Dragón 3",
-    año: 2019,
-    descripcion: "Hipo busca el Mundo Oculto para salvar a los dragones capturados.",
-    genero: ["Animación", "Aventura"],
-    imagen: "dragon3.jpeg",
-    video: "https://drive.google.com/file/d/1x4CYvRvkriWKcL2aE0nqOJY1tPAq71I2/preview"
-  },
-  {
-    titulo: "Avatar 2",
-    año: 2022,
-    descripcion: "Jake Sully y Ney'tiri hacen todo por permanecer juntos y exploran Pandora ante una antigua amenaza.",
-    genero: ["Acción", "Aventura", "Ciencia ficción"],
-    imagen: "avatar2.jpeg",
-    video: "https://drive.google.com/file/d/12RRSn0kLKUea3RbJlg32Z7zLZE7v__B5/preview"
-  },
-  {
-    titulo: "Flow",
-    año: 2024,
-    descripcion: "Un gato devastado por una inundación encuentra refugio en un barco y aprende a trabajar en equipo.",
-    genero: ["Animación", "Aventura", "Musical"],
-    imagen: "flow.jpeg",
-    video: "https://drive.google.com/file/d/1VVd1JCyxkHXGpsYr-3-SaD68pijn1XFS/preview"
-  },
-  {
     titulo: "Spider-Man: Un nuevo universo",
     año: 2018,
-    descripcion: "Luego de ser mordido por una araña radioactiva, Miles Morales desarrolla misteriosos poderes que lo transforman en el Hombre Araña. Ahora deberá usar sus nuevas habilidades ante el malvado Kingpin, un enorme demente que puede abrir portales hacia otros universos.",
+    descripcion: "Miles Morales desarrolla misteriosos poderes y se enfrenta a Kingpin, un villano que puede abrir portales hacia otros universos.",
     genero: ["Animación", "Aventura", "Superhéroes"],
     imagen: "into-the-spiderverse.jpeg",
     video: "https://drive.google.com/file/d/1Gp-v1xvRausPDh9c88yxOSFusXM9dkwE/preview"
   },
   {
-    titulo: "Spider-Man 2: A través del Spider-Verso",
-    año: 2023,
-    descripcion: "Después de reunirse con Gwen Stacy, el amigable vecino de tiempo completo de Brooklyn Spiderman, es lanzado a través del multiverso, donde se encuentra a un equipo de gente araña encomendada con proteger su mera existencia.",
-    genero: ["Acción", "Ciencia ficción", "Animación"],
-    imagen: "images/across-the-spiderverse.jpeg",
-    video: "https://drive.google.com/file/d/1H0RANDOMLINK/preview"
-  },
-  {
     titulo: "Huye",
     año: 2017,
-    descripcion: "Chris va a conocer a los padres de Rose, su novia. Al principio se muestran encantadores, si bien un tanto nerviosos. Chris supone que se debe a que él es negro, pero un poco más tarde descubre que sus suegros ocultan un secreto espeluznante.",
-    genero: ["Terror", "Comedia", "Suspenso"],
+    descripcion: "Chris va a conocer a los padres de Rose, su novia, pero descubre que esconden un secreto espeluznante.",
+    genero: ["Terror", "Suspenso"],
     imagen: "images/get-out.jpeg",
     video: "https://drive.google.com/file/d/1en6HYU4w0GfvSf3PT8ZAqcxzbHvCcjHB/preview"
   },
   {
     titulo: "Rango",
     año: 2011,
-    descripcion: "Rango es un camaleón que lleva toda su vida viviendo como mascota en un terrario. Sin embargo, un buen día, mientras transportan su terrario, el recipiente se cae del auto en medio del desierto y acaba en un pueblo salvaje donde lo nombran alguacil.",
-    genero: ["Infantil", "Wéstern", "Animación", "Aventura"],
+    descripcion: "Un camaleón mascota se convierte en el sheriff de un pueblo del desierto.",
+    genero: ["Infantil", "Animación", "Aventura"],
     imagen: "images/rango.jpeg",
     video: "https://drive.google.com/file/d/1SB357lg3QIGL5RvdfrJQ53_1jmnHNv7u/preview"
   },
   {
     titulo: "K-pop Hunters",
     año: 2025,
-    descripcion: "Cuando no están llenando estadios, las superestrellas del k-pop Rumi, Mira y Zoey usan sus superpoderes para proteger a sus fans de los demonios.",
-    genero: ["Musical", "Acción", "Animación", "Aventura"],
+    descripcion: "Las superestrellas del k-pop usan sus poderes para proteger a sus fans de demonios.",
+    genero: ["Musical", "Acción", "Animación"],
     imagen: "huntrix.jpeg",
     video: "https://drive.google.com/file/d/1yn5s7n8Cf3hnMtJdND3xG6gMq0DO3kfO/preview"
   }
