@@ -24,8 +24,7 @@ body{
 @keyframes gradientBG {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
 header{
-  background:rgb(252, 50, 134);
-  padding:15px 40px;
+  background: #071223;  padding:15px 40px;
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
@@ -244,10 +243,10 @@ nav a:hover{color:#ff0000;}
 footer{
   text-align:center;
   padding:20px;
-  background:#111;
-  color:#888;
+  background: #071223;  padding:15px 40px;
+  color:#4400ba;
   margin-top:60px;
-  box-shadow:0 -2px 10px #ff000020;
+  box-shadow:0 0 15px hsl(187, 100%, 50%);
 }
 
 @media(max-width:900px){
@@ -309,7 +308,7 @@ footer{
     </div>
   </div>
 </div>
-
+<p>Para más películas ver https://sharefilmsoficial-arch.github.io/SabineClear.com/</p>
 <footer>
 © 2025 Share Films — Todos los derechos reservados.<br>
 <a href="https://whatsapp.com/channel/0029VbBtBvR2UPBOALdRU71t" target="_blank">WhatsApp Channel🪀</a> | 
@@ -321,10 +320,24 @@ footer{
 document.addEventListener('DOMContentLoaded',()=>{
 
 const peliculas=[
-  {titulo:"Contracara", año:1997, descripcion:"El agente del FBI Sean Archer...vive con su familia.", genero:["Acción","Suspenso"], imagen:"contracara.jpeg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
-  {titulo:"Interstellar", año:2014, descripcion:"Un grupo de científicos y exploradores viajan al espacio para encontrar un planeta habitable.", genero:["Ciencia ficción","Drama"], imagen:"interestelar.jpeg", video:"https://drive.google.com/file/d/1cVVPgzsRjlombZxDsP2YWa9F9cHs0xa7/preview"},
-  {titulo:"Karate Kid", año:1984, descripcion:"Daniel LaRusso aprende kung fu con el maestro Miyagi.", genero:["Acción","Drama"], imagen:"karate-kid.jpeg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jspc5/preview"}
-];
+    {titulo:"Contracara", año:1997, descripcion:"El agente del FBI Sean Archer...vive con su familia.", genero:["Acción","Suspenso"], imagen:"contracara.jpeg", video:"https://drive.google.com/file/d/1FsEqOKWlq4zMSeYOF-7tp_UB4jTKujqn/preview"},
+    {titulo:"Interstellar", año:2014, descripcion:"Un grupo de científicos y exploradores viajan al espacio para encontrar un planeta habitable.", genero:["Ciencia ficción","Drama"], imagen:"interestelar.jpeg", video:"https://drive.google.com/file/d/1iESvmJew9Qftd_5iLozVhRFIK-TXfzY6/view?usp=sharing"},
+    {titulo:"Karate Kid", año:1984, descripcion:"Daniel LaRusso aprende kung fu con el maestro Miyagi.", genero:["Acción","Drama"], imagen:"karate-kid.jpeg", video:"https://drive.google.com/file/d/1vytWPJ8SuHa5cLsXWXQFHsCA26jspc5/preview"},
+    {titulo:"La leyenda de los Chaneques", año:2025, descripcion:"Cinco años después, Leo San Juan enfrenta una antigua maldición en Veracruz.", genero:["Animación","Familia","Aventura"], imagen:"la-leyenda-de-los-chaneques.jpeg", video:"https://drive.google.com/file/d/1j2-DvVDho1-u6DoJhZpr3fG6mpyAMGL5/preview"},
+    {titulo:"Venom 3", año:2024, descripcion:"Eddie y Venom enfrentan a la criatura Xenófaga mientras intentan limpiar su nombre.", genero:["Acción","Superhéroes"], imagen:"venom-3.jpeg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"},
+    {titulo:"Tiempo Congelado", año:2002, descripcion:"Un adolescente descubre un reloj que detiene el tiempo y debe protegerlo de quienes quieren usarlo para dominar el mundo.", genero:["Aventura","Ciencia ficción"], imagen:"tiempo-congelado.jpeg", video:"https://drive.google.com/file/d/1yourlink/preview"},
+    {titulo:"Lightyear", año:2025, descripcion:"Buzz y Alisha exploran el planeta T'Kani Prime y viven aventuras en el espacio-tiempo.", genero:["Animación","Aventura"], imagen:"lightyear.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview"},
+    {titulo:"Mufasa", año:2025, descripcion:"Una historia épica que explora la vida de Mufasa antes de los eventos de El Rey León.", genero:["Animación","Drama"], imagen:"mufasa.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview"},
+    {titulo:"Cómo Entrenar a tu Dragón 2", año:2014, descripcion:"Hipo y Chimuelo se enfrentan a cazadores de dragones para evitar la guerra.", genero:["Animación","Aventura"], imagen:"dragon2.jpeg", video:"https://drive.google.com/file/d/1HoxHuCgIgetLZk6nuFE6nN9a_1YK9Py_/preview"},
+    {titulo:"Cómo Entrenar a tu Dragón 3", año:2019, descripcion:"Hipo busca el Mundo Oculto para salvar a los dragones capturados.", genero:["Animación","Aventura"], imagen:"dragon3.jpeg", video:"https://drive.google.com/file/d/1x4CYvRvkriWKcL2aE0nqOJY1tPAq71I2/preview"},
+    {titulo:"Avatar 2", año:2022, descripcion:"Jake Sully y Ney'tiri hacen todo por permanecer juntos y exploran Pandora ante una antigua amenaza.", genero:["Acción","Aventura","Ciencia ficción"], imagen:"avatar2.jpeg", video:"https://drive.google.com/file/d/12RRSn0kLKUea3RbJlg32Z7zLZE7v__B5/preview"},
+    {titulo:"Flow", año:2024, descripcion:"Un gato devastado por una inundación encuentra refugio en un barco y aprende a trabajar en equipo.", genero:["Animación","Aventura","Musical"], imagen:"flow.jpeg", video:"https://drive.google.com/file/d/1VVd1JCyxkHXGpsYr-3-SaD68pijn1XFS/preview"},
+    {titulo:"Spider-Man: Un nuevo universo", año:2018, descripcion:"Luego de ser mordido por una araña radioactiva, Miles Morales desarrolla misteriosos poderes que lo transforman en el Hombre Araña. Ahora deberá usar sus nuevas habilidades ante el malvado Kingpin, un enorme demente que puede abrir portales hacia otros universos.", genero:["Animación","Aventura","Superhéroes"], imagen:"into-the-spiderverse.jpeg", video:"https://drive.google.com/file/d/1Gp-v1xvRausPDh9c88yxOSFusXM9dkwE/preview"},
+    {titulo:"Spider-Man 2: A través del Spider-Verso", año:2023, descripcion:"Después de reunirse con Gwen Stacy, el amigable vecino de tiempo completo de Brooklyn Spiderman, es lanzado a través del multiverso, donde se encuentra a un equipo de gente araña encomendada con proteger su mera existencia.", genero:["Acción","Ciencia ficción","Animación"], imagen:"images/across-the-spiderverse.jpeg", video:"https://drive.google.com/file/d/1H0RANDOMLINK/preview"},
+    {titulo:"Huye", año:2017, descripcion:"Chris va a conocer a los padres de Rose, su novia. Al principio se muestran encantadores, si bien un tanto nerviosos. Chris supone que se debe a que él es negro, pero un poco más tarde descubre que sus suegros ocultan un secreto espeluznante.", genero:["Terror","Comedia","Suspenso"], imagen:"images/get-out.jpeg", video:"https://drive.google.com/file/d/1en6HYU4w0GfvSf3PT8ZAqcxzbHvCcjHB/preview"},
+    {titulo:"Rango", año:2011, descripcion:"Rango es un camaleón que lleva toda su vida viviendo como mascota en un terrario. Sin embargo, un buen día, mientras transportan su terrario, el recipiente se cae del auto en medio del desierto y acaba en un pueblo salvaje donde lo nombran alguacil.", genero:["Infantil","Wéstern","Animación","Aventura"], imagen:"images/rango.jpeg", video:"https://drive.google.com/file/d/1SB357lg3QIGL5RvdfrJQ53_1jmnHNv7u/preview"},
+    {titulo:"K-pop Hunters", año:2025, descripcion:"Cuando no están llenando estadios, las superestrellas del k-pop Rumi, Mira y Zoey usan sus superpoderes para proteger a sus fans de los demonios.", genero:["Musical","Acción","Animación","Aventura"], imagen:"huntrix.jpeg", video:"https://drive.google.com/file/d/1yn5s7n8Cf3hnMtJdND3xG6gMq0DO3kfO/preview"}
+  ];
 
 const moviesContainer=document.getElementById('movies');
 const searchInput=document.getElementById('search');
