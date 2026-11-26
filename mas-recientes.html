@@ -1,235 +1,168 @@
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Share Films — Más recientes</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(-45deg,#0d0d0d,#1a1a1a,#111,#0d0d0d);
-  background-size:400% 400%;
-  animation:gradientBG 12s ease infinite;
-  color:#fff;
-}
-@keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-header{
-  background: #071223;
-  padding:15px 40px;
-  display:flex; flex-wrap:wrap;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 0 15px #ff000040;
-  backdrop-filter:blur(10px);
-  position:relative;
-  z-index: 100;
-}
-.logo-container{display:flex; align-items:center; gap:10px;}
-.logo-container img{height:40px; border-radius:6px;}
-.logo-container h1{color:#ff0000; font-size:24px; margin:0;}
-nav{display:flex; align-items:center; gap:25px; flex-wrap: wrap;}
-nav a{color:#fff; text-decoration:none; font-weight:500; transition:0.3s;}
-nav a:hover, nav a.active{color:#ff0000; font-weight:700; border-bottom:2px solid #ff0000;}
+    <meta name="description" content="Descubre las películas, series y episodios más recientes de Share Films.">
 
-.movies-container{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:25px;
-  padding:20px;
-  max-width:1200px;
-  margin:auto;
-}
-.movie-card{
-  background:rgba(26,26,26,0.9);
-  border-radius:10px;
-  box-shadow:0 0 15px #ff000030;
-  overflow:hidden;
-  width:260px;
-  text-align:center;
-  transition:0.3s;
-  cursor:pointer;
-  backdrop-filter:blur(6px);
-  display:flex;
-  flex-direction:column;
-}
-.movie-card:hover{transform:scale(1.05); box-shadow:0 0 20px #ff000050;}
-.movie-card img{
-  width:100%;
-  height:350px;
-  object-fit:cover;
-  transition:transform 0.3s;
-  display:block;
-}
-.movie-card:hover img{transform:scale(1.05);}
-.movie-card h3{margin:10px 0; color:#fff;}
-.movie-card p{
-  color:#ccc;
-  font-size:14px;
-  margin:5px 10px 10px;
-  flex:1;
-  overflow-y:auto;
-  max-height:120px;
-  text-align:justify;
-}
-.movie-card a, .movie-card button{
-  display:inline-block;
-  margin:10px 0 15px;
-  padding:8px 14px;
-  border-radius:6px;
-  font-weight:600;
-  transition:0.3s;
-  text-decoration:none;
-}
-.movie-card a{background:#ff0000; color:#fff;}
-.movie-card a:hover{background:#cc0000;}
-.movie-card button{
-  background:#333;
-  color:#bbb;
-  border:none;
-  cursor:not-allowed;
-}
-.movie-card button::before{content:"⏳ ";}
+    <title>Share Films — Más recientes</title>
 
-#modal{
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.95);
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
-  padding:0;
-}
-#modalContent{
-  position:relative;
-  width:95%;
-  height:95%;
-  max-width:1400px;
-  max-height:95vh;
-}
-#closeModal{
-  position:absolute;
-  top:-50px;
-  right:0;
-  font-size:45px;
-  cursor:pointer;
-  color:#fff;
-  font-weight:bold;
-  transition:0.3s;
-}
-#closeModal:hover{color:#ff0000;}
-iframe{
-  width:100%;
-  height:100%;
-  border:none;
-  border-radius:10px;
-  background:#000;
-}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-footer{
-  text-align:center;
-  padding:20px;
-  background:#111;
-  color:#888;
-  margin-top:60px;
-  box-shadow:0 -2px 10px #ff000020;
-}
-footer a{color:#ff0000; text-decoration:none; margin:0 10px;}
-footer a:hover{color:#fff;}
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="style.css">
 
-@media(max-width:900px){
-  .movie-card{width:200px;}
-  .movie-card img{height:300px;}
-}
-@media(max-width:600px){
-  .movie-card{width:180px;}
-  .movie-card img{height:250px;}
-}
-</style>
+    <!-- Archivos de datos -->
+    <script src="./movies.js" defer></script>
+    <script src="./serie.js" defer></script>
+
+    <!-- Funciones de Más recientes -->
+    <script src="./script-mas-recientes.js" defer></script>
 </head>
+
 <body>
 
-<header>
-  <div class="logo-container">
-    <img src="logo.jpeg" alt="Logo Share Films">
-    <h1>Share Films</h1>
-  </div>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <li><a href="mas-recientes.html">Más recientes</a>
-    <li><a href="series.html">Series</a>
-    <li><a href="prueba.html">Prueba</a>
-    <li><a href="https://sharefilmsoficial-arch.github.io/PrimeFilms/">PrimeFilms by ShareFilms</a></li>
-    <li><a href="https://sharefilmsoficial-arch.github.io/ShareFilms3.PeliculasGratis/">ShareFilms 3.0</a></li>
-    <li><a href="https://sharefilmsoficial-arch.github.io/Vortex_by_ShareFilms/index.html">Vortex by ShareFilms</a></li>
-  </nav>
-</header>
+    <!-- HEADER -->
+    <header>
 
-<section class="movies-container" id="movies"></section>
-<p id="no-results" style="text-align:center; display:none; color:#888; margin-top:20px;">No se encontraron películas recientes.</p>
+        <div class="logo-container">
+            <img src="logo.jpeg" alt="Logo Share Films">
+            <h1>Share Films</h1>
+        </div>
 
-<div id="modal">
-  <div id="modalContent">
-    <span id="closeModal">&times;</span>
-    <iframe id="moviePlayer" allow="autoplay; fullscreen"></iframe>
-  </div>
-</div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="mas-recientes.html" class="active">Más recientes</a>
+            <a href="series.html">Series</a>
 
-<footer>
-  © 2025 Share Films — Todos los derechos reservados. <br>
-  <a href="https://whatsapp.com/channel/0029VbBtBvR2UPBOALdRU71t" target="_blank">WhatsApp Channel🪀</a> | 
-  <a href="https://chat.whatsapp.com/HesN0nsEOeN0PbAJFevL37?mode=wwt" target="_blank">WhatsApp Group🪀</a>
-</footer>
+            <a href="https://sharefilmsoficial-arch.github.io/PrimeFilms/">
+                PrimeFilms by ShareFilms
+            </a>
 
-<script>
-document.addEventListener('DOMContentLoaded', ()=>{
-  const peliculas = [
-    {titulo:"Karate Kid Leyendas", año:2025, descripcion:"Li Fong debe fusionar estilos de artes marciales...", imagen:"karate-legends.jpeg", video:"https://drive.google.com/file/d/1A26SVMjdf0MWh_HmFkXG_qtOv_C4lYK2/preview"},
-    {titulo:"Venom 3", año:2024, descripcion:"Eddie y Venom deben limpiar su nombre mientras una criatura cazadora de simbiontes los rastrea...", imagen:"venom-3.jpeg", video:"https://drive.google.com/file/d/1-I98WaJ_C622i2YMeBFjcEn43808KgmR/preview"},
-    {titulo:"Mufasa", año:2024, descripcion:"[Aún falta tu resumen]", imagen:"mufasa.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview"},
-    {titulo:"Lightyear", año:2022, descripcion:"Buzz y Alisha exploran el espacio-tiempo tras una falla en hipervelocidad...", imagen:"lightyear.jpeg", video:"https://drive.google.com/file/d/1kpAxZOwLmSTcZZnHZ_vDlfNHqv9ZtGgz/preview"}
-  ];
+            <a href="https://sharefilmsoficial-arch.github.io/ShareFilms3.PeliculasGratis/">
+                ShareFilms 3.0
+            </a>
 
-  const moviesContainer = document.getElementById('movies');
-  const modal = document.getElementById('modal');
-  const moviePlayer = document.getElementById('moviePlayer');
-  const closeModal = document.getElementById('closeModal');
-  const noResults = document.getElementById('no-results');
+            <a href="https://sharefilmsoficial-arch.github.io/Vortex_by_ShareFilms/index.html">
+                Vortex by ShareFilms
+            </a>
+        </nav>
 
-  function mostrarPeliculas(lista){
-    moviesContainer.innerHTML='';
-    if(lista.length===0){ noResults.style.display='block'; return; }
-    noResults.style.display='none';
-    lista.forEach(p=>{
-      const card = document.createElement('div');
-      card.classList.add('movie-card');
-      card.innerHTML = `<img src="${p.imagen}" alt="${p.titulo}" onerror="this.src='https://via.placeholder.com/260x350?text=Sin+imagen';">
-                        <h3>${p.titulo} (${p.año})</h3>
-                        <p>${p.descripcion}</p>
-                        <a href="#" class="playMovie" data-video="${p.video}">🎬 Reproducir</a>`;
-      moviesContainer.appendChild(card);
-    });
+    </header>
 
-    document.querySelectorAll('.playMovie').forEach(btn=>{
-      btn.addEventListener('click', e=>{
-        e.preventDefault();
-        moviePlayer.src=btn.dataset.video;
-        modal.style.display='flex';
-      });
-    });
-  }
+    <main>
 
-  closeModal.addEventListener('click', ()=>{ modal.style.display='none'; moviePlayer.src=''; });
-  window.addEventListener('click', e=>{ if(e.target===modal){ modal.style.display='none'; moviePlayer.src=''; } });
-  window.addEventListener('keydown', e=>{ if(e.key==='Escape'){ modal.style.display='none'; moviePlayer.src=''; } });
+        <!-- =================================
+             PELÍCULAS DE LOS ÚLTIMOS 5 AÑOS
+        ================================== -->
 
-  mostrarPeliculas(peliculas);
-});
-</script>
+        <section>
+
+            <h2 class="catalog-title" id="new-title">
+                Nuevo
+            </h2>
+
+            <div
+                class="movies-container"
+                id="new-movies"
+            ></div>
+
+            <p class="no-results" id="new-no-results">
+                No hay películas disponibles en este periodo.
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             RECIÉN AGREGADO
+        ================================== -->
+
+        <section>
+
+            <h2 class="catalog-title">
+                Recién agregado
+            </h2>
+
+            <div
+                class="movies-container"
+                id="recent-items"
+            ></div>
+
+            <p class="no-results" id="recent-no-results">
+                Todavía no hay contenido recién agregado.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================
+         MODAL DE REPRODUCCIÓN E INFORMACIÓN
+    ====================================== -->
+
+    <div
+        class="modal-prime"
+        id="modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-prime-content"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Información y reproducción"
+        >
+
+            <button
+                class="close-prime"
+                id="closeModal"
+                type="button"
+                aria-label="Cerrar"
+            >
+                &times;
+            </button>
+
+            <div id="modalBody"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 Share Films — Todos los derechos reservados.
+
+        <p>
+            <a
+                href="https://whatsapp.com/channel/0029VbBtBvR2UPBOALdRU71t"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                WhatsApp Channel 🪀
+            </a>
+
+            |
+
+            <a
+                href="https://chat.whatsapp.com/HesN0nsEOeN0PbAJFevL37?mode=wwt"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                WhatsApp Group 🪀
+            </a>
+        </p>
+
+    </footer>
+
 </body>
 </html>
