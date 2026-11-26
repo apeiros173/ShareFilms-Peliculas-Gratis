@@ -1,0 +1,709 @@
+
+/* =====================================
+   CONFIGURACIÓN GENERAL
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #111;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+header {
+    background: #071223;
+    padding: 15px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .35);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-container h1 {
+    color: #ff0000;
+    font-size: 24px;
+}
+
+/* =====================================
+   NAVEGACIÓN
+===================================== */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .2s ease;
+}
+
+nav a:hover {
+    color: #ff0000;
+}
+
+/* =====================================
+   BUSCADOR
+===================================== */
+
+.search-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 5px;
+}
+
+.search-container input {
+    width: 60%;
+    max-width: 300px;
+    min-width: 120px;
+
+    padding: 10px 15px;
+    font-size: 16px;
+
+    border: 1px solid #333;
+    border-radius: 8px;
+
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.search-container input:focus {
+    outline: 2px solid #ff0000;
+    outline-offset: 1px;
+}
+
+/* =====================================
+   MENÚ DE GÉNEROS
+===================================== */
+
+.genre-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.genre-menu > button {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.genre-menu > button:hover {
+    background: #ff0000;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+
+    background: #1a1a1a;
+    min-width: 180px;
+    max-height: 300px;
+    overflow-y: auto;
+
+    border: 1px solid #333;
+    border-radius: 8px;
+    z-index: 1000;
+
+    flex-direction: column;
+}
+
+.dropdown-content button {
+    background: none;
+    color: #fff;
+    border: none;
+    padding: 10px 12px;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+}
+
+.dropdown-content button:hover {
+    background: #ff000020;
+}
+
+/* =====================================
+   TÍTULO DEL CATÁLOGO
+===================================== */
+
+.catalog-title {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 28px;
+}
+
+/* =====================================
+   CATÁLOGO - CSS GRID
+===================================== */
+
+.movies-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(180px, 220px));
+
+    justify-content: center;
+    align-items: start;
+
+    gap: 20px;
+    padding: 25px 20px;
+
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* =====================================
+   TARJETAS
+===================================== */
+
+.movie-card {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 2 / 3;
+
+    overflow: hidden;
+    border-radius: 12px;
+
+    cursor: pointer;
+    background: #181818;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .35);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.movie-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    background: #222;
+}
+
+/* Hover únicamente en dispositivos con ratón */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .movie-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .5);
+    }
+
+    .movie-card:hover .movie-overlay {
+        opacity: 1;
+    }
+
+}
+
+/* =====================================
+   INFORMACIÓN DE TARJETAS
+===================================== */
+
+.movie-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 35%;
+
+    padding: 15px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, .95)
+    );
+
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.movie-overlay h3 {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.movie-overlay .card-actions {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.movie-overlay button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.playCard {
+    background: #ff0000;
+    color: #fff;
+}
+
+.likeCard {
+    background: #0f0;
+    color: #000;
+}
+
+.dislikeCard {
+    background: #f00;
+    color: #fff;
+}
+
+.movie-overlay button:hover {
+    opacity: .85;
+}
+
+/* =====================================
+   MENSAJE SIN RESULTADOS
+===================================== */
+
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    color: #ccc;
+}
+
+/* =====================================
+   BOTÓN CARGAR MÁS
+===================================== */
+
+.load-more-btn {
+    display: block;
+    margin: 25px auto;
+    padding: 12px 25px;
+
+    border: 1px solid #444;
+    border-radius: 8px;
+
+    background: #252525;
+    color: white;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.load-more-btn:hover {
+    background: #353535;
+}
+
+.load-more-btn[hidden] {
+    display: none;
+}
+
+/* =====================================
+   MODAL
+===================================== */
+
+.modal-prime {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, .85);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+    padding: 15px;
+}
+
+.modal-prime-content {
+    width: 90%;
+    max-width: 1000px;
+    max-height: 95vh;
+
+    overflow-y: auto;
+
+    background: #111;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 0 25px rgba(0, 0, 0, .6);
+
+    position: relative;
+}
+
+/* =====================================
+   REPRODUCTOR
+===================================== */
+
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    border: none;
+    background: #000;
+
+    display: block;
+}
+
+/* =====================================
+   INFORMACIÓN DEL MODAL
+===================================== */
+
+.info-container {
+    padding: 20px;
+    color: #fff;
+}
+
+.info-container h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.info-container p {
+    font-size: 16px;
+    color: #ccc;
+
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.movie-extra {
+    margin-top: 10px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* =====================================
+   BOTONES DEL MODAL
+===================================== */
+
+.actions-prime {
+    margin-top: 15px;
+
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.actions-prime button {
+    padding: 10px 20px;
+    font-size: 16px;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+#playBtn {
+    background: #ff0000;
+    color: #fff;
+    font-weight: bold;
+}
+
+#likeBtn {
+    background: #0f0;
+    color: #000;
+}
+
+#dislikeBtn {
+    background: #f00;
+    color: #fff;
+}
+
+.actions-prime button:hover {
+    opacity: .85;
+}
+
+/* =====================================
+   BOTÓN CERRAR
+===================================== */
+
+.close-prime {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    font-size: 36px;
+    color: #fff;
+
+    cursor: pointer;
+    z-index: 10;
+
+    background: rgba(0, 0, 0, .5);
+    border: none;
+
+    line-height: 1;
+}
+
+.close-prime:hover {
+    color: #ff0000;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    text-align: center;
+    padding: 20px;
+
+    background: #071223;
+    color: #aaa;
+
+    margin-top: 60px;
+
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, .3);
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer a {
+    color: #00bfff;
+    text-decoration: none;
+}
+
+/* =====================================
+   TABLETS
+===================================== */
+
+@media (max-width: 900px) {
+
+    .movies-container {
+        grid-template-columns:
+            repeat(auto-fill, minmax(160px, 200px));
+    }
+
+    .search-container input {
+        width: 70%;
+    }
+
+}
+
+/* =====================================
+   CELULARES
+===================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px 20px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    .search-container {
+        width: 100%;
+        margin: 5px 0;
+        justify-content: flex-start;
+    }
+
+    .search-container input {
+        width: 65%;
+    }
+
+    .movies-container {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+        padding: 15px 12px;
+    }
+
+    .movie-overlay {
+        opacity: 1;
+        padding: 8px;
+    }
+
+    .movie-overlay h3 {
+        font-size: 12px;
+    }
+
+    .movie-overlay button {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .modal-prime-content {
+        width: 100%;
+    }
+
+    .info-container h2 {
+        font-size: 21px;
+    }
+
+    .info-container p {
+        font-size: 14px;
+    }
+
+}
+
+/* =====================================
+   ACCESIBILIDAD
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+
+}
+/* =====================================
+   LOGO SHARE FILMS
+===================================== */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: 40px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    border: 2px solid #ff2222;
+
+    box-shadow:
+        0 0 8px #ff000080,
+        0 0 18px #ff000030;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.logo-container h1 {
+    color: #ff2222;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    letter-spacing: .5px;
+
+    text-shadow:
+        0 0 5px #ff000080,
+        0 0 12px #ff000040;
+
+    transition: color .25s ease;
+}
+
+/* Efecto al pasar el cursor */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .logo-container:hover img {
+        transform: scale(1.08);
+
+        box-shadow:
+            0 0 12px #ff0000,
+            0 0 25px #ff000080;
+    }
+
+    .logo-container:hover h1 {
+        color: #ff5555;
+    }
+
+}
+
+/* Adaptación para celulares */
+
+@media (max-width: 600px) {
+
+    .logo-container {
+        gap: 9px;
+    }
+
+    .logo-container img {
+    width: 75px;
+    height: 48px;
+    object-fit: contain;
+}
+
+    .logo-container h1 {
+        font-size: 21px;
+    }
+
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .logo-container img,
+    .logo-container h1 {
+        transition: none;
+    }
+
+}

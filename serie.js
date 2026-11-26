@@ -1,0 +1,2494 @@
+const SERIES = [
+  {
+    id: "whatif1",
+    title: "What If...? Temporada 1 | No Disponible",
+    year: 2021,
+    image: "series/What-If-TP1.webp",
+    post:"series/What-If-TP1-post.webp",
+    genres: ["Animación"],
+    episodes: [
+    {
+      id: "episode-1",
+      n: 1,
+      name: "¿Qué pasaría si...la Capitana Carter fuera la primera vengadora?",
+      thumb: "series/What-If-TP1-EP1.webp",
+      image: "series/What-If-TP1-EP1.webp",
+      drive: "https://drive.google.com/file/d/1SAgPrySn1rN-tzx7H2YL64TTkX_Ds-wt/preview"
+    },
+    {
+      id: "episode-2",
+      n: 2,
+      name: "¿Qué pasaría si...T'Challa se convirtiera en Star-Lord?",
+      thumb: "series/What-If-TP1-EP2.webp",
+      image: "series/What-If-TP1-EP2.webp",
+      drive: "https://drive.google.com/file/d/1FYnR9LhgITNkpTA3UtD9UCF7ykIOmf6a/preview"
+    },
+    {
+      id: "episode-3",
+      n: 3,
+      name: "¿Qué pasaría si...el mundo perdiera sus héroes más poderosos?",
+      thumb: "series/What-If-TP1-EP3.webp",
+      image: "series/What-If-TP1-EP3.webp",
+      drive: "https://drive.google.com/file/d/1OpAx2yCBR96qZz0Kca8KvoE6O2Nb2SOS/preview"
+    },
+    {
+      id: "episode-4",
+      n: 4,
+      name: "¿Qué pasaría si...si el Doctor Strange perdiera su corazón en vez de sus manos?",
+      thumb: "series/What-If-TP1-EP4.webp",
+      image: "series/What-If-TP1-EP4.webp",
+      drive: "https://drive.google.com/file/d/1IiCCqr_F-mcSOZXLOGvUAfEC_fUgZ1iI/preview"
+    },
+    {
+      id: "episode-5",
+      n: 5,
+      name: "¿Qué pasaría si...¡hubiera zombis!?",
+      thumb: "series/What-If-TP1-EP5.webp",
+      image: "series/What-If-TP1-EP5.webp",
+      drive: "https://drive.google.com/file/d/1Iuq2JP_w9L8QmmnuZ4cvlYkbeG2r4C_T/preview"
+    },
+    {
+      id: "episode-6",
+      n: 6,
+      name: "¿Qué pasaría si...Killmonger rescatara a Tony Stark?",
+      thumb: "series/What-If-TP1-EP6.webp",
+      image: "series/What-If-TP1-EP6.webp",
+      drive: "https://drive.google.com/file/d/1ElqDs6X_O0z03DNHK0jxyxyEPpz1cMBI/preview"
+    },
+    {
+      id: "episode-7",
+      n: 7,
+      name: "¿Qué pasaría si...Thor fuera hijo único?",
+      thumb: "series/What-If-TP1-EP7.webp",
+      image: "series/What-If-TP1-EP7.webp",
+      drive: "https://drive.google.com/file/d/1I7knzWRduV9dFzRHwSZx_ZuPcuapeL9I/preview"
+    },
+    {
+      id: "episode-8",
+      n: 8,
+      name: "¿Qué pasaría si...Ultron Ganara? | Próximamente",
+      thumb: "series/What-If-TP1-EP8.webp",
+      image: "series/What-If-TP1-EP8.webp",
+      drive: "sin_episodio"
+    },
+    {
+      id: "episode-9",
+      n: 9,
+      name: "¿Qué pasaría si...El Vigilante Rompiera su Juramento?",
+      thumb: "series/What-If-TP1-EP9.webp",
+      image: "series/What-If-TP1-EP9.webp",
+      drive: "https://drive.google.com/file/d/1GJlvEwDbRPHvswRCi417xxGFSScq_Sb2/preview"
+    }
+  ]
+},
+  {
+  id: "whatif2",
+  title: "What If...? Temporada 2 | No Disponible",
+  year: 2023,
+  image: "series/What-If-TP2.webp",
+    post:"series/What-If-TP2-post.webp",
+  genres: ["Animación"],
+  episodes: [
+    {
+      id: "episode-1",
+      n: 1,
+      name: "¿Qué pasaría si...Nebula se uniera a los Nova Corps?",
+      thumb: "series/What-If-TP2-EP1.webp",
+      image: "series/What-If-TP2-EP1.webp",
+      drive: "https://drive.google.com/file/d/1E96HmGrSbO87lpaIe5qFeHjalIM41Us1/preview"
+    },
+    {
+      id: "episode-2",
+      n: 2,
+      name: "¿Qué pasaría si...Peter Quill atacara a los héroes más poderosos del planeta?",
+      thumb: "series/What-If-TP2-EP2.webp",
+      image: "series/What-If-TP2-EP2.webp",
+      drive: "https://drive.google.com/file/d/1fMvWuHYCPXG9ccau4lMGRFS1pZ2vTnbS/preview"
+    },
+    {
+      id: "episode-3",
+      n: 3,
+      name: "¿Qué pasaría si...Happy Hogan salvara la Navidad?",
+      thumb: "series/What-If-TP2-EP3.webp",
+      image: "series/What-If-TP2-EP3.webp",
+      drive: "https://drive.google.com/file/d/1ZSSsR0RiAfsBbfe6lMbsJKHgL7-Urm6L/preview"
+    },
+    {
+      id: "episode-4",
+      n: 4,
+      name: "¿Qué pasaría si...Iron Man se estrellara con el Gran Maestro?",
+      thumb: "series/What-If-TP2-EP4.webp",
+      image: "series/What-If-TP2-EP4.webp",
+      drive: "https://drive.google.com/file/d/1HpVNBa_wJHH1HDMVmp9zSVH_hxn4k4by/preview"
+    },
+    {
+      id: "episode-5",
+      n: 5,
+      name: "¿Qué pasaría si...La Capitana Carter peleara contra del Hydra Stomper?",
+      thumb: "series/What-If-TP2-EP5.webp",
+      image: "series/What-If-TP2-EP5.webp",
+      drive: "https://drive.google.com/file/d/1vooim-nQYe3sen468oYbRF6gDnn_bcxH/preview"
+    },
+    {
+      id: "episode-6",
+      n: 6,
+      name: "¿Qué pasaría si...Kahhori reformara el mundo?",
+      thumb: "series/What-If-TP2-EP6.webp",
+      image: "series/What-If-TP2-EP6.webp",
+      drive: "https://drive.google.com/file/d/10P29jkyFp9klU36YCk7IznYvbwHHOsl3/preview"
+    },
+    {
+      id: "episode-7",
+      n: 7,
+      name: "¿Qué pasaría si...Hela encontrara los Diez Anillos? | Próximamente",
+      thumb: "series/What-If-TP2-EP7.webp",
+      image: "series/What-If-TP2-EP7.webp",
+      drive: ""
+    },
+    {
+      id: "episode-8",
+      n: 8,
+      name: "¿Qué pasaría si...Los Vengadores se unieran en 1602? | Próximamente",
+      thumb: "series/What-If-TP2-EP8.webp",
+      image: "series/What-If-TP2-EP8.webp",
+      drive: ""
+    },
+    {
+      id: "episode-9",
+      n: 9,
+      name: "¿Qué pasaría si...Strange Supremo interviniera? | Próximamente",
+      thumb: "series/What-If-TP2-EP9.webp",
+      image: "series/What-If-TP2-EP9.webp",
+      drive: ""
+    }
+  ]
+},
+{
+    id: "scissor-seven-TP1",
+    title: "Scissors Seven Temporada 1",
+    year: 2018,
+    image: "series/scissor-seven-TP1.jpg",
+    post: "series/scissor-seven-tp-1-poster.webp",
+    genres: ["Anime","Acción","Animación","Comedia"],
+    episodes: [
+    {
+      id: "episode-1",
+      n: 1,
+      name: "Cómo hacerse rico",
+      thumb: "series/scissor-seven-TP1-EP1.png",
+      image: "series/scissor-seven-TP1-EP1.png",
+      drive: "https://drive.google.com/file/d/1cr3AiwEr_g-vu31diKHABTNB7QWeOsdK/preview"
+    },
+    {
+      id: "episode-2",
+      n: 2,
+      name: "Dejarte Ciego",
+      thumb: "series/scissor-seven-TP1-EP2.png",
+      image: "series/scissor-seven-TP1-EP2.png",
+      drive: "https://drive.google.com/file/d/1RUeLzGjhMIwqBy9Cc2YGssyaw5woW8A3/preview"
+    },
+    {
+      id: "episode-3",
+      n: 3,
+      name: "Seven vs Thirteen",
+      thumb: "series/scissor-seven-TP1-EP3.png",
+      image: "series/scissor-seven-TP1-EP3.png",
+      drive: "https://drive.google.com/file/d/1MHGslrrI-aK8PyDgYClRLjHXlFBM7s_R/preview"
+    },
+    {
+      id: "episode-4",
+      n: 4,
+      name: "El asesinato del coleccionista de ropa interior",
+      thumb: "series/scissor-seven-TP1-EP4.png",
+      image: "series/scissor-seven-TP1-EP4.png",
+      drive: "https://drive.google.com/file/d/197DoMnTlgAVvkJ9ATG2M-KiN-g9By7PD/preview"
+    },
+    {
+      id: "episode-5",
+      n: 5,
+      name: "El asesinato de la abuela dominatriz",
+      thumb: "series/scissor-seven-TP1-EP5.png",
+      image: "series/scissor-seven-TP1-EP5.png",
+      drive: "https://drive.google.com/file/d/1cg5mHGcT09XsHAdzP7-c9_p8KOvaGIeI/preview"
+    },
+    {
+      id: "episode-6",
+      n: 6,
+      name: "El asesinato de una niña bonita",
+      thumb: "series/scissor-seven-TP1-EP6.png",
+      image: "series/scissor-seven-TP1-EP6.png",
+      drive: "https://drive.google.com/file/d/1GPEwOaPQdGp344pzJyLpm14MvO0Begat/preview"
+    },
+    {
+      id: "episode-7",
+      n: 7,
+      name: "El asesinato del capitán Jack",
+      thumb: "series/scissor-seven-TP1-EP7.png",
+      image: "series/scissor-seven-TP1-EP7.png",
+      drive: "https://drive.google.com/file/d/1Ol--WqkuEiO4V3rnzFxpOQbbxkR5vngj/preview"
+    },
+    {
+      id: "episode-8",
+      n: 8,
+      name: "El guardaespaldas DaChun",
+      thumb: "series/scissor-seven-TP1-EP8.png",
+      image: "series/scissor-seven-TP1-EP8.png",
+      drive: "https://drive.google.com/file/d/1weO6BuIhxMOKKyDaTHRXt13lwg10OMA4/preview"
+    },
+    {
+      id: "episode-9",
+      n: 9,
+      name: "Crisis en la isla",
+      thumb: "series/scissor-seven-TP1-EP9.png",
+      image: "series/scissor-seven-TP1-EP9.png",
+      drive: "https://drive.google.com/file/d/1nAjN3zcrwOVig60UmT9IYszq8ECLTb0Y/preview"
+    },
+    {
+      id: "episode-10",
+      n: 10,
+      name: "La Espada de las Mil Piezas Demoniacas",
+      thumb: "series/scissor-seven-TP1-EP10.png",
+      image: "series/scissor-seven-TP1-EP10.png",
+      drive: "https://drive.google.com/file/d/1CE4SNeHTIkMv0IWMhD7yyqssOd-vC9If/preview"
+    },
+    {
+      id: "episode-11",
+      n: 11,
+      name: "Thirteen",
+      thumb: "series/scissor-seven-TP1-EP11.png",
+      image: "series/scissor-seven-TP1-EP11.png",
+      drive: "https://drive.google.com/file/d/1tTecJ7kdswYWB3Cx3dA8zetcGvIL4_NA/preview"
+    },
+    {
+      id: "episode-12",
+      n: 12,
+      name: "El rey de los pollos",
+      thumb: "series/scissor-seven-TP1-EP12.png",
+      image: "series/scissor-seven-TP1-EP12.png",
+      drive: "https://drive.google.com/file/d/119mpub2bjHK7DRXzRSCyvemJ7TYKj-51/preview"
+    },
+    {
+      id: "episode-13",
+      n: 13,
+      name: "El rey de los pollos pt.2",
+      thumb: "series/scissor-seven-TP1-EP13.png",
+      image: "series/scissor-seven-TP1-EP13.png",
+      drive: "https://drive.google.com/file/d/1J7VEZuiCxPgJKAxbbmDOxgNQ9FLPos0T/preview"
+    },
+    {
+      id: "episode-14",
+      n: 14,
+      name: "El rey de los pollos pt.3",
+      thumb: "series/scissor-seven-TP1-EP14.png",
+      image: "series/scissor-seven-TP1-EP14.png",
+      drive: "https://drive.google.com/file/d/1pckfvBMkXnoZfxY1NaF1TsgwLr0UTj9-/preview"
+    }
+  ]
+  },
+  {
+    id: "scissor-seven-TP2",
+    title: "Scissors Seven Temporada 2: El peluquero más fuerte",
+    year: 2019,
+    image: "series/scissor-seven-TP2.webp",
+    post: "series/scissor-seven-tp-2-poster.webp",
+    video: "trailers/clip/scissor-seven-TP2&ep=2.mp4",
+    genres: ["Anime"],
+    episodes: [
+    {
+      id: "episode-1",
+      n: 1,
+      name: "Supertijeras",
+      thumb: "series/scissor-seven-TP2-EP1.png",
+      image: "series/scissor-seven-TP2-EP1.png",
+      drive: "https://drive.google.com/file/d/1pBLNsnWai2ElLEJu9yERrQPxEWcnX-_y/preview"
+    },
+    {
+      id: "episode-2",
+      n: 2,
+      name: "Thirteen VS Seven",
+      thumb: "series/scissor-seven-TP2-EP2.png",
+      image: "series/scissor-seven-TP2-EP2.png",
+      drive: "https://drive.google.com/file/d/15kZTu2fBu-pT_JtdkdrJ-q49c-2vW7EX/preview",
+      video: "trailers/clip/scissor-seven-TP2&ep=2.mp4",
+    },
+    {
+      id: "episode-3",
+      n: 3,
+      name: "Protege a Ladrido Loco",
+      thumb: "series/scissor-seven-TP2-EP3.png",
+      image: "series/scissor-seven-TP2-EP3.png",
+      drive: "https://drive.google.com/file/d/1QGEzlXr-GYO_FzRZFSeyuHJ98Vkh--kK/preview"
+    },
+    {
+      id: "episode-4",
+      n: 4,
+      name: "Viaje Hacia Stan",
+      thumb: "series/scissor-seven-TP2-EP4.png",
+      image: "series/scissor-seven-TP2-EP4.png",
+      drive: "https://drive.google.com/file/d/1NRu2aUD8ANrX99sEqhBfp0eJCv76tzbJ/preview"
+    },
+    {
+      id: "episode-5",
+      n: 5,
+      name: "Otra Vez Nos Encontramos, Capitán Jack",
+      thumb: "series/scissor-seven-TP2-EP5.png",
+      image: "series/scissor-seven-TP2-EP5.png",
+      drive: "https://drive.google.com/file/d/14TmH4Begm156hnF227d5GevPcAnmCD-_/preview"
+    },
+    {
+      id: "episode-6",
+      n: 6,
+      name: "La Venganza del Rey Faisán",
+      thumb: "series/scissor-seven-TP2-EP6.png",
+      image: "series/scissor-seven-TP2-EP6.png",
+      drive: "https://drive.google.com/file/d/1qa_3AEvmD2otYV0B_mJrfeHzNy3yxIla/preview"
+    },
+    {
+      id: "episode-7",
+      n: 7,
+      name: "Flor de Ciruelo Eleven",
+      thumb: "series/scissor-seven-TP2-EP7.png",
+      image: "series/scissor-seven-TP2-EP7.png",
+      drive: "https://drive.google.com/file/d/1Oy0AqEIskg8JyHApzpAOJ8yiT9zmA8rS/preview"
+    },
+    {
+      id: "episode-8",
+      n: 8,
+      name: "Dos Héroes",
+      thumb: "series/scissor-seven-TP2-EP8.png",
+      image: "series/scissor-seven-TP2-EP8.png",
+      drive: "https://drive.google.com/file/d/1RPnJZP7cCCYRpsNZUsKxVyySb3u7GN7T/preview"
+    },
+    {
+      id: "episode-9",
+      n: 9,
+      name: "Diente Rojo",
+      thumb: "series/image/scissor-seven-TP2-EP10.webp",
+      image: "series/scissor-seven-TP2-EP9.png",
+      drive: "https://drive.google.com/file/d/1aR1LKN15UsEqT1DERx9Ik_uNinOL1WbV/preview"
+    },
+    {
+      id: "episode-10",
+      n: 10,
+      name: "Destino",
+      thumb: "series/scissor-seven-TP2-EP10.png",
+      image: "series/scissor-seven-TP2-EP10.png",
+      drive: "https://drive.google.com/file/d/1OqCgX2wgILsrOoDe78Kl3-ZBk5Ohe5_5/preview"
+    }
+  ]
+  },
+{
+    id: "scissor-seven-TP3",
+    title: "Scissors Seven Temporada 3",
+    year: 2021,
+    image: "series/scissor-seven-TP3.jpg",
+    post: "series/scissor-seven-tp-3-poster.webp",
+    genres: ["Anime"],
+    episodes: [
+    {
+      id: "episode-1",
+      n: 1,
+      name: "Adiós",
+      thumb: "series/scissor-seven-TP3-EP1.png",
+      image: "series/scissor-seven-TP3-EP1.png",
+      drive: "https://drive.google.com/file/d/1yngaswNlea3uEVTbvr3_iqPOyaZHPwal/preview"
+    },
+    {
+      id: "episode-2",
+      n: 2,
+      name: "Dai Bo y Seven",
+      thumb: "series/scissor-seven-TP3-EP2.png",
+      image: "series/scissor-seven-TP3-EP2.png",
+      drive: "https://drive.google.com/file/d/1390Ial4L18SlBTxuhbaE-lI8UeB6sToA/preview"
+    },
+    {
+      id: "episode-3",
+      n: 3,
+      name: "¿Podría Indicarme Cómo Llegar a Xuanwu?",
+      thumb: "series/scissor-seven-TP3-EP3.png",
+      image: "series/scissor-seven-TP3-EP3.png",
+      drive: "https://drive.google.com/file/d/1DZ-1B59ZILZpza6tRdjhkCXjgqoRIUx4/preview"
+    },
+    {
+      id: "episode-4",
+      n: 4,
+      name: "La Dulzura de Un Hombre Rudo",
+      thumb: "series/scissor-seven-TP3-EP4.png",
+      image: "series/scissor-seven-TP3-EP4.png",
+      drive: "https://drive.google.com/file/d/16Z_0A2V4_MlJo6LYKfzfGZMOht08FsxY/preview"
+    },
+    {
+      id: "episode-5",
+      n: 5,
+      name: "País Duro Cómo Roca",
+      thumb: "series/scissor-seven-TP3-EP5.png",
+      image: "series/scissor-seven-TP3-EP5.png",
+      drive: "https://drive.google.com/file/d/1iLbdT2xKGOa8GXes-ZX9Maxd10v-2MAj/preview"
+    },
+    {
+      id: "episode-6",
+      n: 6,
+      name: "País Súper Poder",
+      thumb: "series/scissor-seven-TP3-EP6.png",
+      image: "series/scissor-seven-TP3-EP6.png",
+      drive: "https://drive.google.com/file/d/1bXzRxXid6r4XwGBiyUpDVEpXVT2LT609/preview"
+    },
+    {
+      id: "episode-7",
+      n: 7,
+      name: "Visita a Xuanwu",
+      thumb: "series/scissor-seven-TP3-EP7.png",
+      image: "series/scissor-seven-TP3-EP7.png",
+      drive: "https://drive.google.com/file/d/1pJ9fhuQoLYu5iXVuc6eiKt4we1U7jUCN/preview"
+    },
+    {
+      id: "episode-8",
+      n: 8,
+      name: "Lucha Contra un Hechicero",
+      thumb: "series/scissor-seven-TP3-EP8.png",
+      image: "series/scissor-seven-TP3-EP8.png",
+      drive: "https://drive.google.com/file/d/1f1w9GPOob60BRkkvlUOyw7Cytxz9dc9b/preview"
+    },
+    {
+      id: "episode-9",
+      n: 9,
+      name: "Recuerdos que no Quieres Olvidar",
+      thumb: "series/scissor-seven-TP3-EP9.png",
+      image: "series/scissor-seven-TP3-EP9.png",
+      drive: "https://drive.google.com/file/d/1l-b7RS5vJduMd8po5WwkeBVEIq31Shnj/preview"
+    },
+    {
+      id: "episode-10",
+      n: 10,
+      name: "¿A Quienes Quieres Proteger?",
+      thumb: "series/scissor-seven-TP3-EP10.png",
+      image: "series/scissor-seven-TP3-EP10.png",
+      drive: "https://drive.google.com/file/d/18X18NiMRoGs9tGLnaX59bu1Mfo0IWfBq/preview"
+    }
+  ]
+  },
+{
+    id: "scissor-seven-TP4",
+    title: "Scissors Seven Temporada 4: Shadow Fate",
+    year: 2023,
+    image: "series/scissor-seven-TP4.webp",
+    post: "series/scissor-seven-tp-4-poster.webp",
+    genres: ["Anime"],
+    episodes: [
+    {
+      id: "episode-1",
+      n: 1,
+      name: "Ave Negra Inmortal",
+      thumb: "series/scissor-seven-TP4-EP1.png",
+      image: "series/scissor-seven-TP4-EP1.png",
+      drive: "https://drive.google.com/file/d/1uyCLDj-8tUHAo3-3o8RuJKQQxvtp3I23/preview"
+    },
+    {
+      id: "episode-2",
+      n: 2,
+      name: "El asesinato del Líder",
+      thumb: "series/scissor-seven-TP4-EP2.png",
+      image: "series/scissor-seven-TP4-EP2.png",
+      drive: "https://drive.google.com/file/d/1zUbwRK6DWaUTnxnfuwAxNMD-BKQSbC-j/preview"
+    },
+    {
+      id: "episode-3",
+      n: 3,
+      name: "Rescate de Seven",
+      thumb: "series/scissor-seven-TP4-EP3.png",
+      image: "series/scissor-seven-TP4-EP3.png",
+      drive: "https://drive.google.com/file/d/1_Z60JuNJGJ7jL8Y_yOrA7kP9kpnFXcl1/preview"
+    },
+    {
+      id: "episode-4",
+      n: 4,
+      name: "Una Noche en la Tienda",
+      thumb: "series/scissor-seven-TP4-EP4.png",
+      image: "series/scissor-seven-TP4-EP4.png",
+      drive: "https://drive.google.com/file/d/1wybZYhgcTlFB5GCDSk7vgRdOsedpsJMK/preview"
+    },
+    {
+      id: "episode-5",
+      n: 5,
+      name: "Crisis en la isla 2",
+      thumb: "series/scissor-seven-TP4-EP5.png",
+      image: "series/scissor-seven-TP4-EP5.png",
+      drive: "https://drive.google.com/file/d/1t7e936pUGupsew0iAziIgdeT1g4Set8u/preview"
+    },
+    {
+      id: "episode-6",
+      n: 6,
+      name: "El pasado de Huilian",
+      thumb: "series/scissor-seven-TP4-EP6.png",
+      image: "series/scissor-seven-TP4-EP6.png",
+      drive: "https://drive.google.com/file/d/1W0eMSX-FjbJneml74Z3eVOWuBwRddQkI/preview"
+    },
+    {
+      id: "episode-7",
+      n: 7,
+      name: "El pasado de Diente Rojo",
+      thumb: "series/scissor-seven-TP4-EP7.png",
+      image: "series/scissor-seven-TP4-EP7.png",
+      drive: "https://drive.google.com/file/d/1KVthKr_2zRPm6-ZZDEeP9n78gRAQRec4/preview"
+    },
+    {
+      id: "episode-8",
+      n: 8,
+      name: "La decisión",
+      thumb: "series/scissor-seven-TP4-EP8.png",
+      image: "series/scissor-seven-TP4-EP8.png",
+      drive: "https://drive.google.com/file/d/1Yvkruu1Tf06i8H17KkiXBrU_K6Yxdt1v/preview"
+    },
+    {
+      id: "episode-9",
+      n: 9,
+      name: "La Batalla Campal en la Isla Pollo",
+      thumb: "series/scissor-seven-TP4-EP9.png",
+      image: "series/scissor-seven-TP4-EP9.png",
+      drive: "https://drive.google.com/file/d/1hyyCj0jhM7cxDjJJOCiBO1T9p99zgv0K/preview"
+    },
+    {
+      id: "episode-10",
+      n: 10,
+      name: " La venganza de Fénix Azul ",
+      thumb: "series/scissor-seven-TP4-EP10.png",
+      image: "series/scissor-seven-TP4-EP10.png",
+      drive: "https://drive.google.com/file/d/11H2P1ZKYDG_RN2-jNgNKI2i8FJWKxuqG/preview"
+    }
+  ]
+  },
+{
+    id: "scissor-seven-TP5",
+    title: "Scissors Seven Temporada 5: Memorias Fragmentadas",
+    year: 2024,
+    image: "series/scissor-seven-TP5.webp",
+    post: "series/scissor-seven-tp-5-poster.webp",
+    video: "trailers/clip/scissor-seven-TP5-EP10.mp4",
+    genres: ["Anime","Comedia","Acción"],
+    episodes: [
+    {
+      id: "episode-1",
+      n: 1,
+      name: "La Misión Especial de Seven",
+      thumb: "series/scissor-seven-TP5-EP1.webp",
+      image: "series/scissor-seven-TP5-EP1.webp",
+      drive: "https://drive.google.com/file/d/1YwuFMYgCbiYZ7XffEolynBw7WKkIel9B/preview"
+    },
+    {
+      id: "episode-2",
+      n: 2,
+      name: "Regreso a Xuanwu",
+      thumb: "series/scissor-seven-TP5-EP2.webp",
+      image: "series/scissor-seven-TP5-EP2.webp",
+      drive: "https://drive.google.com/file/d/1ZfFENkXnfepRxaZfDigo2RL4wRPg62oC1x/preview"
+    },
+    {
+      id: "episode-3",
+      n: 3,
+      name: "Presidente Interino En La Isla Pollo",
+      thumb: "series/scissor-seven-TP5-EP3.webp",
+      image: "series/scissor-seven-TP5-EP3.webp",
+      drive: "https://drive.google.com/file/d/1DkNy9ZReS2E_UlnJ-D_G-z3Zpn34RLdz/preview"
+    },
+    {
+      id: "episode-4",
+      n: 4,
+      name: "Duelo De Pulgares Arriba",
+      thumb: "series/scissor-seven-TP5-EP4.webp",
+      image: "series/scissor-seven-TP5-EP4.webp",
+      drive: "https://drive.google.com/file/d/1Bku5hvzrDB2wAi-Rha852vcIfj0RiU9B/preview"
+    },
+    {
+      id: "episode-5",
+      n: 5,
+      name: "Melodía Mortal de Nueve Dedos",
+      thumb: "series/scissor-seven-TP5-EP5.webp",
+      image: "series/scissor-seven-TP5-EP5.webp",
+      drive: "https://drive.google.com/file/d/16yKRhhYFKUqzHYFvsykmZn7o-GDwYWvQ/preview"
+    },
+    {
+      id: "episode-6",
+      n: 6,
+      name: "Entrando con valor a la Residencia de Montaña Flor de Ciruelo",
+      thumb: "series/scissor-seven-TP5-EP6.webp",
+      image: "series/scissor-seven-TP5-EP6.webp",
+      drive: "https://drive.google.com/file/d/11k2Z-MiXn4QmEbLhOqtOJxbDpTeiaS69/preview"
+    },
+    {
+      id: "episode-7",
+      n: 7,
+      name: "Reunión",
+      thumb: "series/scissor-seven-TP5-EP7.webp",
+      image: "series/scissor-seven-TP5-EP7.webp",
+      drive: "https://drive.google.com/file/d/1IRiNoLjkIbfmM_MbJ00qBDC9XFbrl0Cm/preview"
+    },
+    {
+      id: "episode-8",
+      n: 8,
+      name: "Escape de Prisión",
+      thumb: "series/scissor-seven-TP5-EP8.webp",
+      image: "series/scissor-seven-TP5-EP8.webp",
+      drive: "https://drive.google.com/file/d/10_FSc2tD28iaB9Cl1ll0sGtdPTaeBehZ/preview"
+    },
+    {
+      id: "episode-9",
+      n: 9,
+      name: "La Profecía del Hechicero Sin Ojos",
+      thumb: "series/scissor-seven-TP5-EP9.webp",
+      image: "series/scissor-seven-TP5-EP9.webp",
+      drive: "https://drive.google.com/file/d/1kV2D7si7dGEbiQRNL8etUY4a5R8oR-2c/preview"
+    },
+    {
+      id: "episode-10",
+      n: 10,
+      name: "Batalla en la Montaña Boca Negra",
+      thumb: "series/image/scissor-seven-TP5-EP10.webp",
+      image: "series/scissor-seven-TP5-EP10.webp",
+      drive: "https://drive.google.com/file/d/1W1R514yiYmfihnLv1nOLQ8poiWRKCXuy/preview",
+      video: "trailers/clip/scissor-seven-TP5-EP10.mp4",
+    }
+  ]
+  },
+  {
+    id: "smoking-behind-the-supermarket-with-you",
+    title: "Super no Ura de Yani Sū Futari (Smoking Behind the Supermarket with You)",
+    keywords:[
+    "Fumando juntos detrás del súper",
+    "Fumando juntos detrás del súper contigo",
+    "Fumando juntos atrás del súper",
+    "Fumando juntos atrás del súper contigo",
+    "Fumando juntos detrás del súpermercado",
+    "YaniSuu",
+    "Sasaki",
+    "Yamada",
+    "Tayama"
+    ],
+    year: 2026,
+    image: "series/image/smoking-behind-the-supermarket-with-you.webp",
+    video: [
+      "trailers/clip/Smoking-Behind-the-Supermarket-with-You.mp4",
+      "trailers/clip/yanisuu-trailer2.mp4"
+           ],
+    post: "series/smoking-behind-the-supermarket-with-you-tp1.webp",
+    genres: ["Animación","Anime"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: "Fumando juntos detrás del súper",
+        description: "Entre reuniones eternas y cigarrillos, Sasaki empieza a acercarse a Tayama y Yamada.",
+        thumb: "series/sbtswy-tp1-ep1.webp",
+        image: "series/sbtswy-tp1-ep1.webp",
+        drive: "https://drive.google.com/file/d/1a7J9wOam6I0LuBgzok1d7_-MLy5HJ3Hk/preview"
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: "Coincidiendo juntos detrás del súper",
+        description:"Entre cigarro y cigarro, Tayama y Sasaki comparten los problemas que han tenido en el trabajo.",
+        thumb: "series/sbtswy-tp1-ep2.png",
+        image: "series/sbtswy-tp1-ep2.png",
+        drive: "https://drive.google.com/file/d/1BijZemJuexzAGhRjIX5pblBZbnBnQ3rf/preview"
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: "Dando regalos detrás del súper",
+        description:"Entre cigarrillos, Tayama le regala una cosa a Sasaki y este decide devolverle el gesto.",
+        thumb: "series/sbtswy-tp1-ep3.png",
+        image: "series/sbtswy-tp1-ep3.png",
+        drive: "https://drive.google.com/file/d/1RnWOeBLITAyRIiFvz4zGz9VNmokjjN0L/preview"
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: "Aprendiendo detrás del súper",
+        description:"Entre cigarrillos, Sasaki aprende a manejar un smartphone y conoce mejor a Tayama.",
+        thumb: "series/sbtswy-tp1-ep4.png",
+        image: "series/sbtswy-tp1-ep4.png",
+        drive: "https://drive.google.com/file/d/1jSep67-rQYa9YewBKMus2HYioz3By2a4/preview"
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: "Mojándose detrás del súper",
+        description:"El pobre Sasaki pasa 15 días de trabajo infernales y no coincide tanto con Tayama como quisiera.",
+        thumb: "series/sbtswy-tp1-ep5.png",
+        image: "series/sbtswy-tp1-ep5.png",
+        drive: "https://drive.google.com/file/d/1hBU3oXF3S7kmawRdzfBQfpwdHbBv-vR_/preview"
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: "El olor que queda detrás del súper",
+        description:"Sasaki tiene un chequeo médico dentro de poco y está preocupado por los resultados.",
+        thumb: "series/sbtswy-tp1-ep6.png",
+        image: "series/sbtswy-tp1-ep6.png",
+        drive: "https://drive.google.com/file/d/1EtZmCoxTYKoKygFQ3ovW23YbrCC9DXse/preview"
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: "Despidiendo el verano detrás del súper",
+        description:"Sasaki se apena un poco de que se termine el verano sin que él haya hecho nada especial.",
+        thumb: "series/sbtswy-tp1-ep7.png",
+        image: "series/sbtswy-tp1-ep7.png",
+        drive: "https://drive.google.com/file/d/1cWgFf5tJSNdIewCQsfi5NtAkOGeJ2CM1/preview"
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: "La búsqueda de ambos desde detrás del súper",
+        description:"Tayama ha perdido el cenicero portátil que le regaló Sasaki y no sabe cómo decírselo.",
+        thumb: "series/sbtswy-tp1-ep8.png",
+        image: "series/sbtswy-tp1-ep8.png",
+        drive: "https://drive.google.com/file/d/1lqD9EhRRurpuqzXAU4P7MraY3FVequrC/preview"
+      },
+      {
+        id: "episode-9",
+        n: 9,
+        name: "Conociendo mejor a uno detrás del súper",
+        description:"Yamada se entera saliendo con sus compañeras de trabajo de que Sasaki está casado y se siente engañada.",
+        thumb: "series/sbtswy-tp1-ep9.png",
+        image: "series/sbtswy-tp1-ep9.png",
+        drive: "https://drive.google.com/file/d/1KGpl2cjAarRnyJfKAE1o6xylFIudOK9y/preview"
+      },
+      {
+        id: "episode-10",
+        n: 10,
+        name: "Iluminando juntos detrás del súper",
+        description:"Detrás del súper, dos desconocidos se presentan y un informe mensual acaba donde no tocaba.",
+        thumb: "series/image/yanisuu-ep10.webp",
+        image: "series/sbtswy-tp1-ep10.jpg",
+        drive: "https://drive.google.com/file/d/1LOSFmLrLXKW_leHHl5wO6WrQcpN0YaLn/preview",
+        video: "trailers/clip/yanisuu.mp4"
+      },
+      {
+        id: "episode-11",
+        n: 11,
+        name: "Llamando detrás del súper",
+        description:"Se acaba el año y a Sasaki le gustaría felicitar el fin de año a Tayama, pero no la encuentra.",
+        thumb: "series/sbtswy-tp1-ep11.webp",
+        image: "series/sbtswy-tp1-ep11.webp",
+        drive: "https://drive.google.com/file/d/1LKq0VhlQmX863HtuJiGDFe-8dxzaRtv-/preview"
+      },
+      {
+        id: "episode-12",
+        n: 12,
+        name: "Continuando juntos detrás del súper",
+        description:"Un compañero de la empresa de Sasaki se jubila y este duda de si haría bien yendo a visitarlo.",
+        thumb: "series/sbtswy-tp1-ep12.webp",
+        image: "series/sbtswy-tp1-ep12.webp",
+        drive: "https://drive.google.com/file/d/1Rb-qVe6XHhfIvg9JwyWL3rsMPRcPOELO/preview"
+      }
+    ]
+  },
+  {
+    id: "welcome-to-derry",
+    title: "Bienvenidos a Derry",
+    keywords:[
+      "eso",
+      "it",
+      "payaso"
+    ],
+    year: 2025,
+    image: "series/image/welcome-to-derry.webp",
+    video: "trailers/clip/welcome-to-derry.mp4",
+    post: "series/welcome-to-derry-post.webp",
+    genres: ["Terror"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: "El Piloto",
+        thumb: "https://i.ytimg.com/vi/ADyR_AtSnRU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBswYkuiH817WJG714ppddceme-nQ",
+        image: "https://i.ytimg.com/vi/ADyR_AtSnRU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBswYkuiH817WJG714ppddceme-nQ",
+        drive: "https://drive.google.com/file/d/1Ncm0sZ54tnRtAvrzh9Q6jrDemF2VUHiG/preview"
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: "La Cosa en la Oscuridad",
+        thumb: "https://i.ytimg.com/vi/85pVCEyD44E/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCICo_MrJXI45LsXATdgYwk0B715Q",
+        image: "https://i.ytimg.com/vi/85pVCEyD44E/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCICo_MrJXI45LsXATdgYwk0B715Q",
+        drive: "https://drive.google.com/file/d/10L_PTmypRkOhzX-NDyCDb-lGBxdVb16L/preview"
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: "Ahora lo Vez",
+        thumb: "https://i.ytimg.com/vi/NE2q3Fu0HMo/maxresdefault.jpg",
+        image: "https://i.ytimg.com/vi/NE2q3Fu0HMo/maxresdefault.jpg",
+        drive: "https://drive.google.com/file/d/1FoK4YQIR1EiM-ZQWn_daWlPBsJAfHdmd/preview"
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: "El Gran Mecanismo Giratorio del Funcionamiento de Nuestro Planeta",
+        thumb: "series/welcome-to-derry/bienvenidos-a-derry-temp-1-ep-4.png",
+        image: "series/welcome-to-derry/bienvenidos-a-derry-temp-1-ep-4.png",
+        drive: "https://drive.google.com/file/d/1MLlEfAuWGH4qVLYPJKGopnr4YP2lfkki/preview"
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: "Calle Neibolt 29",
+        thumb: "series/welcome-to-derry/bienvenidos-a-derry-temp-1-ep-5.avif",
+        image: "series/welcome-to-derry/bienvenidos-a-derry-temp-1-ep-5.avif",
+        drive: "https://drive.google.com/file/d/15U69xUxJf6eGY16AhhaLF6Lwk5YzenJZ/preview"
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: "En el Nombre del Padre",
+        thumb: "series/welcome-to-derry/bienvenidos-a-derry-temp-1-ep-6.png",
+        image: "series/welcome-to-derry/bienvenidos-a-derry-temp-1-ep-6.png",
+        drive: "https://drive.google.com/file/d/1ro4dx-Aalrbfh_H5iHjBoGJaMBIDbi3B/preview"
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: "El punto Negro",
+        thumb: "series/welcome-to-derry/bienvenidos-a-derry-temp-1-ep-7.avif",
+        image: "series/welcome-to-derry/bienvenidos-a-derry-temp-1-ep-7.avif",
+        drive: "https://drive.google.com/file/d/1piVhozW5RS1Z8jIfxq8jF1qgWi6VvcTI/preview"
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: "Fuego Infernal",
+        thumb: "series/welcome-to-derry/bienvenidos-a-derry-temp-1-ep-8.png",
+        image: "series/welcome-to-derry/bienvenidos-a-derry-temp-1-ep-8.png",
+        drive: "https://drive.google.com/file/d/1Qb7fp3il6EnIYB8jq8wCo0_qedwcuJ2Q/preview"
+      }
+    ]
+  },
+  {
+    id: "among-us-la-serie",
+    title: "Among Us",
+    year: 2026,
+    image: "series/among-us.webp",
+    video: "trailers/clip/welcome-to-derry.mp4",
+    post: "series/among-us-tp1.webp",
+    genres: ["Terror"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: "Una Fiesta de Pizza Dónde No Pasa Nada Malo",
+        description:"Un desafortunado becario y un ingenuo ganador de un concurso emprenden un recorrido vertiginoso por la Skeld, una nave espacial donde conocerán a nuestro colorido (literalmente) elenco de personajes... ¡justo antes de que ocurra un desastre!",
+        thumb: "series/among-us-tp1-ep1.png",
+        image: "series/among-us-tp1-ep1.png",
+        drive: "https://drive.google.com/file/d/1lSqRA9yK66NiA6xFGQA4svmhFizot2T8/preview"
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: "No Puedes Ser Listo y Atractivo",
+        description:"Tras descubrir un cadáver, el apuesto doctor debe investigar la causa de la muerte. ¿Fue un terrible accidente o algo MÁS SINIESTRO?",
+        thumb: "series/among-us-tp1-ep2.png",
+        image: "series/among-us-tp1-ep2.png",
+        drive: "https://drive.google.com/file/d/1mklvxwzT9e8Pf3miixgwV_r8Xls9fLRo/preview"
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: "El Caos Encontró Un Nuevo Hogar",
+        description:"La tensión aumenta tras otra muerte que conmociona la tripulación. Se roban pistas y las grabaciones de seguridad desaparecen misteriosamente. ¿Se puede confiar en alguien?",
+        thumb: "series/among-us-tp1-ep3.png",
+        image: "series/among-us-tp1-ep3.png",
+        drive: "https://drive.google.com/file/d/1YBT3hIx3jcPTJk1fZ9gkXD1aookhladK/preview"
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: "Y Les Gusta Matar",
+        description:"¡Se forman bandos! ¡Comienzan las luchas internas! ¡Se come pizza! Un tripulante decide dar caza al asesino. ¿Se convertirá el cazador en la presa?",
+        thumb: "series/among-us-tp1-ep4.png",
+        image: "series/among-us-tp1-ep4.png",
+        drive: "https://drive.google.com/file/d/1DsPGrH4V8N8aiMAPP8vufZWm5oDS311e/preview"
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: "Solo Buenas Vibras",
+        description:"¡La tripulación se une para expulsar al IMPOSTOR! ¡VICTORIA! ¿O no? Todos se llevan bien… pero tal vez no por las razones que creen…",
+        thumb: "series/among-us-tp1-ep5.png",
+        image: "series/among-us-tp1-ep5.png",
+        drive: "https://drive.google.com/file/d/15tCtB5s2HoTGE71xXxd1OPWfm-R8Jrwi/preview"
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: "Inseguridad En La Seguridad",
+        description:"Alguien o algo ha saboteado el oxígeno. Alguien finalmente toma el control de la caótica situación cuando otro miembro de la tripulación es encontrado... ¡ASESINADO!",
+        thumb: "series/among-us-tp1-ep6.png",
+        image: "series/among-us-tp1-ep6.png",
+        drive: "https://drive.google.com/file/d/17RJGtHXNQ1nf-XZtg30N38SSgE4XVD_P/preview"
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: "6 Tripulantes Enojados",
+        description:"Los tripulantes son llevados a juicio mientras los secretos salen a la luz. Las acusaciones se extienden como la pólvora y se debe tomar una decisión difícil. ¡Hoy la pizza es agridulce!",
+        thumb: "series/among-us-tp1-ep7.png",
+        image: "series/among-us-tp1-ep7.png",
+        drive: "https://drive.google.com/file/d/1P4KRVR9UqMYgiXpAwd-BpUHQ5g820pHJ/preview"
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: "Síndrome Del Impostor",
+        description:"La disputa por las culpas se intensifica. Un miembro de la tripulación cumple el último deseo de su amigo, otros forman una alianza incómoda, ¡y alguien hace un SORPRENDENTE DESCUBRIMIENTO!",
+        thumb: "series/among-us-tp1-ep8.png",
+        image: "series/among-us-tp1-ep8.png",
+        drive: "https://drive.google.com/file/d/1oLVcGQU2ris1ICguISZQIezH2fxAxNer/preview"
+      },
+      {
+        id: "episode-9",
+        n: 9,
+        name: "Solo Me Desahogo",
+        description:"¡Tras una persecución llena de acción, otro cremado encuentra su horrible final! Con solo unos pocos supervivientes, ¿a quién le puedes cree…? ¡PUM! ¿Qué fue ese ruido? ¿EL REACTOR?",
+        thumb: "series/among-us-tp1-ep9.png",
+        image: "series/among-us-tp1-ep9.png",
+        drive: "https://drive.google.com/file/d/1YcHGTcb6u4czQrtMIJpiQ8iFR-nNdHQR/preview"
+      },
+      {
+        id: "episode-10",
+        n: 10,
+        name: "Todos Siguen Vivos, Nadie Está Muerto",
+        description:"¡Tras la revelación final, llega el momento de un enfrentamiento épico! ¿Explotará la nave? ¿Lograrán la victoria los tripulantes?",
+        thumb: "series/among-us-tp1-ep10.png",
+        image: "series/among-us-tp1-ep10.png",
+        drive: "https://drive.google.com/file/d/140v5ZfbLVRY3eTfYM_l5IrZD9Arje75P/preview"
+      }
+    ]
+  },
+  {
+    id: "spider-noir",
+    title: "Spider Noir",
+    year: 2026,
+    keywords:[
+      "spider-man",
+      "spiderman negro"
+    ],
+    image: "series/spider-noir.webp",
+    video: "trailers/clip/spider-noir.mp4",
+    post: "series/spider-noir-tp1.webp",
+  genres: ["Terror"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: "Pase a mi despacho | No Disponible",
+        description:"El investigador privado Ben Reilly es contratado para rastrear a un individuo superpoderoso, Silvermane. Nadie sabe que Reilly fue, hasta cinco años, el superhéroe de la ciudad conocido como la Araña y tiene poderes propios.",
+        thumb: "series/spider-noir-tp1-ep1.webp",
+        image: "series/spider-noir-tp1-ep1.webp",
+        drive: ""
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: "Actua Con Cautela | No Disponible",
+        description:"Silvermane está tratando de averiguar quién contrató a Addison para matarlo. Cat contrata a Ben para encontrar a Flint. Robbie va a ver a la viuda de Addison, y los hombres de Silvermane hacen una visita a Janet en la oficina.",
+        thumb: "series/spider-noir-tp1-ep2.webp",
+        image: "series/spider-noir-tp1-ep2.webp",
+        drive: ""
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: "Emboscada | No Disponible",
+        description:"Mientras más rápido lo demuestres, más rápido morirá.",
+        thumb: "series/spider-noir-tp1-ep3.webp",
+        image: "series/spider-noir-tp1-ep3.webp",
+        drive: ""
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: "Un error que no volveré a cometer",
+        description:"No lo sé, creo que todavía puede.",
+        thumb: "series/spider-noir-tp1-ep4.webp",
+        image: "series/spider-noir-tp1-ep4.webp",
+        drive: "https://drive.google.com/file/d/1qEr-8_Te5uTU_YCRuBnMiA-PSgorN0uO/preview"
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: "Traición",
+        description:"Debes tener cuidado con las inversiones y la salsa picante.",
+        thumb: "series/spider-noir-tp1-ep5.webp",
+        image: "series/spider-noir-tp1-ep5.webp",
+        drive: "https://drive.google.com/file/d/18G6H5NaeME9IEHrsXPVILHtwhBIgA9MJ/preview"
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: "Pesadilla en una camilla",
+        description:"Si no has encontrado la respuesta es porque no la hay.",
+        thumb: "series/spider-noir-tp1-ep6.webp",
+        image: "series/spider-noir-tp1-ep6.webp",
+        drive: "https://drive.google.com/file/d/1yWDrw0lK_wit_HTUZa2Lt-1vUylJ6uyz/preview"
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: "No soy un héroe",
+        description:"Muerto no podré protegerte.",
+        thumb: "series/image/spider-noir-tp1-ep7.webp",
+        image: "series/spider-noir-tp1-ep7.webp",
+        drive: "https://drive.google.com/file/d/1q33THsZ87gyD3eKyJThQjHknOekB1Y1o/preview",
+        video: "trailers/clip/spider-noir.mp4",
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: "El hombre de la máscara",
+        description:"¡Cielos! ¿Qué puede hacer un detective privado en la ruina?",
+        thumb: "series/spider-noir-tp1-ep8.webp",
+        image: "series/spider-noir-tp1-ep8.webp",
+        drive: "https://drive.google.com/file/d/1ITNQ5GR7fRSU1SpU27m3LBMfoIjJK6oO/preview"
+      }
+    ]
+  },
+  {
+    id: "my-deer-friend-nokotan-tp1",
+    title: "Mi Amiga Nokotan Es Un Ciervo",
+    year: 2024,
+    keywords:[
+      "Shikanoko Nokonoko Koshitantan",
+      "venado",
+      "My Deer Friend Nokotan"
+    ],
+    image: "series/my-deer-friend-nokotan.webp",
+    video: "trailers/clip/Shikanoko.mp4",
+    post: "series/my-deer-friend-nokotan-tp1.webp",
+    genres: ["Anime","Animación","Comedia","Humorístico"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: "Una chica conoce a un ciervo",
+        description:"Torako Koshi, quien oculta su pasado como delincuente y vive como una estudiante modelo, se encuentra con una misteriosa chica con astas colgando de un poste eléctrico. Esta chica, Noko Shikanoko, se convierte en la causante del desorden en la vida de Torako.",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep1.jpg",
+        image: "series/my-deer-friend-nokotan-tp1-ep1.jpg",
+        drive: "https://drive.google.com/file/d/1Y0pSG1XLodvTbX8QIcbSAD1YQkUygV4k/preview"
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: "Un Ciervo Conoce a una Chica Mala",
+        description:"Con la intención de convertir el salón del Club de Ciervos en un paraíso, Koshitan se dedica a decorarlo. Sin embargo, después de tanto esfuerzo en remodelarlo, el lugar es vandalizado y la vida de Nokotan está en peligro. Todo se debe a la obsesión y amor irracional que Anko, la hermana menor de Koshitan, tiene hacia ella.",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep2.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep2.webp",
+        drive: "https://drive.google.com/file/d/1q8bRK5HP4jBmHbGdcodgE8aN6oxRV-6P/preview"
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: "Bashame, la nueva integrante",
+        description:"Con la llegada de la primavera y el ingreso de nuevos estudiantes a la Escuela Hino Minami, aparece una aspirante para unirse al Club de Ciervos. Su nombre es Meme Bashame y admira tanto a Nokotan que quiere convertirse en... ¿ciervo? Además, la hermana menor de Koshitan, Anko, también se une, provocando el caos total.",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep3.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep3.webp",
+        drive: "https://drive.google.com/file/d/1eFl-H8KDhrd1_BekJsvnbA19p8FqBqf3/preview"
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: "El Club de Ciervos Bajo la Mira",
+        description:"Koshitan es la presidenta del consejo estudiantil de Hino Minami. Para apoyarla en sus funciones, cuenta con Neko Nekoyamada, vicepresidenta; Kinu Tanukikoji, secretaria; y Chiharu Tsubameya, tesorera. Sin embargo, una de ellas tiene la intención de disolver el Club de Ciervos. ¿Cuál será su motivo?",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep4.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep4.webp",
+        drive: "https://drive.google.com/file/d/1rFzPJwU4t5uvKEz8V-3nvqf5f_8DIitU/preview"
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: "¡Descubre sus Debilidades!",
+        description:"Molesta por la constante influencia de Nokotan en su vida, Koshitan decide seguirla para descubrir su mayor debilidad. Así es como presencia su sorprendente y poco común trabajo de medio tiempo.",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep5.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep5.webp",
+        drive: "https://drive.google.com/file/d/1LSdy6nDsQjBrHgUu7wPovpEUQT-81n1E/preview"
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: "Festival de Verano de Ciervos",
+        description:"Como de costumbre, Neko planea una manera de disolver el Club de Ciervos. De repente, Nokotan aparece en la sala del consejo estudiantil y revela una extraña criatura a la que llama ''Tsuchinoko''. Cuanto más se descubre sobre este ser misterioso, más desconcertada queda Neko... ¿Qué sucederá?",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep6.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep6.webp",
+        drive: "https://drive.google.com/file/d/1fDTj6id3eeI6Tkr-4Nr2XDLJwUevgITg/preview"
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: "Ciervo Pasarelas, Transmisiones en Vivo y Servicio al Cliente",
+        description:"Koshitan y Nokotan visitan la cafetería Tsubame. El dueño, Yoshiharu Tsubameya, hermano mayor de Chiharu, está decidido a brindar un servicio perfecto. Sin embargo, al atender a su primer cliente ''ciervo'', se siente desconcertado y abrumado por sus inusuales peticiones...",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep7.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep7.webp",
+        drive: "https://drive.google.com/file/d/1XtjV0_uKzx_bKgmRDGY2t3kDu0mTusmB/preview"
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: "Ciervos Van, Ciervos Vienen",
+        description:"La temporada de invierno llega, y el Club de Ciervos decide hacer su primera visita del año a un santuario. Allí descubren que Nokotan es venerada como la deidad del lugar. Koshitan comienza el año nuevo involucrada en una situación inusual y fuera de lo común.",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep8.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep8.webp",
+        drive: "https://drive.google.com/file/d/1eJXs4bucixJk34_s2sz7Yt7z9yy85vGY/preview"
+      },
+      {
+        id: "episode-9",
+        n: 9,
+        name: "¡El Festival Deportivo!",
+        description:"La Escuela Hino Minami celebra su festival deportivo. Como presidenta del consejo estudiantil, Koshitan quiere que todo transcurra sin problemas, pero una serie de imprevistos perturba su tranquilidad... ¿Logrará que el evento termine sin contratiempos?",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep9.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep9.webp",
+        drive: "https://drive.google.com/file/d/1tgFZycck9GQA1Y5EOITjFZtu5Pv7IQ3c/preview"
+      },
+      {
+        id: "episode-10",
+        n: 10,
+        name: "Culpa de la Primavera",
+        description:"Con el cambio de estaciones, surgen nuevos problemas. Koshitan encuentra a Nokotan actuando de forma inusual en la sala del club. Al verla llorar, descubre que la causa es una alergia al polen... ¿Podrán encontrar una solución aunque se niegue a aceptarlo?",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep10.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep10.webp",
+        drive: "https://drive.google.com/file/d/1pw7Vyqrk4NtXTYnMsjgBO0-mSdSIruHq/preview"
+      },
+      {
+        id: "episode-11",
+        n: 11,
+        name: "El perseguidor y el perseguido",
+        description:"Como de costumbre, la Escuela Hino Minami se mantiene tranquila y pacífica. Sin embargo, Nokotan percibe la presencia del legendario cazador Soichiro Kumatori. Hace todo lo posible por escapar, pero parece que enfrentarlo de frente es su única opción... ¿Qué le deparará el destino?",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep11.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep11.webp",
+        drive: "https://drive.google.com/file/d/1JSeOoxYRdN2GD1H4ErmF2WhbPSh7hN1N/preview"
+      },
+      {
+        id: "episode-12",
+        n: 12,
+        name: "¡¿Adiós, Nokotan?! El club de ciervos por siempre",
+        description:"De forma inesperada, Nokotan se desvanece de la memoria de todos. La confusión y el desconcierto invaden a Koshitan y a los espectadores. Ahora deben enfrentar la prueba definitiva en el impactante episodio final: ¡¿Adiós, Nokotan?! El Club de Ciervos por siempre.",
+        thumb: "series/my-deer-friend-nokotan-tp1-ep12.webp",
+        image: "series/my-deer-friend-nokotan-tp1-ep12.webp",
+        drive: "https://drive.google.com/file/d/1CWMFEWyxnAZmQw-ANkQUfMIx0Ze2X-5R/preview"
+      }
+    ]
+  },
+  {
+    id: "niwatori-fighter",
+    title: "Rooster Fighter",
+    year: 2026,
+    keywords:[
+      "Niwatori Fighter"
+    ],
+    image: "series/niwatori-fighter.avif",
+    video: "trailers/clip/welcome-to-derry.mp4",
+    post: "series/niwatori-fighter.avif",
+    genres: ["Anime","Animación"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: "Un gallo entre las grullas",
+        description:"Keiji, el gallo errante, llega a una nueva ciudad… ¡pero de pronto aparece un Kiju!",
+        thumb: "series/rooster-fighter-ep1.webp",
+        image: "series/rooster-fighter-ep1.webp",
+        drive: "https://drive.google.com/file/d/18N3zdkS_Ajz8irKZPeLUl75m1Qf-DT7U/preview"
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: "Ave Enjaulada",
+        description:"Keiji resulta herido tras salvar al “Papá” de Piyoko de volverse un Kiju.",
+        thumb: "series/rooster-fighter-ep2.webp",
+        image: "series/rooster-fighter-ep2.webp",
+        drive: "https://drive.google.com/file/d/1IssWvjbdR5eaIo8bcP3H5y9--c7I8RWV/preview"
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: "La Parabola de las Tres Aves",
+        description:"Elizabeth reta a Keiji a una pelea y revela información sobre el Kiju Blanco, su enemigo jurado.",
+        thumb: "series/rooster-fighter-ep3.webp",
+        image: "series/rooster-fighter-ep3.webp",
+        drive: "https://drive.google.com/file/d/1LAgAllg4zaZ1VoOOYith5LXjraAr6LDU/preview"
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: "Entrando en el Deseo",
+        description:"El trío llega a una aldea donde los adultos han sido controlados mentalmente por un Kiju.",
+        thumb: "series/rooster-fighter-ep4.webp",
+        image: "series/rooster-fighter-ep4.webp",
+        drive: "https://drive.google.com/file/d/1rpAPSP6HI9_9VnxCI713CnjbeWI5Z-rg/preview"
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: "La extravagante bandada se dispersa",
+        description:"El trío se separa justo cuando un tifón amenaza con acercarse.",
+        thumb: "series/rooster-fighter-ep5.webp",
+        image: "series/rooster-fighter-ep5.webp",
+        drive: "https://drive.google.com/file/d/1zhRtXjlRIxR5sTF5yBGSlPF5Y4cssLiQ/preview"
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: "Gallinero de ladrillos",
+        thumb: "series/rooster-fighter-ep6.webp",
+        image: "series/rooster-fighter-ep6.webp",
+        drive: "https://drive.google.com/file/d/1n8nppIU_0v15nzLjDIxPfRnyfD7ocdZ-/preview"
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: "Cacareando Sobre Una Pluma",
+        description:"¡Keiji pone en juego su orgullo gallístico y acepta la invitación a una cita grupal!",
+        thumb: "series/rooster-fighter-ep7.webp",
+        image: "series/rooster-fighter-ep7.webp",
+        drive: "https://drive.google.com/file/d/1VOeTUil1Os0hPtAWb7mxxN2Tt2VDI1Iz/preview"
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: "El Canto Puede Ser Dulce Pero No Sincero",
+        description:"Keiji se entera de que Morio, bajo control mental, está causando estragos y sale a salvarlo.",
+        thumb: "series/rooster-fighter-ep8.webp",
+        image: "series/rooster-fighter-ep8.webp",
+        drive: "https://drive.google.com/file/d/120Bpy_mTsqbq3Sym6jd9WM5JCzBVgoMj/preview"
+      },
+      {
+        id: "episode-9",
+        n: 9,
+        name: "Dejarse llevar por los pájaros",
+        description:"Dejarse Llevar por los Pájaros",
+        thumb: "series/rooster-fighter-ep9.webp",
+        image: "series/rooster-fighter-ep9.webp",
+        drive: "https://drive.google.com/file/d/1p3bHOgTxxnBEKR-ucMCWbyJcyWcbuubC/preview"
+      },
+      {
+        id: "episode-10",
+        n: 10,
+        name: "Arriconando al Ave",
+        description:"Keiji y sus amigos luchan contra el poderoso Kijin Yuji.",
+        thumb: "series/rooster-fighter-ep10.webp",
+        image: "series/rooster-fighter-ep10.webp",
+        drive: "https://drive.google.com/file/d/1mRrcqj40kEYUBLNHxsnkqe7Llr1NiOWX/preview"
+      },
+      {
+        id: "episode-11",
+        n: 11,
+        name: "Se Necesitan Dos Alas Para Volar",
+        description:"El nuevo poder de Keisuke se despierta cuando presencia la lucha de Keiji contra Hikari.",
+        thumb: "series/rooster-fighter-ep11.webp",
+        image: "series/rooster-fighter-ep11.webp",
+        drive: "https://drive.google.com/file/d/1bRQIC9_wiA0ZHECSmwTfnGQnkhYwTzgQ/preview"
+      },
+      {
+        id: "episode-12",
+        n: 12,
+        name: "Lo que los pájaros, las bestias y los árboles comparten",
+        description:"Keiji abruma a Hikari con su nuevo poder: el Despertar de la Perla.",
+        thumb: "series/rooster-fighter-ep12.webp",
+        image: "series/rooster-fighter-ep12.webp",
+        drive: "https://drive.google.com/file/d/1VK6S-b7BYo9xkuREuucbEnZ_OOVOJWMn/preview"
+      }
+    ]
+  },
+  {
+    id: "doumo-suki-na-hito-ni-horegusuri-wo-irai-sareta-majo-desu",
+    title: "hola soy una bruja y la persona que me gusta me encargó hacer una poción de amor - Subtítulos en Latino",
+    year: 2026,
+    keywords:[
+      "Hello I am a Witch and my Crush Wants me to Make a Love Potion",
+      "Witch Crush Love Potion",
+      "Witch Crush Love Potion faulty magic's",
+      "doumu suki na hito ni horegusuri wo irai sareta majo desu",
+      "hola soy una bruja y mi enamorado quiere que le prepare una poción de amor",
+      "hola soy una bruja y mi enamoramiento quiere que haga una poción de amor"
+    ],
+    image: "series/witch-crush-love-potion.webp",
+    video: "trailers/clip/witch-crush-love-potion.mp4",
+    post: "series/Hello-I-am-a-Witch-and-my-Crush-Wants-me-to-Make-a-Love-Potion.webp",
+    genres: ["Anime","Animación","Romance","Fantasía","Romántico"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: "La bruja y la poción de amor de la desesperanza",
+        description:"Harij acude a Rose, que está secretamente enamorada de él, para que le haga una poción de amor.",
+        thumb: "series/witch-crush-love-potion-ep1.webp",
+        image: "series/witch-crush-love-potion-ep1.webp",
+        drive: "https://drive.google.com/file/d/1pQS6sqcJ3PIAdb-6Nxw6VJfVP4Vl24KF/preview"
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: "La Bruja buena del Lago",
+        description:"Rose le pide a Tien una túnica nueva y Harij hace una aparición inesperada.",
+        thumb: "series/witch-crush-love-potion-ep2.webp",
+        image: "series/witch-crush-love-potion-ep2.webp",
+        drive: "https://drive.google.com/file/d/1e7YOl8wfzBWGx2zW2t920sqJIa457Js3/preview"
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: "La canción de la bruja con aroma a té negro",
+        description:"Harij visita a Rose a menudo y se interesa cada vez más por la bruja.",
+        thumb: "series/witch-crush-love-potion-ep3.webp",
+        image: "series/witch-crush-love-potion-ep3.webp",
+        drive: "https://drive.google.com/file/d/1zr4etdNwRXl12aFFg4LlYCXvd3Pfx9D9/preview"
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: "El deber de un caballero, aunque la bruja lo ignore",
+        description:"Harij necesita la poción cuanto antes, pero descubre que no es el único cliente de Rose.",
+        thumb: "series/witch-crush-love-potion-ep4.webp",
+        image: "series/witch-crush-love-potion-ep4.webp",
+        drive: "https://drive.google.com/file/d/1f_VaB1TrYoIz1SgRm2f_Vg_JUDlvnEnV/preview"
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: "Ser una Bruja",
+        description:"Las brujas existen para cumplir deseos a cambio de algo, pero Harij se está saltando esa norma.",
+        thumb: "series/witch-crush-love-potion-ep5.webp",
+        image: "series/witch-crush-love-potion-ep5.webp",
+        drive: "https://drive.google.com/file/d/1OjTK1W-gaZuzHYBrDHNWmEj9giGjqdHn/preview"
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: "La Bruja y La Poción de Amor Prometida",
+        description:"Rose termina la poción de amor, pero sus sentimientos por Harij siguen siendo difíciles de ocultar.",
+        thumb: "series/witch-crush-love-potion-ep6.webp",
+        image: "series/witch-crush-love-potion-ep6.webp",
+        drive: "https://drive.google.com/file/d/1vrjvnvcCUm_ZcoQlwHTv7WryyHlVp7AM/preview"
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: "La que hechiza a la princesa es una bruja",
+        description:"Una visita inesperada lleva a Rose a reflexionar sobre el amor, el deber y sus propios sentimientos.",
+        thumb: "series/image/witch-crush-love-potion.webp",
+        image: "series/witch-crush-love-potion-ep7.webp",
+        drive: "https://drive.google.com/file/d/1riyIuv1-O2BcC5uAwn-03neIigR3cqJG/preview",
+        video: "trailers/clip/witch-crush-love-potion.mp4",
+        estreno:"maraton"
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: "La bruja del Bosque Durmiente",
+        description:"Una visita de Harij altera la rutina de Rose y pone a prueba la distancia que intenta mantener.",
+        thumb: "series/witch-crush-love-potion-ep7.webp",
+        image: "series/witch-crush-love-potion-ep8.webp",
+        drive: "https://drive.google.com/file/d/1w3pzUwLLBviXHQ4yE8Eqs38OxCQC5VGI/preview",
+        estreno:"maraton"
+      },
+      {
+        id: "episode-9",
+        n: 9,
+        name: "Próximamente: 30/Noviembre/2026 | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-10",
+        n: 10,
+        name: "Próximamente: 07/Diciembre/2026 | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-11",
+        n: 11,
+        name: "Próximamente: 14/Diciembre/2026 | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-12",
+        n: 12,
+        name: "Próximamente: 21/Diciembre/2026 | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      }
+    ]
+  },
+  {
+    id: "kanojo-okarishimasu",
+    title: "Rent-a-Girlfriend",
+    year: 2020,
+    keywords:[
+      "Kanokari",
+      "Novia de Alquiler",
+      "kanokari"
+    ],
+    image: "series/image/kanokari-tp1.webp",
+    video: "trailers/clip/Rent-a-Girlfriend.mp4",
+    estreno: "maraton",
+    post: "series/Rent-a-Girlfriend.webp",
+    genres: ["Anime","Animación","Comedia","Romance","Shounen"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: "Novia de Alquiler",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/15Bl3StpD14Itz7EDmNoCzg0Z5SyZDtOW/preview"
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: "Exnovia y Novia",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1s1GbeDAMPIXHGPiicWa7oiyX5r0uBlR_/preview"
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: "Playa y Novia",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1wYeiTVq9nV_sUHgpPod1DuO7UDm1PMxE/preview"
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: "Amigo y Novia",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1XgR41yCwFwGbItw-Wb_CtqRs48C0ARvL/preview"
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: "Aguas Termales y Novia",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/13eVjqKRoigjskLvb3KkVcjUT3MtPvRTn/preview"
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: "Novia y Novia",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1JI-2gmVCYEsMpaS2IqesQXbIgJR1muXQ/preview"
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: "Novia Temporal y Novia",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1JI-2gmVCYEsMpaS2IqesQXbIgJR1muXQ/preview"
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: "Navidad y Novia",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1iosLZvmLSVOnUgK8eQnwY0svEMSZwLYZ/preview"
+      },
+      {
+        id: "episode-9",
+        n: 9,
+        name: "Mentiras y Novia",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1mez9pcRQQ5zJ-OblT4Zs5czNq-Q_afDG/preview"
+      },
+      {
+        id: "episode-10",
+        n: 10,
+        name: "La Novia de Mi Amigo",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1sQrvAoKYYwnYCuCqjz497R1A5oj5EmoX/preview"
+      },
+      {
+        id: "episode-11",
+        n: 11,
+        name: "Verdad y Novia",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/17_dDTN1XcqIFNKNQ2CGazP_dyDzmOLK-/preview"
+      },
+      {
+        id: "episode-12",
+        n: 12,
+        name: "Declaración y Novia",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1WbHzySN5zDffciM0Mr8whbL4iERZYTbG/preview"
+      }
+    ]
+  },
+  {
+    id: "kono-subarashii-sekai-ni-shukufuku-wo!",
+    title: "Konosuba: Un Mundo Maravilloso | Próximamente: 30 de Noviembre",
+    year: 2016,
+    keywords:[
+      "Kazuma",
+      "konosuba god's blessing on this wonderful world",
+      "konosuba",
+      "Kono Subarashii Sekai ni Shukufuku wo!"
+    ],
+    image: "series/image/konosuba-tp1.webp",
+    video: "trailers/clip/.mp4",
+    post: "series/konosuba.webp",
+    genres: ["Anime"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: "¡La diosa autoproclamada y la reencarnación en otro mundo! | No Disponible",
+        description:"Kazuma Satou es un chico de preparatoria otaku y hikikomori que no suele salir de casa, pero cuando lo hace, un fatídico (y ridículo) accidente acaba con su vida. En el otro mundo aparece una diosa ante él y le propone comenzar de nuevo su vida en un mundo de magia y espada, pero las condiciones son un tanto peculiares...",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: "¡Una explosión de chuunibyou! | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: 
+        ""
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      }
+    ]
+  },
+  {
+    id: "kono-subarashii-sekai-ni-bakuen-wo!",
+    title: "Konosuba: ¡Una Explosión en este Mundo Maravilloso! | Próximamente: 10 de Diciembre",
+    year: 2023,
+    keywords:[
+      "Kazuma",
+      "konosuba god's blessing on this wonderful world",
+      "konosuba",
+      "Kono Subarashii Sekai ni Shukufuku wo!"
+    ],
+    image: "series/image/kono-subarashii-sekai-ni-bakuen-wo.webp",
+    video: "trailers/clip/.mp4",
+    post: "series/konosuba-an-explosion-on-this-wonderful-world.avif",
+    genres: ["Anime","Animación"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: 
+        ""
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      }
+    ]
+  },
+  {
+    id: "undead-unluck",
+    title: "Undead Unluck! | Próximamente: 20 de Diciembre",
+    year: 2023,
+    image: "series/undead-unluck.webp",
+    video: "trailers/clip/.mp4",
+    post: "series/undead-unluck.webp",
+    genres: ["Anime","Animación"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: 
+        ""
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      }
+    ]
+  },
+  {
+    id: "a-regular-show-lost-tapes",
+    title: "Un Show Más: Las Cintas Pérdidas | Próximamente: 1 de Enero",
+    year: 2026,
+    image: "series/image/a-regular-show-lost-tapes.webp",
+    video: "trailers/clip/.mp4",
+    post: "series/a-regular-show-lost-tapes.webp",
+    genres: ["Animación"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: 
+        ""
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      }
+    ]
+  },
+  {
+    id: "kimetsu-no-yaiba",
+    title: "Demon Slayer: Kimetsu No Yaiba - Arco de la resolución inquebrantable de Tanjiro Kamado | Estreno: Mañana",
+    year: 2019,
+    image: "series/image/demon-slayer-tp1.webp",
+    video: "trailers/clip/.mp4",
+    post: "series/kimetsu-no-yaiba.webp",
+    estreno:"maraton",
+    genres: ["Animación","Anime","Acción","Intenso"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: "Crueldad",
+        description:"Tanjiro es un joven muy trabajador que se esfuerza mucho por cuidar de su madre y sus hermanos, pero cuando un día nevado baja de la montaña a vender carbón, jamás habría esperado encontrarse lo que se encontró al regresar a casa.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep1.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep1.webp",
+        drive: "https://drive.google.com/file/d/1jbF6Zg4gzbCSEgjekNbdXaUb9M-wnuKw/preview"
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: "El instructor, Sakonji Urokodaki",
+        description:"Tanjiro y Nezuko prosiguen su viaje cuando se encuentran con un refugio en el que parece haber alguien herido, pero cuando acuden a prestarle ayuda, lo que encuentran es algo sanguinario que amenaza sus vidas.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep2.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep2.webp",
+        drive: "https://drive.google.com/file/d/1UHJKDlPCA3s-pnLvMtfdqWr4gTYnHtnp/preview"
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: "Sabito y Makomo",
+        description:"Tanjiro sigue su duro entrenamiento, pero cuando enfrenta una prueba que cree no poder superar, aparecen ante él Sabito y Makomo, un joven y una joven que le ayudarán a entrenar para alcanzar su objetivo. Pero ¿tendrá madera de cazador de demonios?",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep3.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep3.webp",
+        drive: "https://drive.google.com/file/d/1Q2bFIVxaEw59a-jB46rvXoI7rQnO2vfy/preview"
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: "Selección final",
+        description:"Urokodaki da el visto bueno a Tanjiro para acudir a la selección final e intentar convertirse en cazador de demonios oficialmente.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep4.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep4.webp",
+        drive: "https://drive.google.com/file/d/1iOY027XHrlYXrqjQz6ScEDgjvvIJMH3N/preview"
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: "Tu acero",
+        description:"Tras superar la selección final llega el turno de que los que la superaron consigan su propia espada de cazador de demonios, pero para ello deberán tomar antes una decisión.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep5.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep5.webp",
+        drive: "https://drive.google.com/file/d/1176t7gNevP1IVUbBESYEEZSZcD7q0Wwi/preview"
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: "Espadachín con demonio",
+        description:"Tanjiro parte en su primera misión como asesino de demonios, donde tendrá que lidiar con un demonio que secuestra jóvenes.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep6.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep6.webp",
+        drive: "https://drive.google.com/file/d/1Uv3eOzAkw6oLiZUuXIAhFRBm7CJ14ShT/preview"
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: "Muzan Kibutsuji",
+        description:"Tanjiro intenta derrotar al demonio múltiple para descubrir alguna pista de Muzan Kibutsuji y dar con la forma de que Nezuko vuelva a ser humana, pero el demonio que busca parece infundir más temor del que él esperaba.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep7.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep7.webp",
+        drive: "https://drive.google.com/file/d/1ta2P6MpvaAVRljOpdbLOklB7LFZfSjZ3/preview"
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: "Cautivador olor a sangre",
+        description:"El ataque de Muzan Kibutsuji le permite escapar de Tanjiro y este acaba en una situación complicada, aunque alguien desconocido acude en su ayuda. Muzan Kibutsuji, por otro lado, intentará acabar con el joven que profirió amenazas ante su familia.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep8.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep8.webp",
+        drive: "https://drive.google.com/file/d/1RNYsHrGhPdLUfMjpDt2I-aKEYB2OHA67/preview"
+      },
+      {
+        id: "episode-9",
+        n: 9,
+        name: "Demonios de temari y flechas",
+        description:"Yahaba y Susamaru atacan a Tanjiro en casa de Tamayo, pero son dos demonios tan poderosos que nuestro joven protagonista apenas puede defenderse él mismo.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep9.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep9.webp",
+        drive: "https://drive.google.com/file/d/1NdzyxSejkJkoHfvpogX4emd7uWQgq0uE/preview"
+      },
+      {
+        id: "episode-10",
+        n: 10,
+        name: "Siempre juntos",
+        description:"Tanjiro está en verdaderos apuros con sus rivales, e incluso cuando piensa que ha vencido, el contraataque enemigo resulta brutal.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep10.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep10.webp",
+        drive: "https://drive.google.com/file/d/1Pz_z4fd7jHA7EoOuPLhUEyY-YRBHgmT2/preview"
+      },
+      {
+        id: "episode-11",
+        n: 11,
+        name: "La casa de los tambores",
+        description:"Cuando Tanjiro se reencuentra con otro de los supervivientes de la selección final, este resulta ser un cobarde mujeriego que acaba acompañándolo para que él le proteja.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep11.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep11.webp",
+        drive: "https://drive.google.com/file/d/1V-SWrOGJa_5mf-bowT6aS9_gNRxyWlSJ/preview"
+      },
+      {
+        id: "episode-12",
+        n: 12,
+        name: "El jabalí muestra sus colmillos mientras Zenitsu duerme",
+        description:"Tanjiro intenta proteger a los inocentes que encuentra dentro de la endemoniada casa, aunque con sus heridas todavía por sanar, no resulta sencillo. Por otro lado Zenitsu intenta mantener su temor a un lado, pero su cobardía impide que pueda defenderse pese a ser un cazador de demonios... o tal vez no.",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep12.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep12.webp",
+        drive: "https://drive.google.com/file/d/1BoiGUNEe3HrFkPOh1tutA0qdxUB-xtqc/preview"
+      },
+      {
+        id: "episode-13",
+        n: 13,
+        name: "Algo más importante que la vida",
+        description:"Tanjiro intenta convencerse de que puede alcanzar la victoria, pero el demonio de los tambores puede ser incluso más peligroso de lo que él piensa. Pero ¿cuáles son sus verdaderas motivaciones? Por otro lado Zenitsu intenta proteger al niño y la caja que le encomendó Tanjiro, pero su enemigo es...",
+        thumb: "series/demon-slayer-tp1/demon-slayer-ep13.webp",
+        image: "series/demon-slayer-tp1/demon-slayer-ep13.webp",
+        drive: "https://drive.google.com/file/d/1wZ0s1EU5W1fxlANFamCOj10Z7yOByJ2L/preview"
+      },
+      {
+        id: "episode-14",
+        n: 14,
+        name: "La casa del blasón de glicinias",
+        description:"Tanjiro enfrenta al nuevo cazador de demonios con el que se encuentran, quien con su velocidad, forma de moverse y aspecto, parece más un animal salvaje que un ser humano.",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1qX__BRr80i1Vvzb2aBkllEJgXgdKRPvc/preview"
+      },
+      {
+        id: "episode-15",
+        n: 15,
+        name: "El monte Natagumo",
+        description:"Nuestros tres cazadores de demonios reciben un aviso para ir al nornoreste como nuevo destino, donde encontrarán una tenebrosa montaña en la que encuentran a otro cazador que los pone al tanto de la peliaguda situación.",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1GdwmOUBg5YQkrEnkg38hyK9_XQMtQylB/preview"
+      },
+      {
+        id: "episode-16",
+        n: 16,
+        name: "Que otro vaya al frente | No Disponible",
+        description:"Tanjiro e Inosuke pelean en el bosque contra los cazadores de demonios controlados por los hilos, pero son fuertes y matarlos cuando no son culpables de nada no es la mejor opción. Colaborar es la única opción para tener alguna posibilidad de sobrevivir.",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/18ZPsQ0Qe0s8mC6SvTQfwbpfUqOUmhKi_/preview"
+      },
+      {
+        id: "episode-17",
+        n: 17,
+        name: " Domina una única cosa",
+        description:"Zenitsu sigue buscando a sus compañeros por la montaña, cada vez más asustado y cansado de la situación, cuando una terrorífica araña sale a su paso. Lo peor es que el enfrentamiento parecía decidido desde antes incluso de encontrarse con su enemigo...",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1pOiKrAPp4HhnFZBSS3mw9VWTJ_P-qmwC/preview"
+      },
+      {
+        id: "episode-18",
+        n: 18,
+        name: "Lazos simulados",
+        description:"Tanjiro e Inosuke se dividen para enfrentar a diferentes demonios, aunque igual de poderosos. Ninguno está en buena situación, pero entonces aparece alguien en el bosque.",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1zS8zeKmmxISNJjQCTamWoiMagdqRYdxM/preview"
+      },
+      {
+        id: "episode-19",
+        n: 19,
+        name: "Dios del fuego",
+        description:"Tanjiro enfrenta al hermano menor de las arañas, quien resulta ser mucho más poderoso de lo que él creía, puesto que es una de las Lunas Demoníacas. Eso sí, el demonio encontrará en la batalla algo que desea con toda su alma.",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1zS8zeKmmxISNJjQCTamWoiMagdqRYdxM/preview"
+      },
+      {
+        id: "episode-20",
+        n: 20,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1rNuNv2POGw5x7TdTCQ1bwym3X0gwWS3v/preview"
+      },
+      {
+        id: "episode-21",
+        n: 21,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1jxw-O8d9IS-1x3ybEHjzdB155AlNdKD4/preview"
+      },
+      {
+        id: "episode-22",
+        n: 22,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1MiI3qDJa1fXWtkL59EE1B3tTAaJmhly0/preview"
+      },
+      {
+        id: "episode-23",
+        n: 23,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1JckGoxXjiDcSsdCMaCReLHe-2wviaiCA/preview"
+      },
+      {
+        id: "episode-24",
+        n: 24,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1pVGBpaeMlqO1g6W4wI8GL3Lw8Id6NGLY/preview"
+      },
+      {
+        id: "episode-25",
+        n: 25,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1YxRdglCJc4nED3wySaYgygwibeI-x-GQ/preview"
+      },
+      {
+        id: "episode-26",
+        n: 26,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: "https://drive.google.com/file/d/1EBK3EvpG_l40i1lPU1zEKrPLNrrwqnjO/preview"
+      }
+    ]
+  },
+  {
+    id: "the-remarried-empress",
+    title: "La Emperatriz Divorciada | Próximamente: 8 de Enero",
+    year: 2026,
+    image: "series/image/the-remarried-empress.webp",
+    video: [
+      "trailers/clip/la-emperatriz-divorciada.mp4",
+      "trailers/clip/la-emperatriz-divorciada-trailer2.mp4"
+    ],
+    post: "series/the-remarried-empress.webp",
+    genres: ["Romance"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: 
+        ""
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      }
+    ]
+  },
+  {
+    id: "avatar_seven-havens",
+    title: "Avatar: Los Siete Refugios | Próximamente: 15 de Enero",
+    year: 2026,
+    image: "series/avatar_seven-havens.webp",
+    video: "trailers/clip/.mp4",
+    post: "series/avatar_seven-havens.webp",
+    genres: ["Animación","Anime"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: 
+        ""
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      }
+    ]
+  },
+  {
+    id: "love-chunibyo-&-other-desilusions",
+    title: "Love Chunibyo & Other Desilusions | Próximamente: 15 de Enero",
+    year: 20,
+    image: "series/image/love-chunibyo.webp",
+    video: "trailers/clip/love-chunibyo-and-other-delusions.mp4",
+    post: "series/love-chunibyo.webp",
+    genres: ["Animación","Anime"],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: 
+        ""
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      }
+    ]
+  },
+  {
+    id: "bocchi-the-rock",
+    title: "Bocchi the Rock! | Próximamente: 15 de Enero",
+    year: 20,
+    image: "series/image/bocchi-the-rock.webp",
+    video: "trailers/clip/bocchi-no-quiere-chambear.mp4",
+    post: "series/bocchi-the-rock.webp",
+    genres: ["Animación","Anime"],
+    keywords:[
+      "bocchi the rock"
+    ],
+    episodes: [
+      {
+        id: "episode-1",
+        n: 1,
+        name: " | No Disponible",
+        description:"",
+        thumb: "posters/no-disponible-cat.png",
+        image: "posters/no-disponible-cat.png",
+        drive: ""
+      },
+      {
+        id: "episode-2",
+        n: 2,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-3",
+        n: 3,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: 
+        ""
+      },
+      {
+        id: "episode-4",
+        n: 4,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-5",
+        n: 5,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-6",
+        n: 6,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-7",
+        n: 7,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      },
+      {
+        id: "episode-8",
+        n: 8,
+        name: " | No Disponible",
+        description:"",
+        thumb: "series/.webp",
+        image: "series/.webp",
+        drive: ""
+      }
+    ]
+  }
+];
+
+// (Opcional) Exponerlo globalmente
+window.SERIES = SERIES;
